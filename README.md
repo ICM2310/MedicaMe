@@ -1,5 +1,5 @@
 # Bienvenido a la wiki de **MedicaMe**!
-## _MedicaMe_ es una aplicación móvil dedicada a facilitar la compra, recogida y envío de medicamentos mediante eps, medicina prepagada y particular.
+## _MedicaMe_ es una aplicación móvil dedicada a facilitar la compra, recogida y envío de medicamentos mediante EPS, medicina prepagada y particular.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/95001823/218896223-6c6f26c5-a961-4a94-a076-76d1a3935b78.png" />
