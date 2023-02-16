@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.appmedme'
+    namespace 'com.example.JaverianaMedicaMe'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.appmedme"
+        applicationId "com.example.JaverianaMedicaMe"
         minSdk 27
         targetSdk 33
         versionCode 1

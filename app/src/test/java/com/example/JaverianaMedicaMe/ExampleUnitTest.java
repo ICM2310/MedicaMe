@@ -1,4 +1,4 @@
-package com.example.appmedme;
+package com.example.JaverianaMedicaMe;
 
 import org.junit.Test;
 
