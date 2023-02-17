@@ -8,7 +8,7 @@
     tools:context=".EnvioRecetaMedica">
 
     <Button
-        android:id="@+id/backButton"
+        android:id="@+id/layout"
         android:layout_width="50sp"
         android:layout_height="50sp"
         android:background="@color/buttonBackgroudColor"
