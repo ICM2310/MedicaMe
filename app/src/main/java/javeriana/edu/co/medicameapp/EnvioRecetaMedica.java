@@ -2,17 +2,19 @@ package javeriana.edu.co.medicameapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 public class EnvioRecetaMedica extends AppCompatActivity
 {
-    EnvioRecetaMedica binding;
+    EnvioRecetaMedica bindingEnvioRecetaMedica;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        //binding = EnvioRecetaMedica.inflate(getLayoutInflater());
-        //setContentView(binding.getRoot());
+        //bindingEnvioRecetaMedica = EnvioRecetaMedica.inflate(getLayoutInflater());
+        //setContentView(bindingEnvioRecetaMedica.getRoot());
+
     }
 }
