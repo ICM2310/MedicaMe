@@ -14,7 +14,6 @@
         android:background="@color/buttonBackgroudColor"
         android:text="<"
         android:textColor="@color/buttonTextColor"
-        android:fontFamily="@android:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
