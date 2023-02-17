@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 
 import javeriana.edu.co.medicameapp.databinding.ActivityDistribucionYreciclajeBinding;
 
@@ -19,5 +21,29 @@ public class DistribucionYReciclaje extends AppCompatActivity
 
         // Evitar que la pantalla rote
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // Para que la app corra en portrait mode
+
+        bindingDistribucionYReciclaje.backButtonDistribucionYReciclaje.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Log.i("Funcionamiento de botones", "Boton de back");
+            }
+        });
+
+        bindingDistribucionYReciclaje.puntosDeDistribucionDistribucionYReciclaje.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Log.i("Funcionamiento de botones", "Boton de puntos de distribucion");
+            }
+        });
+
+        bindingDistribucionYReciclaje.puntosDeReciclajeDistribucionYReciclaje.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Log.i("Funcionamiento de botones", "Boton de puntos de reciclaje");
+            }
+        });
     }
 }
