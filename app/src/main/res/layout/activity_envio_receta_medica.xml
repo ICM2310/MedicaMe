@@ -8,7 +8,7 @@
     tools:context=".EnvioRecetaMedica">
 
     <Button
-        android:id="@+id/layout"
+        android:id="@+id/backButtonEnvioRecetaMedica"
         android:layout_width="50sp"
         android:layout_height="50sp"
         android:background="@drawable/rounded_back_button"
@@ -31,7 +31,7 @@
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout" >
+        app:layout_constraintTop_toBottomOf="@+id/backButtonEnvioRecetaMedica" >
     </TextView>
 
     <TextView

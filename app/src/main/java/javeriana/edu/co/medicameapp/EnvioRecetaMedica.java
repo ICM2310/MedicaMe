@@ -26,6 +26,14 @@ public class EnvioRecetaMedica extends AppCompatActivity
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // Para que la app corra en portrait mode
         //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); // Para que la app corra en landscape mode
 
+        bindingEnvioRecetaMedica.backButtonEnvioRecetaMedica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Log.i("Entrada al boton de back ", "Entró");
+            }
+        });
+
         bindingEnvioRecetaMedica.fromGalleryButton.setOnClickListener(new View.OnClickListener()
         {
             @Override

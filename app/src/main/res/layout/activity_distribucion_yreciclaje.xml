@@ -4,6 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="30dp"
     tools:context=".DistribucionYReciclaje">
 
+    <Button
+        android:id="@+id/backButtonDistribucionYReciclaje"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:background="@drawable/rounded_back_button"
+        android:fontFamily="@font/roboto_bold"
+        android:text=" B "
+        android:textColor="@color/buttonTextColor"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+    </Button>
+
+    <TextView
+        android:id="@+id/InstruccionInicialDistribucionYReciclaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/robotoo_bold"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backButtonDistribucionYReciclaje"></TextView>
 </androidx.constraintlayout.widget.ConstraintLayout>
