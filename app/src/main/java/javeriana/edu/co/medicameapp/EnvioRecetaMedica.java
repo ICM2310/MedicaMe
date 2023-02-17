@@ -2,7 +2,7 @@ package javeriana.edu.co.medicameapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Typeface;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +21,10 @@ public class EnvioRecetaMedica extends AppCompatActivity
         bindingEnvioRecetaMedica = ActivityEnvioRecetaMedicaBinding.inflate(getLayoutInflater());
         setContentView(bindingEnvioRecetaMedica.getRoot());
         Log.i("Carga de pantalla: ", "Completada");
+
+        // Evitar que la pantalla rote
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // Para que la app corra en portrait mode
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); // Para que la app corra en landscape mode
 
         bindingEnvioRecetaMedica.fromGalleryButton.setOnClickListener(new View.OnClickListener()
         {
