@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundActivityColor"
     android:padding="30dp"
     tools:context=".EnvioRecetaMedica">
 
@@ -16,7 +15,7 @@
         android:fontFamily="@font/robotoo_bold"
         android:text=" B "
         android:textColor="@color/buttonTextColor"
-        android:textSize="30sp"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
     </Button>
@@ -113,6 +112,4 @@
 
         </TextView>
     </FrameLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
