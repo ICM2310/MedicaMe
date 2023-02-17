@@ -58,6 +58,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/InstruccionesSecundariasDistribucionYReciclaje">
 
+        <ImageButton
+            android:id="@+id/puntosDeDistribucionDistribucionYReciclaje"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@color/white"
+            android:contentDescription="Ver donde estan los puntos de distribucion"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/pharmacy" >
+        </ImageButton>
+
+        <TextView
+            android:id="@+id/textoPuntosDeDistribucionDistribucionYReciclaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="45dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/PuntosDeDistribucionDistribucionYReciclaje"
+            android:textColor="@color/black">
+        </TextView>
     </FrameLayout>
 
 
