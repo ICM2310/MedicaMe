@@ -8,39 +8,6 @@
     android:padding="30dp"
     tools:context=".EnvioRecetaMedica">
 
-    <FrameLayout
-        android:id="@+id/frameGalleryButton"
-        android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameGalleryButton">
-
-        <ImageButton
-            android:id="@+id/fromGalleryButton"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            android:background="@color/white"
-            android:scaleType="fitCenter"
-            android:src="@drawable/galleryIcon"></ImageButton>
-
-        <TextView
-            android:id="@+id/fromGalleryText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:fontFamily="@font/roboto_medium"
-            android:text="Adjuntar desde la galería"
-            android:textColor="@color/black">
-
-        </TextView>
-    </FrameLayout>
-
     <Button
         android:id="@+id/layout"
         android:layout_width="50sp"
@@ -96,16 +63,47 @@
             android:layout_marginBottom="10dp"
             android:background="@color/white"
             android:scaleType="fitCenter"
-            android:src="@drawable/galleryIcon"></ImageButton>
+            android:src="@drawable/gallery"></ImageButton>
 
         <TextView
             android:id="@+id/fromGalleryText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="45dp"
             android:fontFamily="@font/roboto_medium"
             android:text="Adjuntar desde la galería"
+            android:textColor="@color/black">
+
+        </TextView>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/frameGalleryButton"
+        tools:layout_editor_absoluteX="30dp">
+
+        <ImageButton
+            android:id="@+id/fromCameraButton"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@color/white"
+            android:scaleType="fitCenter"
+            android:src="@drawable/camera"></ImageButton>
+
+        <TextView
+            android:id="@+id/fromCameraText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="45dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="Tomar una foto"
             android:textColor="@color/black">
 
         </TextView>
