@@ -28,10 +28,23 @@
         android:fontFamily="@font/roboto_bold"
         android:text="A continuación, adjunta tu receta médica"
         android:textColor="@color/boldTextColor"
-        android:textSize="24sp"
+        android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/backButton" />
+
+    <TextView
+        android:id="@+id/InstruccionSecundaria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="La misma será revisada por especialistas de tu  entidad, y te asignaremos un punto de recogida, reserva o domicilio."
+        android:textColor="@color/regularTextColor"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InstruccionInicial" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,4 +11,5 @@
     <color name="buttonTextColor">#1B911F</color>
     <color name="boldTextColor">#09051D</color>
     <color name="backgroundActivityColor">#FEFEFE</color>
+    <color name="regularTextColor">#C3C3C3</color>
 </resources>
