@@ -93,6 +93,28 @@
         app:layout_constraintTop_toBottomOf="@+id/framePuntosDeDistribucion">
 
 
+        <ImageButton
+            android:id="@+id/puntosDeReciclajeDistribucionYReciclaje"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@color/white"
+            android:contentDescription="Ver donde se encuentran los puntos de reciclaje"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/recyclepills" >
+        </ImageButton>
+
+        <TextView
+            android:id="@+id/textoPuntosDeReciclajeDistribucionYReciclaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="45dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/PuntosDeReciclajeDistribucionYReciclaje"
+            android:textColor="@color/black" >
+        </TextView>
     </FrameLayout>
 
 
