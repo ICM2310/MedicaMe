@@ -14,11 +14,12 @@
         android:layout_height="50sp"
         android:background="@drawable/rounded_back_button"
         android:fontFamily="@font/roboto_bold"
-        android:text="<"
+        android:text=" < "
         android:textColor="@color/buttonTextColor"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+    </Button>
 
     <TextView
         android:id="@+id/InstruccionInicial"
@@ -31,7 +32,8 @@
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout" />
+        app:layout_constraintTop_toBottomOf="@+id/layout" >
+    </TextView>
 
     <TextView
         android:id="@+id/InstruccionSecundaria"
@@ -44,7 +46,8 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InstruccionInicial" />
+        app:layout_constraintTop_toBottomOf="@+id/InstruccionInicial" >
+    </TextView>
 
     <FrameLayout
         android:id="@+id/frameGalleryButton"
@@ -63,6 +66,7 @@
             android:layout_marginBottom="10dp"
             android:background="@color/white"
             android:scaleType="fitCenter"
+            android:contentDescription="Insertar imagenes desde la galeria"
             android:src="@drawable/gallery"></ImageButton>
 
         <TextView
@@ -94,6 +98,7 @@
             android:layout_marginBottom="10dp"
             android:background="@color/white"
             android:scaleType="fitCenter"
+            android:contentDescription="Insertar imagenes desde la camara"
             android:src="@drawable/camera"></ImageButton>
 
         <TextView
