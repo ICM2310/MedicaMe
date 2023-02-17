@@ -26,8 +26,39 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/robotoo_bold"
-        android:text="TextView"
+        android:text="@string/InstruccionesInicialesDistribucionYReciclaje"
+        android:textColor="@color/boldTextColor"
+        android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backButtonDistribucionYReciclaje"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/backButtonDistribucionYReciclaje">
+    </TextView>
+
+    <TextView
+        android:id="@+id/InstruccionesSecundariasDistribucionYReciclaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/InstruccionesSecundariasDistribucionYReciclaje"
+        android:textColor="@color/regularTextColor"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InstruccionInicialDistribucionYReciclaje">
+    </TextView>
+
+    <FrameLayout
+        android:id="@+id/framePuntosDeDistribucion"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rounded_frame_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/InstruccionesSecundariasDistribucionYReciclaje">
+
+    </FrameLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

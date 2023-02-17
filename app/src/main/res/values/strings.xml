@@ -8,4 +8,8 @@
     <string name="InstruccionesSecundariasEnvioRecetaMedica">La misma será revisada por especialistas de tu  entidad, y te asignaremos un punto de recogida, reserva o domicilio.</string>
 
     <!-- Strings DistribucionYReciclaje-->
+    <string name="InstruccionesInicialesDistribucionYReciclaje">Puntos de distribución y reciclaje</string>
+    <string name="InstruccionesSecundariasDistribucionYReciclaje">Seleccione la opción correspondiente a lo que quiere visualizar en el mapa.</string>
+    <string name="PuntosDeDistribucionDistribucionYReciclaje">Puntos de Distribución</string>
+    <string name="PuntosDeReciclajeDistribucionYReciclaje">Puntos de Reciclaje</string>
 </resources>
