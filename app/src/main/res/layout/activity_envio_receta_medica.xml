@@ -13,8 +13,8 @@
         android:layout_width="50sp"
         android:layout_height="50sp"
         android:background="@drawable/rounded_back_button"
-        android:fontFamily="@font/roboto_bold"
-        android:text=" < "
+        android:fontFamily="@font/robotoo_bold"
+        android:text=" B "
         android:textColor="@color/buttonTextColor"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:fontFamily="@font/roboto_bold"
+        android:fontFamily="@font/robotoo_bold"
         android:text="A continuación, adjunta tu receta médica"
         android:textColor="@color/boldTextColor"
         android:textSize="26sp"
@@ -54,7 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_marginTop="40dp"
-        android:background="@color/white"
+        android:background="@drawable/rounded_frame_layout"
         app:layout_constraintTop_toBottomOf="@+id/InstruccionSecundaria"
         tools:layout_editor_absoluteX="30dp">
 
@@ -86,7 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_marginTop="30dp"
-        android:background="@color/white"
+        android:background="@drawable/rounded_frame_layout"
         app:layout_constraintTop_toBottomOf="@+id/frameGalleryButton"
         tools:layout_editor_absoluteX="30dp">
 
