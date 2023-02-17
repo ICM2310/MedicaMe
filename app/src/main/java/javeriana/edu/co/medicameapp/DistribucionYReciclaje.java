@@ -2,14 +2,25 @@ package javeriana.edu.co.medicameapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.util.Log;
+
+import javeriana.edu.co.medicameapp.databinding.ActivityDistribucionYreciclajeBinding;
 
 public class DistribucionYReciclaje extends AppCompatActivity
 {
+    ActivityDistribucionYreciclajeBinding bindingDistribucionYReciclaje;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_distribucion_yreciclaje);
+        bindingDistribucionYReciclaje = ActivityDistribucionYreciclajeBinding.inflate(getLayoutInflater());
+        setContentView(bindingDistribucionYReciclaje.getRoot());
+        Log.i("Carga de pantalla: ", "DistribucionYReciclaje");
+
+        // Evitar que la pantalla rote
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // Para que la app corra en portrait mode
     }
 }

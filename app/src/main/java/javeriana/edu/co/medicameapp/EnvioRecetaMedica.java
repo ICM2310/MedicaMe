@@ -20,7 +20,7 @@ public class EnvioRecetaMedica extends AppCompatActivity
         super.onCreate(savedInstanceState);
         bindingEnvioRecetaMedica = ActivityEnvioRecetaMedicaBinding.inflate(getLayoutInflater());
         setContentView(bindingEnvioRecetaMedica.getRoot());
-        Log.i("Carga de pantalla: ", "Completada");
+        Log.i("Carga de pantalla: ", "EnvioRecetaMedica");
 
         // Evitar que la pantalla rote
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // Para que la app corra en portrait mode
