@@ -4,6 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="30dp"
     tools:context=".EnvioRecetaMedica">
 
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:background="@color/buttonBackgroudColor"
+        android:text="<"
+        android:textColor="@color/buttonTextColor"
+        android:fontFamily="@android:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
