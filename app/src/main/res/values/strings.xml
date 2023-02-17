@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">MedicaMeApp</string>
     <string name="fromGalleryText">Adjuntar desde la galería</string>
+    <string name="fromCameraText">Tomar foto</string>
+    <string name="IntruccionesInicialesEnvioRecetaMedica">A continuación, adjunta tu receta médica</string>
+    <string name="InstruccionesSecundariasEnvioRecetaMedica">La misma será revisada por especialistas de tu  entidad, y te asignaremos un punto de recogida, reserva o domicilio.</string>
 </resources>
