@@ -15,7 +15,7 @@
         android:fontFamily="@font/robotoo_bold"
         android:text=" B "
         android:textColor="@color/buttonTextColor"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
     </Button>
@@ -75,7 +75,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="45dp"
             android:fontFamily="@font/roboto_medium"
-            android:text="Adjuntar desde la galería"
+            android:text="@string/fromGalleryText"
             android:textColor="@color/black">
 
         </TextView>

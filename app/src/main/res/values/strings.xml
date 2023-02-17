@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MedicaMeApp</string>
+    <string name="fromGalleryText">Adjuntar desde la galería</string>
 </resources>

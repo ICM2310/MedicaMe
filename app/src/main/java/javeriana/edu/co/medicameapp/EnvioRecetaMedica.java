@@ -31,7 +31,7 @@ public class EnvioRecetaMedica extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Toast.makeText(getBaseContext(), "Desde la galeria", Toast.LENGTH_LONG);
+                Log.i("Entrada al boton de galeria", "Entró");
             }
         });
 
@@ -40,7 +40,7 @@ public class EnvioRecetaMedica extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Toast.makeText(getBaseContext(), "Desde la camara", Toast.LENGTH_LONG);
+                Log.i("Entrada al boton de camara", "Entró");
             }
         });
     }
