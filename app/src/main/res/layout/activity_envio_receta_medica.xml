@@ -12,7 +12,7 @@
         android:layout_width="50sp"
         android:layout_height="50sp"
         android:background="@color/buttonBackgroudColor"
-        android:text="<"
+        android:text="a"
         android:textColor="@color/buttonTextColor"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

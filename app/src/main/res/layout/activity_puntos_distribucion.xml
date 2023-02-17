@@ -21,14 +21,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.065" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BACK"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/subText"
         android:layout_width="wrap_content"
@@ -48,23 +40,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/subText"
-        app:srcCompat="@drawable/map" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="194dp"
-        android:layout_height="187dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.82"
-        app:srcCompat="@drawable/pharmage" />
+        app:srcCompat="@drawable/elmapa" />
 
     <TextView
         android:id="@+id/prompt"
         android:layout_width="147dp"
         android:layout_height="148dp"
-        android:layout_marginStart="10dp"
         android:fontFamily="@font/roboto_bold"
         android:text="Punto de distribución"
         android:textAlignment="center"
@@ -74,4 +55,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.85" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="194dp"
+        android:layout_height="187dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.85"
+        app:srcCompat="@drawable/farmacia" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/iconback" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
