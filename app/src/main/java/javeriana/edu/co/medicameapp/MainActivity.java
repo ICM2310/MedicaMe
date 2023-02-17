@@ -1,6 +1,7 @@
-package com.example.JaverianaMedicaMe;
+package javeriana.edu.co.medicameapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {

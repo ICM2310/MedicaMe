@@ -1,4 +1,4 @@
-package com.example.JaverianaMedicaMe;
+package javeriana.edu.co.medicameapp;
 
 import org.junit.Test;
 
