@@ -48,7 +48,6 @@
         android:layout_height="148dp"
         android:layout_marginStart="10dp"
         android:fontFamily="@font/robotoo_bold"
-        android:fontFamily="@font/roboto_bold"
         android:text="Punto de distribución"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
