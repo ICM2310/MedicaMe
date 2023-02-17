@@ -11,9 +11,13 @@
         android:id="@+id/backButton"
         android:layout_width="50sp"
         android:layout_height="50sp"
-        android:background="@color/buttonBackgroudColor"
+        android:background="@drawable/rounded_button"
+        android:fontFamily="@font/roboto_bold"
         android:text="<"
         android:textColor="@color/buttonTextColor"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
