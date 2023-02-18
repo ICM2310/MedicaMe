@@ -17,8 +17,7 @@
         android:textColor="@color/buttonTextColor"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
-    </Button>
+        app:layout_constraintTop_toTopOf="parent"></Button>
 
     <TextView
         android:id="@+id/InstruccionInicialDistribucionYReciclaje"
@@ -31,8 +30,7 @@
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backButtonDistribucionYReciclaje">
-    </TextView>
+        app:layout_constraintTop_toBottomOf="@+id/backButtonDistribucionYReciclaje"></TextView>
 
     <TextView
         android:id="@+id/InstruccionesSecundariasDistribucionYReciclaje"
@@ -45,16 +43,14 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InstruccionInicialDistribucionYReciclaje">
-    </TextView>
+        app:layout_constraintTop_toBottomOf="@+id/InstruccionInicialDistribucionYReciclaje"></TextView>
 
     <FrameLayout
         android:id="@+id/framePuntosDeDistribucion"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="130dp"
-        android:layout_marginTop="40dp"
         android:background="@drawable/rounded_frame_layout"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/InstruccionesSecundariasDistribucionYReciclaje">
 
@@ -67,8 +63,7 @@
             android:background="@color/white"
             android:contentDescription="Ver donde estan los puntos de distribucion"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/pharmacy" >
-        </ImageButton>
+            app:srcCompat="@drawable/pharmacy"></ImageButton>
 
         <TextView
             android:id="@+id/textoPuntosDeDistribucionDistribucionYReciclaje"
@@ -78,19 +73,16 @@
             android:layout_marginTop="45dp"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/PuntosDeDistribucionDistribucionYReciclaje"
-            android:textColor="@color/black">
-        </TextView>
+            android:textColor="@color/black"></TextView>
     </FrameLayout>
 
     <FrameLayout
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="130dp"
-        android:layout_marginBottom="150dp"
         android:background="@drawable/rounded_frame_layout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/framePuntosDeDistribucion">
+        app:layout_constraintTop_toBottomOf="@+id/InstruccionesSecundariasDistribucionYReciclaje">
 
 
         <ImageButton
@@ -102,8 +94,7 @@
             android:background="@color/white"
             android:contentDescription="Ver donde se encuentran los puntos de reciclaje"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/recyclepills" >
-        </ImageButton>
+            app:srcCompat="@drawable/recyclepills"></ImageButton>
 
         <TextView
             android:id="@+id/textoPuntosDeReciclajeDistribucionYReciclaje"
@@ -113,8 +104,7 @@
             android:layout_marginTop="45dp"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/PuntosDeReciclajeDistribucionYReciclaje"
-            android:textColor="@color/black" >
-        </TextView>
+            android:textColor="@color/black"></TextView>
     </FrameLayout>
 
 
