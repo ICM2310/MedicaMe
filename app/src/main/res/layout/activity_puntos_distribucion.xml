@@ -88,7 +88,7 @@
         app:srcCompat="@drawable/farmacia" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/bButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="Retornar"
