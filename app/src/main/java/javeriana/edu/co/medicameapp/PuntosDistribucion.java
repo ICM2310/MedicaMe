@@ -3,6 +3,7 @@ package javeriana.edu.co.medicameapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import javeriana.edu.co.medicameapp.databinding.ActivityPuntosDistribucionBinding;
@@ -17,6 +18,7 @@ public class PuntosDistribucion extends AppCompatActivity {
         bindingPuntosDistribucion.bButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.v("Boton Back mapa","Se uso el boton de retroceder en la actividad del mapa");
                 //TODO implementacion de el boton back para los mapas.
             }
         });
