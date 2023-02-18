@@ -35,44 +35,72 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        android:contentDescription="null"
         android:cropToPadding="false"
+        android:foregroundGravity="center"
+        android:isScrollContainer="true"
+        app:layout_constraintBottom_toTopOf="@+id/prompt"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/subText"
+        app:layout_constraintVertical_bias="0.13999999"
         app:srcCompat="@drawable/elmapa" />
 
     <TextView
         android:id="@+id/prompt"
-        android:layout_width="147dp"
-        android:layout_height="148dp"
-        android:layout_marginStart="10dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="101dp"
+        android:autoSizeTextType="uniform"
         android:fontFamily="@font/robotoo_bold"
+        android:minEms="20"
         android:text="Punto de distribución"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#292685"
+        app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/iconoP"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="@id/imageView"
+        app:layout_constraintRight_toLeftOf="@id/iconoP"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85" />
+        app:layout_constraintTop_toBottomOf="@+id/subText"
+        app:layout_constraintVertical_bias="0.69"
+        app:layout_constraintVertical_weight="1" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/iconoP"
         android:layout_width="194dp"
         android:layout_height="187dp"
+        android:contentDescription="null"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/subText"
         app:layout_constraintVertical_bias="0.85"
         app:srcCompat="@drawable/farmacia" />
 
-    <ImageView
-        android:id="@+id/imageView3"
+    <ImageButton
+        android:id="@+id/imageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:contentDescription="Retornar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/iconback" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
