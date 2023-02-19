@@ -62,8 +62,9 @@
         android:text="@string/Noestaregistrado"
         android:textSize="20dp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/OlvidoContrasena"
         app:layout_constraintStart_toStartOf="@+id/contrasenaInput"
-        tools:layout_editor_absoluteY="450dp" />
+        app:layout_constraintTop_toBottomOf="@+id/contrasenaInput" />
 
     <TextView
         android:id="@+id/Registrarse"
@@ -74,10 +75,11 @@
         android:textColor="@color/buttonTextColor"
         android:textSize="20dp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/OlvidoContrasena"
         app:layout_constraintEnd_toEndOf="@+id/contrasenaInput"
         app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toEndOf="@+id/noEstaRegistrado"
-        tools:layout_editor_absoluteY="450dp" />
+        app:layout_constraintTop_toBottomOf="@+id/contrasenaInput" />
 
     <TextView
         android:id="@+id/OlvidoContrasena"
