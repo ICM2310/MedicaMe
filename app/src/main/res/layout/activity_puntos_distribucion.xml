@@ -25,7 +25,11 @@
         android:id="@+id/subText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< Updated upstream
         android:fontFamily="@font/roboto"
+=======
+        android:fontFamily="@font/roboto_thin"
+>>>>>>> Stashed changes
         android:text="Seleccione en el nombre de la entidad si quiere comunicarse por chat."
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,8 +79,8 @@
 
     <ImageView
         android:id="@+id/iconoP"
-        android:layout_width="194dp"
-        android:layout_height="187dp"
+        android:layout_width="149dp"
+        android:layout_height="154dp"
         android:contentDescription="null"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -84,7 +88,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintTop_toBottomOf="@+id/subText"
-        app:layout_constraintVertical_bias="0.85"
+        app:layout_constraintVertical_bias="0.83"
         app:srcCompat="@drawable/farmacia" />
 
     <ImageButton
