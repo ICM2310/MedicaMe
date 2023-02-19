@@ -4,20 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteX="-341dp"
+    tools:layout_editor_absoluteY="11dp">
 
     <ImageView
         android:id="@+id/imagenInicial"
-        android:layout_width="252dp"
-        android:layout_height="497dp"
+        android:layout_width="206dp"
+        android:layout_height="357dp"
         android:gravity="center"
+        app:circularflow_viewCenter="@id/BotonUnete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.863"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.931"
-        app:srcCompat="@drawable/MedicAssistant"
-        app:circularflow_viewCenter="@id/BotonUnete"/>
+        app:srcCompat="@drawable/MedicAssistant" />
 
     <TextView
         android:id="@+id/medicame"
@@ -29,22 +31,12 @@
         android:text="@string/medicame"
         android:textAppearance="@style/medicame"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/imagenInicial"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imagenInicial"
-        tools:layout_editor_absoluteY="48dp" />
-
-    <Button
-        android:id="@+id/BotonUnete"
-        android:layout_width="143sp"
-        android:layout_height="48sp"
-        android:background="@drawable/BotonCircular"
-        android:text="@string/unete"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/tu_aliado_f"
-        tools:layout_editor_absoluteY="153dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3" />
 
     <TextView
         android:id="@+id/tu_aliado_f"
@@ -52,19 +44,32 @@
         android:layout_height="27sp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:gravity="top"
         android:lineSpacingExtra="5sp"
         android:text="@string/tu_aliado_f"
         android:textAppearance="@style/tu_aliado_f"
         android:textStyle="bold|italic"
         android:translationY="-2.62sp"
-        app:layout_constraintBottom_toTopOf="@+id/BotonUnete"
         app:layout_constraintEnd_toEndOf="@+id/medicame"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/medicame"
-        app:layout_constraintTop_toBottomOf="@+id/medicame"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/medicame" />
+
+    <Button
+        android:id="@+id/BotonUnete"
+        android:layout_width="143sp"
+        android:layout_height="48sp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/BotonCircular"
+        android:text="@string/unete"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tu_aliado_f"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tu_aliado_f"
+        app:layout_constraintTop_toBottomOf="@+id/tu_aliado_f" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

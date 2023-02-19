@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registro">
+
+    <ImageView
+        android:id="@+id/ImagenLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/Logo" />
+
+    <TextView
+        android:id="@+id/iniciarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Registro"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/ImagenLogo"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="@+id/ImagenLogo"
+        app:layout_constraintTop_toBottomOf="@+id/ImagenLogo"
+        app:layout_constraintVertical_bias="0.045" />
+
+    <EditText
+        android:id="@+id/nombreInput"
+        android:layout_width="331dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_edit_text"
+        android:hint="Nombre Completo"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/ImagenLogo"
+        app:layout_constraintStart_toStartOf="@+id/ImagenLogo"
+        app:layout_constraintTop_toBottomOf="@+id/iniciarSesion" />
+
+    <EditText
+        android:id="@+id/correoInput"
+        android:layout_width="331dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_edit_text"
+        android:hint="Correo Electronico"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/nombreInput"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/nombreInput"
+        app:layout_constraintTop_toBottomOf="@+id/nombreInput" />
+
+    <EditText
+        android:id="@+id/contrasenaInput"
+        android:layout_width="331dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_edit_text"
+        android:hint="Contrasena"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/correoInput"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/correoInput"
+        app:layout_constraintTop_toBottomOf="@+id/correoInput" />
+
+    <EditText
+        android:id="@+id/IdInput"
+        android:layout_width="331dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_edit_text"
+        android:hint="Numero de identificación"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/EPSInput"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/EPSInput"
+        app:layout_constraintTop_toBottomOf="@+id/EPSInput" />
+
+    <Button
+        android:id="@+id/iniciarSesionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/VerdeDegradadoButton"
+        android:text="@string/Registrarse"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/IdInput"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="@+id/IdInput"
+        app:layout_constraintTop_toBottomOf="@+id/IdInput"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/EPSInput"
+        android:layout_width="331dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_edit_text"
+        android:hint="Entidad de EPS / Medicina Prepagada"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/contrasenaInput"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/contrasenaInput"
+        app:layout_constraintTop_toBottomOf="@+id/contrasenaInput" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

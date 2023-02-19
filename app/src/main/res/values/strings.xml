@@ -12,4 +12,13 @@
     <string name="InstruccionesSecundariasDistribucionYReciclaje">Seleccione la opción correspondiente a lo que quiere visualizar en el mapa.</string>
     <string name="PuntosDeDistribucionDistribucionYReciclaje">Puntos de Distribución</string>
     <string name="PuntosDeReciclajeDistribucionYReciclaje">Puntos de Reciclaje</string>
+    <string name="medicame">MedicaMe</string>
+    <string name="tu_aliado_f">Tu aliado farmacologico</string>
+    <string name="unete">Unete Ahora</string>
+    <string name="IniciarSesion">Iniciar Sesion</string>
+    <string name="Noestaregistrado">¿No esta registrado?</string>
+    <string name="Registrarse">Registrarse</string>
+    <string name="OlvidoContrasena"><u>¿Olvido su contrasena?</u></string>
+    <string name="Registro">Registro</string>
+
 </resources>

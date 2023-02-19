@@ -12,4 +12,6 @@
     <color name="boldTextColor">#09051D</color>
     <color name="backgroundActivityColor">#F5F5F5</color>
     <color name="regularTextColor">#C3C3C3</color>
+    <color name="buttonUneteColor">#292685</color>
+
 </resources>

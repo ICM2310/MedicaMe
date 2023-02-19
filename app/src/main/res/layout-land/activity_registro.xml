@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registro">
+
+    <ImageView
+        android:id="@+id/ImagenLogo"
+        android:layout_width="267dp"
+        android:layout_height="123dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout3"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/Logo" />
+
+    <TextView
+        android:id="@+id/iniciarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/Registro"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/frameLayout3"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout3"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/ImagenLogo"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/EPSInput"
+        android:layout_width="331dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_edit_text"
+        android:hint="Entidad de EPS / Medicina Prepagada"
+        android:padding="10dp"
+        app:layout_constraintStart_toEndOf="@+id/frameLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/correoInput" />
+
+    <Button
+        android:id="@+id/iniciarSesionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/VerdeDegradadoButton"
+        android:text="@string/Registrarse"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/IdInput"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/IdInput"
+        tools:layout_editor_absoluteY="346dp" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout3"
+        android:layout_width="18dp"
+        android:layout_height="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iniciarSesionButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.493">
+
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/IdInput"
+        android:layout_width="331dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/rounded_edit_text"
+        android:hint="Numero de identificación"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/EPSInput"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/contrasenaInput"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout3" />
+
+    <EditText
+        android:id="@+id/correoInput"
+        android:layout_width="331dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/rounded_edit_text"
+        android:hint="Correo Electronico"
+        android:padding="10dp"
+        app:layout_constraintStart_toEndOf="@+id/frameLayout3"
+        tools:layout_editor_absoluteY="183dp" />
+
+    <EditText
+        android:id="@+id/contrasenaInput"
+        android:layout_width="331dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_edit_text"
+        android:hint="Contrasena"
+        android:padding="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/frameLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/nombreInput" />
+
+    <EditText
+        android:id="@+id/nombreInput"
+        android:layout_width="331dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_edit_text"
+        android:hint="Nombre Completo"
+        android:padding="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/frameLayout3"
+        tools:layout_editor_absoluteY="183dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
