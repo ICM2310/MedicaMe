@@ -2,7 +2,7 @@
 <resources>
     <style name="medicame">
         <item name="android:textSize">
-            48sp
+            68sp
         </item>
 
         <item name="android:textColor">
