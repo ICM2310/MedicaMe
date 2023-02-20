@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        android:paddingRight="60dp"
+        android:paddingBottom="30dp"
+        android:text="Bienvenido, \n"
+        android:textSize="24sp"
+        android:letterSpacing="0.02"
+        android:fontFamily="@font/roboto_bold"
+        android:lineHeight="28sp"
+        android:textColor="#09051C"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_weight="1"
+
+        />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        app:layout_constraintHorizontal_bias="0.781"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:srcCompat="@tools:sample/avatars"
+        app:layout_constraintVertical_weight="1"
+
+        />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="0dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/rounded_layout"
+        android:ems="10"
+        android:hint="Buscar Medicamentos"
+        android:textColor="#DFDEDE"
+        android:fontFamily="@font/roboto_bold"
+        android:letterSpacing="0.04"
+        android:textSize="16sp"
+        android:inputType="textPersonName"
+        android:padding="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_weight="1"/>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:background="@drawable/rounded_button"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName2"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
+        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName2"
+        app:srcCompat="@drawable/searchIncon"
+        app:layout_constraintVertical_weight="1"
+        />
+
+    <TextView
+        android:id="@+id/afiliado"
+        android:layout_width="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/rounded_frame_layout"
+        android:elevation="4dp"
+        android:fontFamily="@font/roboto_bold"
+        android:paddingLeft="10dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="50dp"
+        android:text="Entidad Actual:"
+        android:textColor="#09051C"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="@id/editTextTextPersonName2"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
+        app:layout_constraintVertical_weight="1"
+        />
+
+    <LinearLayout
+        android:id="@+id/layoutReceta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/rounded_frame_layout"
+        android:clickable="true"
+        android:elevation="11dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/layoutDistribicion"
+        app:layout_constraintEnd_toStartOf="@+id/layoutDistribicion"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/afiliado"
+        app:layout_constraintVertical_weight="1"
+
+        >
+
+        <ImageView
+            android:id="@+id/imagePrescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            app:srcCompat="@drawable/prescription" />
+
+        <TextView
+            android:id="@+id/textPrescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Subir receta medica"
+            android:padding="13dp"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:textColor="#292685" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutDistribicion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/rounded_frame_layout"
+        android:clickable="true"
+        android:elevation="11dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/layoutReceta"
+        app:layout_constraintTop_toBottomOf="@+id/afiliado"
+
+        app:layout_constraintBottom_toBottomOf="@+id/layoutReceta"
+
+
+        app:layout_constraintVertical_weight="1"
+        >
+
+        <ImageView
+            android:id="@+id/imageMaps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/mapsIcon"
+            android:paddingTop="15dp"/>
+
+        <TextView
+            android:id="@+id/textMaps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Punto de distribución/reciclaje"
+            android:textAlignment="center"
+            android:padding="13dp"
+            android:textSize="16sp"
+
+            android:textColor="#292685" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutReserva"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/rounded_frame_layout"
+        android:clickable="true"
+        android:elevation="11dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutReceta"
+        app:layout_constraintEnd_toStartOf="@+id/layoutDomicilio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_weight="1"
+
+        >
+
+        <ImageView
+            android:id="@+id/imageDrugs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/drugs"
+            android:paddingTop="15dp"/>
+
+        <TextView
+            android:id="@+id/textDrugs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Reserva de medicamentos"
+            android:padding="13dp"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:textColor="#292685" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutDomicilio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_frame_layout"
+        android:clickable="true"
+        android:elevation="11dp"
+        android:orientation="vertical"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/layoutReserva"
+        app:layout_constraintTop_toBottomOf="@+id/layoutDistribicion"
+        app:layout_constraintVertical_weight="1"
+        >
+
+        <ImageView
+            android:id="@+id/imageDelivery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/delivery"
+            android:paddingTop="15dp"/>
+
+        <TextView
+            android:id="@+id/textDelivery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Domicilio"
+            android:padding="13dp"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:textColor="#292685" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
