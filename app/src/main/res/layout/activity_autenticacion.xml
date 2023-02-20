@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context=".Autenticacion">
 
     <ImageView
         android:id="@+id/ImagenLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/Logo" />
@@ -24,99 +23,108 @@
         android:text="@string/IniciarSesion"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/ImagenLogo"
-        app:layout_constraintStart_toStartOf="@+id/ImagenLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ImagenLogo" />
 
-    <EditText
-        android:id="@+id/correoInput"
-        android:layout_width="331dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/rounded_edit_text"
-        android:hint="Correo Electronico"
-        android:padding="10dp"
+    <LinearLayout
+        android:id="@+id/linearLayoutCredenciales"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iniciarSesion" />
+        app:layout_constraintTop_toBottomOf="@+id/iniciarSesion">
 
-    <EditText
-        android:id="@+id/contrasenaInput"
-        android:layout_width="331dp"
-        android:layout_height="42dp"
+        <EditText
+            android:id="@+id/correoInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_edit_text"
+            android:hint="Correo Electronico"
+            android:padding="12dp" />
+
+        <EditText
+            android:id="@+id/contrasenaInput"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_edit_text"
+            android:hint="Contrasena"
+            android:padding="12dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutRegistrarse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@drawable/rounded_edit_text"
-        android:hint="Contrasena"
-        android:padding="10dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/correoInput" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCredenciales">
 
-    <TextView
-        android:id="@+id/noEstaRegistrado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="@string/Noestaregistrado"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/OlvidoContrasena"
-        app:layout_constraintStart_toStartOf="@+id/contrasenaInput"
-        app:layout_constraintTop_toBottomOf="@+id/contrasenaInput" />
+        <TextView
+            android:id="@+id/noEstaRegistrado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:text="@string/Noestaregistrado"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/Registrarse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="@string/Registrarse"
-        android:textColor="@color/buttonTextColor"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/OlvidoContrasena"
-        app:layout_constraintEnd_toEndOf="@+id/contrasenaInput"
-        app:layout_constraintHorizontal_bias="0.85"
-        app:layout_constraintStart_toEndOf="@+id/noEstaRegistrado"
-        app:layout_constraintTop_toBottomOf="@+id/contrasenaInput" />
+        <TextView
+            android:id="@+id/Registrarse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:text="@string/Registrarse"
+            android:textColor="@color/buttonTextColor"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/OlvidoContrasena"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="8dp"
         android:text="@string/OlvidoContrasena"
         android:textColor="@color/buttonTextColor"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/Registrarse"
-        app:layout_constraintHorizontal_bias="0.536"
-        app:layout_constraintStart_toStartOf="@+id/noEstaRegistrado"
-        app:layout_constraintTop_toBottomOf="@+id/contrasenaInput" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutRegistrarse" />
 
-    <Button
-        android:id="@+id/iniciarSesionButton"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/VerdeDegradadoButton"
-        android:text="@string/IniciarSesion"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/OlvidoContrasena"
-        app:layout_constraintStart_toStartOf="@+id/OlvidoContrasena"
-        app:layout_constraintTop_toBottomOf="@+id/OlvidoContrasena" />
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/OlvidoContrasena">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="@+id/iniciarSesionButton"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="@+id/iniciarSesionButton"
-        app:layout_constraintTop_toBottomOf="@+id/iniciarSesionButton"
-        app:srcCompat="@drawable/Fingerprint" />
+        <Button
+            android:id="@+id/iniciarSesionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.5"
+            android:background="@drawable/VerdeDegradadoButton"
+            android:gravity="center"
+            android:text="@string/IniciarSesion"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            app:srcCompat="@drawable/Fingerprint" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
