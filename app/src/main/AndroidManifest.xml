@@ -16,7 +16,7 @@
             android:exported="false" />
         <activity
             android:name=".Autenticacion"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".DistribucionYReciclaje"
             android:exported="false" />

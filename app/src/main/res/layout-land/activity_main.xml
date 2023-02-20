@@ -19,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.863"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/MedicAssistant" />
+        app:srcCompat="@drawable/medic_assistant" />
 
     <TextView
         android:id="@+id/medicame"
@@ -61,7 +61,7 @@
         android:layout_width="143sp"
         android:layout_height="48sp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/BotonCircular"
+        android:background="@drawable/boton_circular"
         android:text="@string/unete"
         android:textAllCaps="false"
         android:textColor="@color/white"

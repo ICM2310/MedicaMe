@@ -11,13 +11,13 @@
         android:layout_width="252dp"
         android:layout_height="497dp"
         android:gravity="center"
+        app:circularflow_viewCenter="@id/BotonUnete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.931"
-        app:srcCompat="@drawable/MedicAssistant"
-        app:circularflow_viewCenter="@id/BotonUnete"/>
+        app:srcCompat="@drawable/medic_assistant" />
 
     <TextView
         android:id="@+id/medicame"
@@ -38,7 +38,7 @@
         android:id="@+id/BotonUnete"
         android:layout_width="143sp"
         android:layout_height="48sp"
-        android:background="@drawable/BotonCircular"
+        android:background="@drawable/boton_circular"
         android:text="@string/unete"
         android:textAllCaps="false"
         android:textColor="@color/white"

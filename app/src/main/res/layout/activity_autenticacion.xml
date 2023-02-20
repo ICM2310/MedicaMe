@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/Logo" />
+        app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/iniciarSesion"
@@ -113,7 +113,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="0.5"
-            android:background="@drawable/VerdeDegradadoButton"
+            android:background="@drawable/verde_degradado_button"
             android:gravity="center"
             android:text="@string/IniciarSesion"
             android:textAllCaps="false"
@@ -124,7 +124,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
-            app:srcCompat="@drawable/Fingerprint" />
+            app:srcCompat="@drawable/fingerprint" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

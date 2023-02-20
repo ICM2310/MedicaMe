@@ -15,7 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/Logo" />
+        app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/iniciarSesion"
@@ -87,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:background="@drawable/VerdeDegradadoButton"
+        android:background="@drawable/verde_degradado_button"
         android:text="@string/Registrarse"
         android:textAllCaps="false"
         android:textColor="@color/white"
