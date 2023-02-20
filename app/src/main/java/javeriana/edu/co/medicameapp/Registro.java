@@ -4,11 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Registro extends AppCompatActivity {
+import javeriana.edu.co.medicameapp.databinding.ActivityRegistroBinding;
+
+public class Registro extends AppCompatActivity
+{
+    ActivityRegistroBinding bindingRegistro;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro);
+        bindingRegistro = ActivityRegistroBinding.inflate(getLayoutInflater());
+        setContentView(bindingRegistro.getRoot());
     }
 }
