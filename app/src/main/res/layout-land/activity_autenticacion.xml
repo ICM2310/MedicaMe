@@ -27,9 +27,9 @@
             android:id="@+id/iniciarSesion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/IniciarSesion"
             android:layout_gravity="center_vertical"
             android:layout_weight="0.3"
+            android:text="@string/IniciarSesion"
             android:textSize="34sp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -46,18 +46,18 @@
             android:id="@+id/correoInput"
             android:layout_width="300dp"
             android:layout_height="match_parent"
+            android:layout_weight="0.5"
             android:background="@drawable/rounded_edit_text"
             android:hint="Correo Electronico"
-            android:layout_weight="0.5"
             android:padding="12dp" />
 
         <EditText
             android:id="@+id/contrasenaInput"
             android:layout_width="300dp"
             android:layout_height="match_parent"
+            android:layout_weight="0.5"
             android:background="@drawable/rounded_edit_text"
             android:hint="Contrasena"
-            android:layout_weight="0.5"
             android:padding="12dp" />
     </LinearLayout>
 
@@ -65,7 +65,7 @@
         android:id="@+id/linearLayoutRegistrarse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +75,7 @@
             android:id="@+id/noEstaRegistrado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.7"
+            android:layout_weight="0.3"
             android:text="@string/Noestaregistrado"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -84,34 +84,32 @@
             android:id="@+id/Registrarse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.3"
+            android:layout_weight="0.2"
             android:text="@string/Registrarse"
+            android:textColor="@color/buttonTextColor"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/OlvidoContrasena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/OlvidoContrasena"
             android:textColor="@color/buttonTextColor"
             android:textSize="20dp"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/OlvidoContrasena"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/OlvidoContrasena"
-        android:textColor="@color/buttonTextColor"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutRegistrarse" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/OlvidoContrasena">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutRegistrarse"
+        app:layout_constraintVertical_bias="0.3">
 
         <Button
             android:id="@+id/iniciarSesionButton"
