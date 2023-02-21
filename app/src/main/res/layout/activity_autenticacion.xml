@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/logo" />
 
     <TextView
-        android:id="@+id/iniciarSesion"
+        android:id="@+id/textoRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/IniciarSesion"
@@ -35,7 +35,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iniciarSesion">
+        app:layout_constraintTop_toBottomOf="@+id/textoRegistro">
 
         <EditText
             android:id="@+id/correoInput"
