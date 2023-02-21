@@ -69,7 +69,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName2"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
         app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName2"
-        app:srcCompat="@drawable/searchIncon"
+        app:srcCompat="@drawable/search_icon"
         app:layout_constraintVertical_weight="1"
         />
 
@@ -162,7 +162,7 @@
             android:id="@+id/imageMaps"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/mapsIcon"
+            app:srcCompat="@drawable/maps_icon"
             android:paddingTop="15dp"/>
 
         <TextView

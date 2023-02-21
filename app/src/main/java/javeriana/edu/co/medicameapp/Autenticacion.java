@@ -33,6 +33,11 @@ public class Autenticacion extends AppCompatActivity
 
                 Log.i("Correo electronico", correoRecibido);
                 Log.i("Contrasena", contrasenaRecibida);
+
+                // Llamar a la otra interfaz
+                Intent pasarAMenu = new Intent(getBaseContext(), MenuActivity.class);
+                // Arrancarla
+                startActivity(pasarAMenu);
             }
         });
 
