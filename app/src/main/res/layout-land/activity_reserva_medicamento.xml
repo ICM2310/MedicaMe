@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dpdp"
+    tools:context=".ReservaMedicamento">
+
+    <Button
+        android:id="@+id/buttonSolicitarReserva"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="55dp"
+        android:background="@drawable/rounded_background_green"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Solicitar reserva"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/SeleccionarMedicamentoReserva" />
+
+    <Button
+        android:id="@+id/buttonSolicitarDomicilio"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/rounded_background_green"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Solicitar Domicilio"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1" />
+
+    <Button
+        android:id="@+id/backButtonReservaMedicamento"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:background="@drawable/iconback"
+        android:fontFamily="@font/roboto_bold"
+        android:textColor="#E4F0E4"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></Button>
+
+    <TextView
+        android:id="@+id/SeleccionarMedicamentoReserva"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/ReservaMedicamento"
+        android:textColor="@color/boldTextColor"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backButtonReservaMedicamento"></TextView>
+
+    <LinearLayout
+        android:id="@+id/medicamento1"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/backgroundActivityColor"
+        android:clickable="true"
+
+
+        android:elevation="11dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SeleccionarMedicamentoReserva"
+        app:layout_constraintVertical_weight="1">
+
+
+        <ImageView
+            android:id="@+id/imagen_acetaminofen"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            app:srcCompat="@drawable/acetaminofem" />
+
+        <TextView
+            android:id="@+id/acetaminofen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/roboto_bold"
+            android:padding="13dp"
+            android:text="Acetaminofén"
+            android:textAlignment="center"
+            android:textColor="@color/boldTextColor"
+            android:textSize="12sp"
+            tools:layout_editor_absoluteX="42dp"
+            tools:layout_editor_absoluteY="253dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/cantidad1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X1"
+                android:textColor="@color/boldTextColor"
+                tools:layout_editor_absoluteX="104dp"
+                tools:layout_editor_absoluteY="3dp"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/medicamento2"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="20dp"
+
+
+        android:background="@color/selectColor"
+        android:clickable="true"
+        android:elevation="11dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@+id/medicamento1"
+        app:layout_constraintTop_toBottomOf="@+id/SeleccionarMedicamentoReserva"
+        app:layout_constraintVertical_weight="1">
+
+
+        <ImageView
+            android:id="@+id/image_acido_ascorbico"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            app:srcCompat="@drawable/acido_ascorbico" />
+
+        <TextView
+            android:id="@+id/acidoAscorbico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#E4F0E4"
+            android:fontFamily="@font/roboto_bold"
+            android:padding="13dp"
+            android:text="Ácido ascórbico"
+            android:textAlignment="center"
+            android:textColor="@color/boldTextColor"
+            android:textSize="12sp"
+            tools:layout_editor_absoluteX="42dp"
+            tools:layout_editor_absoluteY="253dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/cantidad2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X1"
+                android:textColor="@color/boldTextColor"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="104dp"
+                tools:layout_editor_absoluteY="3dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/medicamento3"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="20dp"
+
+
+        android:background="@color/backgroundActivityColor"
+        android:clickable="true"
+        android:elevation="11dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@+id/medicamento2"
+        app:layout_constraintTop_toBottomOf="@+id/SeleccionarMedicamentoReserva"
+        app:layout_constraintVertical_weight="1">
+
+
+        <ImageView
+            android:id="@+id/image_cetirizina"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            app:srcCompat="@drawable/cetirizina" />
+
+        <TextView
+            android:id="@+id/cetirizina"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/roboto_bold"
+            android:padding="13dp"
+            android:text="Cetirizina"
+            android:textAlignment="center"
+            android:textColor="#292685"
+            android:textSize="12sp"
+            tools:layout_editor_absoluteX="42dp"
+            tools:layout_editor_absoluteY="253dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/cantidad3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X1"
+                android:textColor="@color/boldTextColor"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="104dp"
+                tools:layout_editor_absoluteY="3dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/medicamento4"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="45dp"
+
+
+        android:layout_marginTop="15dp"
+        android:background="@color/backgroundActivityColor"
+        android:clickable="true"
+        android:elevation="11dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/medicamento1"
+        app:layout_constraintVertical_weight="1">
+
+
+        <ImageView
+            android:id="@+id/image_amoxicilina"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            app:srcCompat="@drawable/amoxacilina" />
+
+        <TextView
+            android:id="@+id/amoxicilina"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/roboto_bold"
+            android:padding="13dp"
+            android:text="Amoxicilina"
+            android:textAlignment="center"
+            android:textColor="#292685"
+            android:textSize="13sp"
+            tools:layout_editor_absoluteX="42dp"
+            tools:layout_editor_absoluteY="253dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/cantidad4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X1"
+                android:textColor="@color/boldTextColor"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="104dp"
+                tools:layout_editor_absoluteY="3dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/medicamento6"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="15dp"
+
+
+        android:background="@color/backgroundActivityColor"
+        android:clickable="true"
+        android:elevation="11dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@+id/medicamento5"
+        app:layout_constraintTop_toBottomOf="@+id/medicamento3"
+        app:layout_constraintVertical_weight="1">
+
+
+        <ImageView
+            android:id="@+id/image_alka_seltzer"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            app:srcCompat="@drawable/alka_setzer" />
+
+        <TextView
+            android:id="@+id/alkaseltzer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/roboto_bold"
+            android:padding="13dp"
+            android:text="Alka Seltzer"
+            android:textAlignment="center"
+            android:textColor="#292685"
+            android:textSize="13sp"
+            tools:layout_editor_absoluteX="42dp"
+            tools:layout_editor_absoluteY="253dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/cantidad6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X1"
+                android:textColor="@color/boldTextColor"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="104dp"
+                tools:layout_editor_absoluteY="3dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/medicamento5"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+
+
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/buttonBackgroudColor"
+        android:clickable="true"
+        android:elevation="11dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@+id/medicamento4"
+        app:layout_constraintTop_toBottomOf="@+id/medicamento2"
+        app:layout_constraintVertical_weight="1">
+
+
+        <ImageView
+            android:id="@+id/image_losartan"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            app:srcCompat="@drawable/losartan" />
+
+        <TextView
+            android:id="@+id/losartan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/roboto_bold"
+            android:padding="13dp"
+            android:text="Losartán"
+            android:textAlignment="center"
+            android:textColor="@color/boldTextColor"
+            android:textSize="13sp"
+            tools:layout_editor_absoluteX="42dp"
+            tools:layout_editor_absoluteY="253dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/cantidad5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="X1"
+                android:textColor="@color/boldTextColor"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="104dp"
+                tools:layout_editor_absoluteY="3dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
