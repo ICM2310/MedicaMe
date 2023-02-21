@@ -12,6 +12,9 @@
         android:theme="@style/Theme.MedicaMeApp"
         tools:targetApi="31">
         <activity
+            android:name=".DomicilioExitoso"
+            android:exported="false" />
+        <activity
             android:name=".ReservaExitosa"
             android:exported="false" />
         <activity
