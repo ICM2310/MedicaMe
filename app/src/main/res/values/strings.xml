@@ -21,5 +21,6 @@
     <string name="OlvidoContrasena"><u>¿Olvido su contrasena?</u></string>
     <string name="Registro">Registro</string>
     <string name="ReservaMedicamento">Selecciona los medicamentos que deseas reservar</string>
+    <string name="ReservaExitosa">Sus medicamentos se reservaron correctamente</string>
 
 </resources>
