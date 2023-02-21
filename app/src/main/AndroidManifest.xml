@@ -18,6 +18,12 @@
             android:name=".Autenticacion"
             android:exported="true" />
         <activity
+            android:name=".DomicilioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".DistribucionYReciclaje"
             android:exported="false" />
         <activity

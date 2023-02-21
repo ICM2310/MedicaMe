@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DomicilioActivity">
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/destino"
+        app:srcCompat="@drawable/iconback"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintHorizontal_weight="5"
+        />
+
+    <EditText
+        android:id="@+id/destino"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_background_green"
+        android:drawableLeft="@drawable/ubicationicon"
+        android:drawablePadding="10dp"
+        android:elevation="11dp"
+
+        android:fontFamily="@font/roboto_bold"
+        android:hint="Destino"
+        android:letterSpacing="0.04"
+        android:lineHeight="16sp"
+        android:paddingLeft="10dp"
+        android:textColorHint="#7E7C7C"
+
+
+        android:textFontWeight="700"
+        android:textSize="14sp"
+        app:circularflow_radiusInDP="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+        app:layout_constraintBottom_toTopOf="@+id/mapView"
+        app:layout_constraintVertical_weight="2" />
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="50dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/Medicamentos"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/destino"
+
+        app:layout_constraintVertical_weight="5"
+
+        />
+
+    <TextView
+        android:id="@+id/Medicamentos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/rounded_frame_layout"
+        android:elevation="11dp"
+        android:fontFamily="@font/roboto_bold"
+        android:lineHeight="23sp"
+        android:text="Medicamentos"
+        android:textAlignment="center"
+        android:textColor="#292685"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_weight="1"
+        tools:layout_editor_absoluteY="513dp" />
+
+    <HorizontalScrollView
+        android:id="@+id/listaMedicamentos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSolicitarDomicilio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Medicamentos"
+        app:layout_constraintVertical_weight="2"
+        >
+
+        <LinearLayout
+            android:id="@+id/medHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+>
+
+            <LinearLayout
+                android:id="@+id/acetaminofem"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/acetaminofem">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Acetaminofem"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/acidoAscorbico"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/acidoAscorbico">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Acido ascorbico"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cetirizina"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/cetirizina">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cetirizina"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/amoxacilina"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/amoxacilina">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Amoxacilina"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/losartan"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/losartan">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Losartan"></TextView>
+            </LinearLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+        <Button
+        android:id="@+id/buttonSolicitarDomicilio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Solicitar domicilio"
+            android:textAllCaps="false"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#000000"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_background_green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/listaMedicamentos"
+            app:layout_constraintHorizontal_weight="1"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
