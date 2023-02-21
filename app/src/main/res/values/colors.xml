@@ -13,5 +13,6 @@
     <color name="backgroundActivityColor">#F5F5F5</color>
     <color name="regularTextColor">#C3C3C3</color>
     <color name="buttonUneteColor">#292685</color>
+    <color name="selectColor">#E4F0E4</color>
 
 </resources>
