@@ -98,21 +98,22 @@
         android:layout_marginTop="24dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/mapa"
-        tools:layout_editor_absoluteX="40dp">
+        tools:layout_editor_absoluteX="60dp">
 
         <LinearLayout
             android:id="@+id/medicamento2"
             android:layout_width="125dp"
             android:layout_height="125dp"
-
-
+            android:layout_margin="10dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="15dp"
             android:layout_weight="0"
             android:background="@color/selectColor"
             android:clickable="true"
             android:elevation="11dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+
+            >
 
 
             <ImageView
@@ -156,6 +157,7 @@
             android:id="@+id/medicamento5"
             android:layout_width="125dp"
             android:layout_height="125dp"
+            android:layout_margin="10dp"
 
 
             android:layout_marginTop="15dp"
