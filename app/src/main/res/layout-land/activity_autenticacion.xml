@@ -11,10 +11,14 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutCredenciales"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.826">
 
         <ImageView
             android:id="@+id/ImagenLogo"
@@ -39,13 +43,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:layout_editor_absoluteX="20dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <EditText
             android:id="@+id/correoInput"
             android:layout_width="300dp"
             android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
             android:layout_weight="0.5"
             android:background="@drawable/rounded_edit_text"
             android:hint="Correo Electronico"
@@ -55,6 +63,7 @@
             android:id="@+id/contrasenaInput"
             android:layout_width="300dp"
             android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
             android:layout_weight="0.5"
             android:background="@drawable/rounded_edit_text"
             android:hint="Contrasena"
@@ -65,11 +74,12 @@
         android:id="@+id/linearLayoutRegistrarse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="50dp"
         android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCredenciales"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutCredenciales">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/noEstaRegistrado"
@@ -78,45 +88,53 @@
             android:layout_weight="0.3"
             android:text="@string/Noestaregistrado"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAlignment="gravity"/>
 
         <TextView
             android:id="@+id/Registrarse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.2"
+            android:layout_weight="0.3"
             android:text="@string/Registrarse"
             android:textColor="@color/buttonTextColor"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAlignment="gravity"/>
 
         <TextView
             android:id="@+id/OlvidoContrasena"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
+            android:layout_weight="0.3"
             android:text="@string/OlvidoContrasena"
             android:textColor="@color/buttonTextColor"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAlignment="gravity"
+            />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/linearLayoutIniciarSesion"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutRegistrarse"
-        app:layout_constraintVertical_bias="0.3">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutRegistrarse">
 
         <Button
             android:id="@+id/iniciarSesionButton"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="0.5"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.1"
             android:background="@drawable/verde_degradado_button"
             android:gravity="center"
             android:text="@string/IniciarSesion"
@@ -127,7 +145,8 @@
             android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="0.5"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.1"
             app:srcCompat="@drawable/fingerprint" />
     </LinearLayout>
 
