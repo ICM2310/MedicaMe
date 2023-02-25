@@ -8,27 +8,11 @@
     tools:context=".ReservaMedicamento">
 
     <Button
-        android:id="@+id/buttonSolicitarReserva"
-        android:layout_width="130dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="55dp"
-        android:background="@drawable/rounded_background_green"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Solicitar reserva"
-        android:textAllCaps="false"
-        android:textColor="#000000"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintTop_toBottomOf="@+id/SeleccionarMedicamentoReserva" />
-
-    <Button
         android:id="@+id/buttonSolicitarDomicilio"
         android:layout_width="130dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="180dp"
         android:background="@drawable/rounded_background_green"
         android:fontFamily="@font/roboto_bold"
         android:text="Solicitar Domicilio"
@@ -38,6 +22,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1" />
+
+    <Button
+        android:id="@+id/buttonSolicitarReserva"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="148dp"
+        android:layout_marginEnd="68dp"
+        android:background="@drawable/rounded_background_green"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Solicitar reserva"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/SeleccionarMedicamentoReserva" />
 
     <Button
         android:id="@+id/backButtonReservaMedicamento"

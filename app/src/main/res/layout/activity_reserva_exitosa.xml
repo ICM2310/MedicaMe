@@ -7,74 +7,38 @@
     android:layout_height="match_parent"
     tools:context=".ReservaExitosa">
 
+
     <TextView
         android:id="@+id/tituloActividad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="379dp"
+        android:layout_height="59dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/ReservaExitosa"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.065" />
-
+        app:layout_constraintVertical_bias="0.067" />
 
     <ImageView
         android:id="@+id/mapa"
         android:layout_width="348dp"
         android:layout_height="348dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:contentDescription="null"
         android:cropToPadding="false"
         android:foregroundGravity="center"
         android:isScrollContainer="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintHorizontal_weight="2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tituloActividad"
         app:srcCompat="@drawable/elmapa" />
-
-    <TextView
-        android:id="@+id/lugarRecogida"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autoSizeTextType="uniform"
-        android:fontFamily="@font/roboto_bold"
-        android:minEms="20"
-        android:text="Punto de reserva"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/boldTextColor"
-        app:layout_constrainedWidth="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iconoP"
-        app:layout_constraintHorizontal_bias="0.35"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintLeft_toLeftOf="@id/mapa"
-        app:layout_constraintRight_toLeftOf="@id/iconoP"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloActividad"
-        app:layout_constraintVertical_bias="0.862"
-        app:layout_constraintVertical_weight="1" />
-
-    <ImageView
-        android:id="@+id/iconoP"
-        android:layout_width="149dp"
-        android:layout_height="154dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:contentDescription="null"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintTop_toBottomOf="@+id/mapa"
-        app:layout_constraintVertical_bias="0.919"
-        app:srcCompat="@drawable/recyclepills" />
 
     <ImageButton
         android:id="@+id/ButtonRetroceder"
@@ -93,12 +57,14 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <LinearLayout
+        android:id="@+id/LinearLayoutMedicamentos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/mapa"
-        tools:layout_editor_absoluteX="60dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapa">
 
         <LinearLayout
             android:id="@+id/medicamento2"
@@ -204,6 +170,41 @@
                     tools:layout_editor_absoluteY="3dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="382dp"
+        android:layout_height="147dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayoutMedicamentos">
+
+        <TextView
+            android:id="@+id/lugarRecogida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.1"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:minEms="20"
+            android:text="Punto de reserva - Los Martires"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/boldTextColor" />
+
+        <ImageView
+            android:id="@+id/iconoP"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.1"
+            app:srcCompat="@drawable/recyclepills" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

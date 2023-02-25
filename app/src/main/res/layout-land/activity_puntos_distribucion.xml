@@ -9,59 +9,15 @@
     tools:context=".PuntosDistribucion">
 
 
-    <TextView
-        android:id="@+id/promptHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Puntos de distribución para el medicamento seleccionado"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toTopOf="@+id/subText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bButton"
-        app:layout_constraintVertical_bias="0.065" />
-
-    <TextView
-        android:id="@+id/subText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:fontFamily="@font/roboto"
-        android:text="Seleccione en el nombre de la entidad si quiere comunicarse por chat."
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/promptHeader"
-        app:layout_constraintVertical_bias="0.764" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:contentDescription="null"
-        android:cropToPadding="false"
-        android:foregroundGravity="center"
-        android:isScrollContainer="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.352"
-        app:layout_constraintHorizontal_weight="2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/elmapa" />
-
     <LinearLayout
         android:layout_width="382dp"
         android:layout_height="147dp"
-        android:orientation="horizontal"
+        android:layout_marginEnd="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        android:layout_marginTop="40dp">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.64"
+        app:layout_constraintLeft_toRightOf="@id/imageView">
 
         <TextView
             android:id="@+id/lugarRecogida"
@@ -88,6 +44,46 @@
             android:layout_weight="0.1"
             app:srcCompat="@drawable/farmacia" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/promptHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Puntos de distribución para el medicamento seleccionado"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/bButton"
+        android:layout_marginLeft="20dp"
+        />
+
+    <TextView
+        android:id="@+id/subText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="Seleccione en el nombre de la entidad si quiere comunicarse por chat."
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="65dp"
+        app:layout_constraintTop_toBottomOf="@+id/promptHeader" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="255dp"
+        android:layout_height="254dp"
+        android:contentDescription="null"
+        android:cropToPadding="false"
+        android:foregroundGravity="center"
+        android:isScrollContainer="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.898"
+        app:srcCompat="@drawable/elmapa" />
 
     <ImageButton
         android:id="@+id/bButton"

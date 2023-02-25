@@ -54,7 +54,7 @@
         android:id="@+id/SeleccionarMedicamentoReserva"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="92dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/ReservaMedicamento"
         android:textColor="@color/boldTextColor"
