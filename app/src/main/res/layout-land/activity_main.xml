@@ -7,18 +7,29 @@
     android:padding="10dp"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imagenInicial"
+        android:layout_width="323dp"
+        android:layout_height="351dp"
+        android:layout_marginLeft="64dp"
+        android:gravity="center"
+        app:circularflow_viewCenter="@id/BotonUnete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/BotonUnete"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/medic_assistant" />
+
     <TextView
         android:id="@+id/medicame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginBottom="4dp"
         android:text="@string/medicame"
         android:textAppearance="@style/medicame"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/tu_aliado_f"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tu_aliado_f"
@@ -26,16 +37,16 @@
         android:layout_height="27sp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="76dp"
+        android:layout_marginBottom="24dp"
         android:gravity="top"
         android:lineSpacingExtra="5sp"
         android:text="@string/tu_aliado_f"
         android:textAppearance="@style/tu_aliado_f"
         android:textStyle="bold|italic"
         android:translationY="-2.62sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.074"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/medicame" />
+        app:layout_constraintBottom_toTopOf="@+id/BotonUnete"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/BotonUnete"
@@ -47,20 +58,11 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imagenInicial"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
-        app:layout_constraintTop_toBottomOf="@+id/tu_aliado_f" />
-
-    <ImageView
-        android:id="@+id/imagenInicial"
-        android:layout_width="257dp"
-        android:layout_height="289dp"
-        android:gravity="center"
-        app:circularflow_viewCenter="@id/BotonUnete"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/medic_assistant" />
+        app:layout_constraintHorizontal_bias="0.149"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.61" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
