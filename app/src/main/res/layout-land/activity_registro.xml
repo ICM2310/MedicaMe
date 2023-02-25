@@ -8,19 +8,77 @@
     tools:context=".Registro">
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        tools:layout_editor_absoluteX="404dp"
+        tools:layout_editor_absoluteY="258dp">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/iniciarSesionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_weight="0.5"
+        android:background="@drawable/verde_degradado_button"
+        android:text="@string/Registrarse"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/IdInput" />
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutNombre_Correo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.385">
+
+        <EditText
+            android:id="@+id/nombreInput"
+            android:layout_width="315dp"
+            android:layout_height="48dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_edit_text"
+            android:hint="Nombre Completo"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/correoInput"
+            android:layout_width="315dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/rounded_edit_text"
+            android:hint="Correo Electronico"
+            android:padding="10dp"
+            tools:layout_editor_absoluteX="330dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayou_Logo_Registro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/LinearLayoutNombre_Correo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/ImagenLogo"
             android:layout_width="200dp"
             android:layout_height="100dp"
-            android:layout_weight="0.2"
+            android:layout_weight="0.5"
             app:srcCompat="@drawable/logo" />
 
         <TextView
@@ -28,58 +86,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"
+            android:layout_weight="0.3"
             android:text="@string/Registro"
             android:textSize="34sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="852dp"
+            tools:layout_editor_absoluteY="27dp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/LinearLayoutContrasena_EPS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-        <EditText
-            android:id="@+id/nombreInput"
-            android:layout_width="330dp"
-            android:layout_height="42dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/rounded_edit_text"
-            android:hint="Nombre Completo"
-            android:padding="10dp" />
-
-        <EditText
-            android:id="@+id/correoInput"
-            android:layout_width="330dp"
-            android:layout_height="42dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/rounded_edit_text"
-            android:hint="Correo Electronico"
-            android:padding="10dp" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayoutNombre_Correo">
 
         <EditText
             android:id="@+id/contrasenaInput"
-            android:layout_width="330dp"
-            android:layout_height="42dp"
-            android:layout_marginBottom="16dp"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/rounded_edit_text"
             android:hint="Contrasena"
             android:padding="10dp" />
@@ -87,42 +117,26 @@
         <EditText
             android:id="@+id/EPSInput"
             android:layout_width="330dp"
-            android:layout_height="42dp"
-            android:layout_marginBottom="16dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/rounded_edit_text"
             android:hint="Entidad de EPS / Medicina Prepagada"
-            android:padding="10dp" />
+            android:padding="10dp"
+            tools:layout_editor_absoluteX="330dp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout4"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-        app:layout_constraintVertical_bias="0.0">
-
-        <EditText
-            android:id="@+id/IdInput"
-            android:layout_width="331dp"
-            android:layout_height="42dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/rounded_edit_text"
-            android:hint="Numero de identificación"
-            android:padding="10dp" />
-
-        <Button
-            android:id="@+id/iniciarSesionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:background="@drawable/verde_degradado_button"
-            android:text="@string/Registrarse"
-            android:textAllCaps="false"
-            android:textColor="@color/white" />
-    </LinearLayout>
+    <EditText
+        android:id="@+id/IdInput"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:layout_weight="0.5"
+        android:background="@drawable/rounded_edit_text"
+        android:hint="Numero de identificación"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayoutContrasena_EPS" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
