@@ -66,17 +66,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_weight="0.8" />
-
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:background="@drawable/rounded_button"
         app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName2"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
         app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName2"
+        app:srcCompat="@drawable/search_icon"
         app:layout_constraintVertical_weight="0.8"
-        app:srcCompat="@drawable/search_icon" />
+        />
     <TextView
         android:id="@+id/afiliado"
         android:layout_width="0dp"
@@ -95,31 +95,32 @@
         android:text="Entidad Actual:\nColsanitas"
         android:textColor="#09051C"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@id/botonesfila1"
+        app:layout_constraintBottom_toTopOf="@id/botonesMenu"
         app:layout_constraintEnd_toEndOf="@id/editTextTextPersonName2"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName2"
 
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
         app:layout_constraintVertical_weight="1.5" />
-
     <LinearLayout
-        android:id="@+id/botonesfila1"
+        android:id="@+id/botonesMenu"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        app:layout_constraintBottom_toTopOf="@id/botonesfila2"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/afiliado"
+        app:layout_constraintTop_toBottomOf="@+id/afiliado"
         app:layout_constraintVertical_weight="2">
 
         <LinearLayout
             android:id="@+id/layoutReceta"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_frame_layout"
             android:clickable="true"
@@ -127,35 +128,76 @@
             android:orientation="vertical"
             android:weightSum="1"
             android:layout_margin="10dp"
-            android:layout_marginRight="10dp"
+
             >
 
             <ImageView
                 android:id="@+id/imagePrescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
                 android:paddingTop="15dp"
-                app:srcCompat="@drawable/prescription" />
+                app:srcCompat="@drawable/prescription"
+                android:layout_weight="0.7"/>
 
             <TextView
                 android:id="@+id/textPrescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="0.3"
                 android:fontFamily="@font/roboto_bold"
                 android:padding="10dp"
                 android:text="Subir receta medica"
                 android:textAlignment="center"
                 android:textColor="#292685"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_weight="0.3"/>
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/layoutDistribicion"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_frame_layout"
+            android:clickable="true"
+            android:elevation="6dp"
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:weightSum="1"
+
+            >
+
+            <ImageView
+                android:id="@+id/imageMaps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                app:srcCompat="@drawable/maps_icon"
+                android:layout_weight="0.7"/>
+
+            <TextView
+                android:id="@+id/textMaps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/roboto_bold"
+                android:padding="8dp"
+                android:text="Punto de distribución/reciclaje"
+                android:textAlignment="center"
+                android:textColor="#292685"
+
+                android:textSize="16sp"
+                android:layout_weight="0.3"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutReserva"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_frame_layout"
             android:clickable="true"
@@ -165,79 +207,25 @@
             android:weightSum="1">
 
             <ImageView
-                android:id="@+id/imageMaps"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.7"
-                android:paddingTop="15dp"
-                app:srcCompat="@drawable/maps_icon" />
-
-            <TextView
-                android:id="@+id/textMaps"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="0.3"
-                android:fontFamily="@font/roboto_bold"
-                android:padding="8dp"
-                android:text="Punto de distribución/reciclaje"
-                android:textAlignment="center"
-
-                android:textColor="#292685"
-                android:textSize="16sp" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/botonesfila2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/botonesfila1"
-        app:layout_constraintVertical_weight="2">
-
-        <LinearLayout
-            android:id="@+id/layoutReserva"
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_frame_layout"
-            android:clickable="true"
-            android:elevation="6dp"
-            android:orientation="vertical"
-            android:weightSum="1"
-            android:layout_margin="10dp"
-
-            >
-
-            <ImageView
                 android:id="@+id/imageDrugs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.7"
                 android:paddingTop="15dp"
-                app:srcCompat="@drawable/drugs" />
+                app:srcCompat="@drawable/drugs"
+                android:layout_weight="0.7"/>
 
             <TextView
                 android:id="@+id/textDrugs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="0.3"
                 android:fontFamily="@font/roboto_bold"
                 android:padding="8dp"
                 android:text="Reserva de medicamentos"
                 android:textAlignment="center"
                 android:textColor="#292685"
-                android:textSize="16sp" />
+                android:textSize="14sp"
+                android:layout_weight="0.3"/>
         </LinearLayout>
 
         <LinearLayout
@@ -245,34 +233,40 @@
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:layout_marginLeft="10dp"
+
             android:layout_weight="1"
             android:background="@drawable/rounded_frame_layout"
             android:clickable="true"
             android:elevation="6dp"
+            android:layout_margin="10dp"
             android:orientation="vertical"
-            android:weightSum="1"
-            android:layout_margin="10dp">
+            android:weightSum="1">
 
             <ImageView
                 android:id="@+id/imageDelivery"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                app:srcCompat="@drawable/delivery"
                 android:layout_weight="0.7"
-                android:paddingTop="15dp"
-                app:srcCompat="@drawable/delivery" />
+                />
 
             <TextView
                 android:id="@+id/textDelivery"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_weight="0.3"
                 android:fontFamily="@font/roboto_bold"
                 android:padding="10dp"
                 android:text="Domicilio"
                 android:textAlignment="center"
                 android:textColor="#292685"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:layout_weight="0.3"/>
         </LinearLayout>
+
     </LinearLayout>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
