@@ -96,7 +96,8 @@
         android:contentDescription="Retornar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/iconback" />
+        android:background="@drawable/iconback"
+        />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

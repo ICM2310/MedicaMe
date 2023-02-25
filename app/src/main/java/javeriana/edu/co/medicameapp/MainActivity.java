@@ -11,16 +11,16 @@ import javeriana.edu.co.medicameapp.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity
 {
-    ActivityMainBinding bindingMain;
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        bindingMain = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(bindingMain.getRoot());
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        bindingMain.BotonUnete.setOnClickListener(new View.OnClickListener()
+        binding.BotonUnete.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)

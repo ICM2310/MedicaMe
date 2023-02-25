@@ -2,6 +2,7 @@ package javeriana.edu.co.medicameapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,6 +36,8 @@ public class DistribucionYReciclaje extends AppCompatActivity
             public void onClick(View view)
             {
                 Log.i("Funcionamiento de botones", "Boton de puntos de distribucion");
+                Intent intent = new Intent(getBaseContext(), PuntosDistribucion.class);
+                startActivity(intent);
             }
         });
 
@@ -43,6 +46,8 @@ public class DistribucionYReciclaje extends AppCompatActivity
             public void onClick(View view)
             {
                 Log.i("Funcionamiento de botones", "Boton de puntos de reciclaje");
+                Intent intent = new Intent(getBaseContext(), PuntosDistribucion.class);
+                startActivity(intent);
             }
         });
     }

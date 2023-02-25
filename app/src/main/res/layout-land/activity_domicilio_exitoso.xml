@@ -46,7 +46,7 @@
         android:autoSizeTextType="uniform"
         android:fontFamily="@font/roboto_bold"
         android:minEms="20"
-        android:text="Proveniente de"
+        android:text="Proveniente de Los Martires"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/boldTextColor"
@@ -82,7 +82,8 @@
         android:contentDescription="Retornar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/iconback" />
+        android:background="@drawable/iconback"
+        />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -92,6 +93,7 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <LinearLayout
+        android:id="@+id/LinearLayoutMedicamentos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -104,8 +106,7 @@
             android:id="@+id/medicamento2"
             android:layout_width="125dp"
             android:layout_height="125dp"
-
-
+            android:layout_margin="10dp"
             android:layout_marginStart="40dp"
             android:layout_marginTop="15dp"
             android:layout_weight="0"
@@ -156,6 +157,7 @@
             android:id="@+id/medicamento5"
             android:layout_width="125dp"
             android:layout_height="125dp"
+            android:layout_margin="10dp"
 
 
             android:layout_marginTop="15dp"

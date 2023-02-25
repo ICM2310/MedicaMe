@@ -15,6 +15,7 @@ public class PuntosDistribucion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_puntos_distribucion);
         bindingPuntosDistribucion = ActivityPuntosDistribucionBinding.inflate(getLayoutInflater());
+        setContentView(bindingPuntosDistribucion.getRoot());
         bindingPuntosDistribucion.bButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
