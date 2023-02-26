@@ -106,18 +106,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Medicamentos"
-        app:layout_constraintVertical_weight="1">
+        app:layout_constraintVertical_weight="1.5">
 
         <LinearLayout
             android:id="@+id/medHorizontal"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="10dp">
 
             <LinearLayout
                 android:id="@+id/acetaminofem"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
@@ -136,6 +137,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:text="Acetaminofem"
                     android:textAlignment="center"
+                    android:gravity="center"
                     android:textColor="#000000"
                     android:textSize="10sp"
                     android:layout_weight="0.3"></TextView>
@@ -144,7 +146,7 @@
             <LinearLayout
                 android:id="@+id/acidoAscorbico"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
@@ -163,6 +165,8 @@
                     android:fontFamily="@font/roboto_bold"
                     android:text="Acido ascorbico"
                     android:textAlignment="center"
+                    android:singleLine="true"
+                    android:gravity="center"
                     android:textColor="#000000"
                     android:textSize="10sp"
                     android:layout_weight="0.3"></TextView>
@@ -171,7 +175,7 @@
             <LinearLayout
                 android:id="@+id/cetirizina"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
@@ -190,6 +194,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:text="Cetirizina"
                     android:textAlignment="center"
+                    android:gravity="center"
                     android:textColor="#000000"
                     android:textSize="10sp"
                     android:layout_weight="0.3"></TextView>
@@ -198,7 +203,7 @@
             <LinearLayout
                 android:id="@+id/amoxacilina"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
@@ -216,6 +221,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:text="Amoxacilina"
                     android:textAlignment="center"
+                    android:gravity="center"
                     android:textColor="#000000"
                     android:textSize="10sp"
                     android:layout_weight="0.3"></TextView>
@@ -224,7 +230,7 @@
             <LinearLayout
                 android:id="@+id/losartan"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -242,6 +248,7 @@
                     android:fontFamily="@font/roboto_bold"
                     android:text="Losartan"
                     android:textAlignment="center"
+                    android:gravity="center"
                     android:textColor="#000000"
                     android:textSize="10sp"
                     android:layout_weight="0.3"></TextView>

@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DomicilioActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/iconback"
+            app:layout_constraintEnd_toStartOf="@+id/mapView"
+            app:layout_constraintHorizontal_weight="0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/destino"
+            app:layout_constraintBottom_toBottomOf="@+id/destino"
+            app:layout_constraintVertical_weight="0.8"
+
+            />
+
+        <EditText
+            android:id="@+id/destino"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_background_green"
+            android:drawableLeft="@drawable/ubicationicon"
+            android:drawablePadding="10dp"
+
+            android:elevation="11dp"
+            android:fontFamily="@font/roboto_bold"
+            android:hint="Destino"
+            android:letterSpacing="0.04"
+            android:lineHeight="16sp"
+            android:paddingLeft="10dp"
+
+
+            android:textColorHint="#7E7C7C"
+            android:textFontWeight="700"
+            android:textSize="14sp"
+            app:circularflow_radiusInDP="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/mapView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_weight="0.9"
+            app:layout_constraintStart_toEndOf="@+id/imageButton2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="1" />
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="40dp"
+
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/Medicamentos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/destino"
+
+            app:layout_constraintVertical_weight="5" />
+
+        <TextView
+            android:id="@+id/Medicamentos"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="250dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_frame_layout"
+            android:elevation="11dp"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:text="Medicamentos"
+            android:textAlignment="center"
+            android:textColor="#292685"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/listaMedicamentos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mapView"
+            app:layout_constraintVertical_weight="0.8" />
+
+        <HorizontalScrollView
+            android:id="@+id/listaMedicamentos"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/buttonSolicitarDomicilio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Medicamentos"
+            app:layout_constraintVertical_weight="3">
+
+            <LinearLayout
+                android:id="@+id/medHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/acetaminofem"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/acetaminofem"
+                        android:layout_weight="0.6">
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Acetaminofem"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textSize="10sp"
+                        android:padding="5dp"
+                        android:layout_weight="0.4"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/acidoAscorbico"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/acido_ascorbico"
+                        android:layout_weight="0.6">
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Acido ascorbico"
+                        android:textAlignment="center"
+                        android:singleLine="true"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textSize="10sp"
+                        android:layout_weight="0.4"
+                        android:padding="5dp"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cetirizina"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/cetirizina"
+                        android:layout_weight="0.6">
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Cetirizina"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textSize="10sp"
+                        android:padding="5dp"
+                        android:layout_weight="0.4"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/amoxacilina"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/amoxacilina"
+                        android:layout_weight="0.6">
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Amoxacilina"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textSize="10sp"
+                        android:padding="5dp"
+                        android:layout_weight="0.4"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/losartan"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/losartan"
+                        android:layout_weight="0.6">
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Losartan"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textColor="#000000"
+                        android:textSize="10sp"
+                        android:padding="5dp"
+                        android:layout_weight="0.4"></TextView>
+                </LinearLayout>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+
+        <Button
+            android:id="@+id/buttonSolicitarDomicilio"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="250dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_background_green"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Solicitar domicilio"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/listaMedicamentos"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/listaMedicamentos"
+            app:layout_constraintVertical_weight="1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
