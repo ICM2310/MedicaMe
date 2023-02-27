@@ -62,11 +62,13 @@
         android:id="@+id/subText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="345dp"
+        android:layout_marginBottom="36dp"
         android:fontFamily="@font/roboto"
         android:text="Seleccione en el nombre de la entidad si quiere comunicarse por chat."
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="65dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/promptHeader" />
 
     <ImageView
@@ -89,11 +91,12 @@
         android:id="@+id/bButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="Retornar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/iconback"
-        />
+        android:contentDescription="Retornar"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
