@@ -15,6 +15,15 @@
             android:name=".PuntosReciclajeActivity"
             android:exported="false" />
         <activity
+            android:name=".DomicilioExitoso"
+            android:exported="false" />
+        <activity
+            android:name=".ReservaExitosa"
+            android:exported="false" />
+        <activity
+            android:name=".ReservaMedicamento"
+            android:exported="false" />
+        <activity
             android:name=".Registro"
             android:exported="false" />
         <activity
