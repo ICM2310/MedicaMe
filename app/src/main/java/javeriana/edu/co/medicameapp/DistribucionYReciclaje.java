@@ -21,7 +21,7 @@ public class DistribucionYReciclaje extends AppCompatActivity
         setContentView(bindingDistribucionYReciclaje.getRoot());
 
         // Evitar que la pantalla rote
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // Para que la app corra en portrait mode
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // Para que la app corra en portrait mode
 
         bindingDistribucionYReciclaje.backButtonDistribucionYReciclaje.setOnClickListener(new View.OnClickListener() {
             @Override
