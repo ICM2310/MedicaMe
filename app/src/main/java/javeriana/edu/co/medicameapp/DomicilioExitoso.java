@@ -2,6 +2,7 @@ package javeriana.edu.co.medicameapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +27,9 @@ public class DomicilioExitoso extends AppCompatActivity
             public void onClick(View view)
             {
                 Log.i("DomicilioExitoso - onClick", "Flag #1");
+
+                Intent intentIrAlChat = new Intent(getBaseContext(), ChatActivity.class);
+                startActivity(intentIrAlChat);
             }
         });
     }
