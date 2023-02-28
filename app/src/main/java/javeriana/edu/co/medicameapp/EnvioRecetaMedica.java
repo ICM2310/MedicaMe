@@ -23,7 +23,7 @@ public class EnvioRecetaMedica extends AppCompatActivity
         Log.i("Carga de pantalla: ", "Completada");
 
         // Evitar que la pantalla rote
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // Para que la app corra en portrait mode
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // Para que la app corra en portrait mode
         //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); // Para que la app corra en landscape mode
 
         bindingEnvioRecetaMedica.backButtonEnvioRecetaMedica.setOnClickListener(new View.OnClickListener()
