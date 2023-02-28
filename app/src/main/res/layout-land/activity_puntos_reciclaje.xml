@@ -14,6 +14,7 @@
         android:fontFamily="@font/roboto_bold"
         android:text="Puntos de reciclaje"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toEndOf="@+id/bButton"

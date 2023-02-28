@@ -39,6 +39,21 @@
         app:layout_constraintTop_toBottomOf="@+id/tituloActividad"
         app:srcCompat="@drawable/elmapa" />
 
+    <ImageView
+        android:id="@+id/iconoP"
+        android:layout_width="149dp"
+        android:layout_height="154dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="null"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintTop_toBottomOf="@+id/mapa"
+        app:layout_constraintVertical_bias="0.955"
+        app:srcCompat="@drawable/recyclepills" />
+
     <TextView
         android:id="@+id/lugarOrigen"
         android:layout_width="match_parent"
@@ -53,29 +68,14 @@
         app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/iconoP"
-        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toLeftOf="@id/mapa"
         app:layout_constraintRight_toLeftOf="@id/iconoP"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tituloActividad"
-        app:layout_constraintVertical_bias="0.862"
+        app:layout_constraintVertical_bias="0.871"
         app:layout_constraintVertical_weight="1" />
-
-    <ImageView
-        android:id="@+id/iconoP"
-        android:layout_width="149dp"
-        android:layout_height="154dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:contentDescription="null"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintTop_toBottomOf="@+id/mapa"
-        app:layout_constraintVertical_bias="0.919"
-        app:srcCompat="@drawable/recyclepills" />
 
     <ImageButton
         android:id="@+id/ButtonRetroceder"
@@ -100,9 +100,10 @@
         android:id="@+id/LinearLayoutMedicamentos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mapa">
 
