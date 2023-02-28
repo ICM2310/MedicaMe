@@ -37,7 +37,21 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewTitulo" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textViewIncoming2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/incoming_chat_bubble"
+        android:paddingVertical="7dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="10dp"
+        android:text="Muchisimas gracias!"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewOutcoming" />
+
+    <TextView
+        android:id="@+id/textViewOutcoming"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -56,9 +70,10 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <EditText
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/toSendMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@drawable/rounded_back_button"
             android:ems="10"
@@ -70,8 +85,9 @@
         <Button
             android:id="@+id/sendTextButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/rounded_button"
             android:text="SEND"
             tools:layout_weight="0.1" />
     </LinearLayout>
