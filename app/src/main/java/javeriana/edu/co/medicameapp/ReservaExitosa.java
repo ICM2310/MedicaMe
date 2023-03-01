@@ -30,5 +30,16 @@ public class ReservaExitosa extends AppCompatActivity
                 startActivity(intentIrAlChat);
             }
         });
+
+        bindingReservaExitosa.ButtonRetroceder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Log.i("ReservaExitosa - onClick", "Flag #2");
+
+                Intent intentRetroceder = new Intent(getBaseContext(), ReservaMedicamento.class);
+                startActivity(intentRetroceder);
+            }
+        });
     }
 }
