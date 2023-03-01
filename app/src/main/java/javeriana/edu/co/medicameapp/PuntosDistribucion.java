@@ -22,8 +22,9 @@ public class PuntosDistribucion extends AppCompatActivity {
             public void onClick(View view) {
 
                 Log.v("Boton Back mapa","Se uso el boton de retroceder de puntos de distibucion en la actividad del mapa");
-                Intent retornar = new Intent(getBaseContext(), DistribucionYReciclaje.class);
-                startActivity(retornar);
+                finish();
+                //Intent retornar = new Intent(getBaseContext(), DistribucionYReciclaje.class);
+                //startActivity(retornar);
                 //TODO implementacion de el boton back para los mapas.
             }
         });

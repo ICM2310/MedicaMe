@@ -11,18 +11,16 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
         android:contentDescription="null"
         android:cropToPadding="false"
         android:foregroundGravity="center"
         android:isScrollContainer="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.352"
         app:layout_constraintHorizontal_weight="2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.336"
+        app:layout_constraintVertical_bias="0.5"
         app:srcCompat="@drawable/elmapa" />
 
     <TextView
@@ -39,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/bButton" />
 
     <LinearLayout
-        android:layout_width="382dp"
+        android:layout_width="0dp"
         android:layout_height="147dp"
         android:layout_marginTop="32dp"
         android:orientation="horizontal"

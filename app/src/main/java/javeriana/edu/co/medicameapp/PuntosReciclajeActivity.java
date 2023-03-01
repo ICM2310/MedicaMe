@@ -22,9 +22,11 @@ public class PuntosReciclajeActivity extends AppCompatActivity {
         bindingPuntosReciclaje.bButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Log.v("Boton Back mapa","Se uso el boton de retroceder de puntos de reciclaje en la actividad del mapa");
-                Intent retornar = new Intent(getBaseContext(), DistribucionYReciclaje.class);
-                startActivity(retornar);
+                finish();
+                //Intent retornar = new Intent(getBaseContext(), DistribucionYReciclaje.class);
+                //startActivity(retornar);
             }
             
         });
