@@ -5,89 +5,47 @@
     android:id="@+id/backButtonEnvioRecetaMedica"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context=".DomicilioExitoso">
 
 
     <TextView
         android:id="@+id/tituloActividad"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/DomicilioExitoso"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/mapa"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.07" />
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonRetroceder" />
 
     <ImageView
         android:id="@+id/mapa"
-        android:layout_width="348dp"
-        android:layout_height="348dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:contentDescription="null"
         android:cropToPadding="false"
         android:foregroundGravity="center"
         android:isScrollContainer="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintHorizontal_weight="2"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_weight="5"
         app:layout_constraintTop_toBottomOf="@+id/tituloActividad"
         app:srcCompat="@drawable/elmapa" />
-
-    <ImageView
-        android:id="@+id/iconoP"
-        android:layout_width="149dp"
-        android:layout_height="154dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="20dp"
-        android:contentDescription="null"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintTop_toBottomOf="@+id/mapa"
-        app:layout_constraintVertical_bias="0.955"
-        app:srcCompat="@drawable/recyclepills" />
-
-    <TextView
-        android:id="@+id/lugarOrigen"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autoSizeTextType="uniform"
-        android:fontFamily="@font/roboto_bold"
-        android:minEms="20"
-        android:text="Proveniente de Los Martires"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/boldTextColor"
-        app:layout_constrainedWidth="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/iconoP"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintLeft_toLeftOf="@id/mapa"
-        app:layout_constraintRight_toLeftOf="@id/iconoP"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloActividad"
-        app:layout_constraintVertical_bias="0.871"
-        app:layout_constraintVertical_weight="1" />
 
     <ImageButton
         android:id="@+id/ButtonRetroceder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:background="@drawable/iconback"
         android:contentDescription="Retornar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/iconback"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -98,14 +56,14 @@
 
     <LinearLayout
         android:id="@+id/LinearLayoutMedicamentos"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mapa">
+        app:layout_constraintTop_toBottomOf="@+id/mapa"
+        app:layout_constraintVertical_weight="1">
 
         <LinearLayout
             android:id="@+id/medicamento2"
@@ -211,6 +169,44 @@
                     tools:layout_editor_absoluteY="3dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayoutMedicamentos"
+        app:layout_constraintVertical_weight="1">
+
+        <TextView
+            android:id="@+id/lugarOrigen"
+            android:text="Proveniente de Los Martires"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:minEms="20"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/boldTextColor" />
+
+        <ImageView
+            android:id="@+id/iconoP"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/recyclepills" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
