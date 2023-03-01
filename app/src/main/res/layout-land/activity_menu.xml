@@ -38,7 +38,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_weight="1"
-        tools:srcCompat="@tools:sample/avatars"
+        app:srcCompat="@drawable/foto_perfil"
+
 
         />
 
