@@ -15,19 +15,24 @@ public class DistribucionYReciclaje extends AppCompatActivity
     ActivityDistribucionYreciclajeBinding bindingDistribucionYReciclaje;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         bindingDistribucionYReciclaje = ActivityDistribucionYreciclajeBinding.inflate(getLayoutInflater());
         setContentView(bindingDistribucionYReciclaje.getRoot());
 
+
         // Evitar que la pantalla rote
         //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // Para que la app corra en portrait mode
+
 
         bindingDistribucionYReciclaje.backButtonDistribucionYReciclaje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
                 Log.i("Funcionamiento de botones", "Boton de back");
+                Intent intent = new Intent(getBaseContext(), MenuActivity.class);
+                startActivity(intent);
             }
         });
 
