@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import javeriana.edu.co.medicameapp.databinding.ActivityDomicilioBinding;
@@ -23,6 +24,15 @@ public class DomicilioActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getBaseContext(), DomicilioExitoso.class);
+                startActivity(intent);
+            }
+        });
+        binding.imageButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                Log.i("Funcionamiento de botones", "Boton de back");
+                Intent intent = new Intent(getBaseContext(), MenuActivity.class);
                 startActivity(intent);
             }
         });
