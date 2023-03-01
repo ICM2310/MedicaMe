@@ -60,13 +60,14 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_weight="1" />
 
-        <com.google.android.gms.maps.MapView
+        <ImageView
             android:id="@+id/mapView"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="40dp"
+            app:srcCompat="@drawable/mapa"
 
             android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toTopOf="@+id/Medicamentos"
