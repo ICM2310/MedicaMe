@@ -2,9 +2,11 @@ package javeriana.edu.co.medicameapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
 
@@ -32,6 +34,8 @@ public class EnvioRecetaMedica extends AppCompatActivity
             public void onClick(View view)
             {
                 Log.i("Entrada al boton de back ", "Entró");
+                Intent intent = new Intent(getBaseContext(), MenuActivity.class);
+                startActivity(intent);
             }
         });
 
