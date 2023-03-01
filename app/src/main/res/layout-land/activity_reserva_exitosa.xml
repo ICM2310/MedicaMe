@@ -23,8 +23,8 @@
 
     <ImageView
         android:id="@+id/mapa"
-        android:layout_width="287dp"
-        android:layout_height="308dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:contentDescription="null"
         android:cropToPadding="false"
@@ -41,7 +41,7 @@
     <LinearLayout
         android:id="@+id/LinearLayoutPuntoDeReserva"
         android:layout_width="365dp"
-        android:layout_height="132dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

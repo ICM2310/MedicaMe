@@ -32,8 +32,8 @@
         android:isScrollContainer="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloActividad"
         app:layout_constraintVertical_weight="5"
+        app:layout_constraintTop_toBottomOf="@+id/tituloActividad"
         app:srcCompat="@drawable/elmapa" />
 
     <ImageButton
@@ -182,6 +182,7 @@
 
         <TextView
             android:id="@+id/lugarRecogida"
+            android:text="Punto de reserva - Los Martires"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -192,7 +193,6 @@
             android:fontFamily="@font/roboto_bold"
             android:gravity="center"
             android:minEms="20"
-            android:text="Punto de reserva - Los Martires"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/boldTextColor" />
