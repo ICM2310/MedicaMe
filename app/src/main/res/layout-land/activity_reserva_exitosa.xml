@@ -8,13 +8,47 @@
     tools:context=".ReservaExitosa">
 
 
+    <TextView
+        android:id="@+id/tituloActividad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="108dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/ReservaExitosa"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/ButtonRetroceder"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/mapa"
+        android:layout_width="296dp"
+        android:layout_height="282dp"
+        android:layout_marginStart="20dp"
+        android:contentDescription="null"
+        android:cropToPadding="false"
+        android:foregroundGravity="center"
+        android:isScrollContainer="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.149"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.643"
+        app:srcCompat="@drawable/elmapa" />
+
     <LinearLayout
         android:id="@+id/LinearLayoutPuntoDeReserva"
         android:layout_width="382dp"
         android:layout_height="147dp"
         android:layout_marginLeft="50dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="40dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,69 +80,16 @@
             app:srcCompat="@drawable/recyclepills" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tituloActividad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="324dp"
-        android:layout_marginLeft="20dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="@string/ReservaExitosa"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintLeft_toRightOf="@+id/ButtonRetroceder"/>
-
-    <ImageView
-        android:id="@+id/mapa"
-        android:layout_width="296dp"
-        android:layout_height="282dp"
-        android:layout_marginStart="20dp"
-        android:contentDescription="null"
-        android:cropToPadding="false"
-        android:foregroundGravity="center"
-        android:isScrollContainer="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.116"
-        app:layout_constraintHorizontal_weight="2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.697"
-        app:srcCompat="@drawable/elmapa" />
-
-    <ImageButton
-        android:id="@+id/ButtonRetroceder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/iconback"
-        android:contentDescription="Retornar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="16dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/mapa"
-        tools:layout_editor_absoluteY="64dp"
         app:layout_constraintBottom_toTopOf="@+id/LinearLayoutPuntoDeReserva"
-        android:layout_marginBottom="20dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/mapa">
 
         <LinearLayout
             android:id="@+id/medicamento2"
@@ -215,5 +196,23 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/ButtonRetroceder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/iconback"
+        android:contentDescription="Retornar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

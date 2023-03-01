@@ -54,14 +54,14 @@
         android:id="@+id/SeleccionarMedicamentoReserva"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/ReservaMedicamento"
         android:textColor="@color/boldTextColor"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backButtonReservaMedicamento"></TextView>
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <LinearLayout
         android:id="@+id/medicamento1"
@@ -110,9 +110,9 @@
                 android:layout_height="wrap_content"
                 android:text="X1"
                 android:textColor="@color/boldTextColor"
+                tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="104dp"
-                tools:layout_editor_absoluteY="3dp"
-                tools:ignore="MissingConstraints" />
+                tools:layout_editor_absoluteY="3dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
