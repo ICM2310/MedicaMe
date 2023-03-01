@@ -35,5 +35,14 @@ public class ReservaMedicamento extends AppCompatActivity {
             }
         });
 
+        binding.backButtonReservaMedicamento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), MenuActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 }
