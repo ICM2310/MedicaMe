@@ -32,5 +32,15 @@ public class DomicilioExitoso extends AppCompatActivity
                 startActivity(intentIrAlChat);
             }
         });
+
+        bindingDomicilioExitoso.ButtonRetroceder.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intentRetroceder = new Intent(getBaseContext(), ReservaMedicamento.class);
+                startActivity(intentRetroceder);
+            }
+        });
     }
 }
