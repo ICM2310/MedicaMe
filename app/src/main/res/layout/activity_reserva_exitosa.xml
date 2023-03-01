@@ -5,47 +5,41 @@
     android:id="@+id/backButtonEnvioRecetaMedica"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context=".ReservaExitosa">
 
 
     <TextView
         android:id="@+id/tituloActividad"
-        android:layout_width="379dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_bold"
         android:text="@string/ReservaExitosa"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/mapa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.067" />
+        app:layout_constraintTop_toBottomOf="@+id/ButtonRetroceder" />
 
     <ImageView
         android:id="@+id/mapa"
-        android:layout_width="348dp"
-        android:layout_height="348dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:contentDescription="null"
         android:cropToPadding="false"
         android:foregroundGravity="center"
         android:isScrollContainer="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
-        app:layout_constraintHorizontal_weight="2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tituloActividad"
+        app:layout_constraintVertical_weight="5"
         app:srcCompat="@drawable/elmapa" />
 
     <ImageButton
         android:id="@+id/ButtonRetroceder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:background="@drawable/iconback"
         android:contentDescription="Retornar"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,18 +50,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_begin="366dp" />
 
     <LinearLayout
         android:id="@+id/LinearLayoutMedicamentos"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mapa">
+        app:layout_constraintTop_toBottomOf="@+id/mapa"
+        app:layout_constraintVertical_weight="1">
 
         <LinearLayout
             android:id="@+id/medicamento2"
@@ -176,14 +170,15 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="382dp"
-        android:layout_height="147dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="10dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LinearLayoutMedicamentos">
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayoutMedicamentos"
+        app:layout_constraintVertical_weight="1">
 
         <TextView
             android:id="@+id/lugarRecogida"
@@ -192,7 +187,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="40dp"
             android:layout_marginRight="10dp"
-            android:layout_weight="0.1"
+            android:layout_weight="1"
             android:autoSizeTextType="uniform"
             android:fontFamily="@font/roboto_bold"
             android:gravity="center"
@@ -207,7 +202,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
-            android:layout_weight="0.1"
+            android:layout_weight="1"
             app:srcCompat="@drawable/recyclepills" />
     </LinearLayout>
 
