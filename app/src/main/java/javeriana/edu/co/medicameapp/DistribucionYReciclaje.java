@@ -31,8 +31,7 @@ public class DistribucionYReciclaje extends AppCompatActivity
             public void onClick(View view)
             {
                 Log.i("Funcionamiento de botones", "Boton de back");
-                Intent intent = new Intent(getBaseContext(), MenuActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 

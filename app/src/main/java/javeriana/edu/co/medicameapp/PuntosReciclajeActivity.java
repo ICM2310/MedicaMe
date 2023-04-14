@@ -25,8 +25,6 @@ public class PuntosReciclajeActivity extends AppCompatActivity {
 
                 Log.v("Boton Back mapa","Se uso el boton de retroceder de puntos de reciclaje en la actividad del mapa");
                 finish();
-                //Intent retornar = new Intent(getBaseContext(), DistribucionYReciclaje.class);
-                //startActivity(retornar);
             }
             
         });

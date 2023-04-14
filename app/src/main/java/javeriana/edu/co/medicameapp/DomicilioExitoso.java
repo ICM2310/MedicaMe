@@ -38,8 +38,7 @@ public class DomicilioExitoso extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Intent intentRetroceder = new Intent(getBaseContext(), ReservaMedicamento.class);
-                startActivity(intentRetroceder);
+                finish();
             }
         });
     }
