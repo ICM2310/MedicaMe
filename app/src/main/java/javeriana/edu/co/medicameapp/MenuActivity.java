@@ -3,9 +3,12 @@ package javeriana.edu.co.medicameapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import javeriana.edu.co.medicameapp.databinding.ActivityDistribucionYreciclajeBinding;
 import javeriana.edu.co.medicameapp.databinding.ActivityMainBinding;
@@ -27,6 +30,15 @@ public class MenuActivity extends AppCompatActivity {
                 Intent intent = new Intent(getBaseContext(), StepsActivity.class);
                 startActivity(intent);
 
+            }
+        });
+
+        binding.fotoPerfil.setClickable(true);
+        binding.fotoPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(getBaseContext(), FotoPerfilActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -72,5 +84,21 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updatePhoto();
+    }
+
+    public void updatePhoto(){
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        ImageView perfilImageView = binding.fotoPerfil;
+        String imagePath = sharedPreferences.getString("imagePath", "");
+        if (!imagePath.isEmpty()) {
+            Uri imageUri = Uri.parse(imagePath);
+            perfilImageView.setImageURI(imageUri);
+        }
     }
 }
