@@ -15,6 +15,23 @@
         android:theme="@style/Theme.MedicaMeApp"
         tools:targetApi="31">
         <activity
+            android:name=".FotoPerfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ConfirmacionEnvioRecetaActivity"
+            android:exported="false" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="javeriana.edu.co.medicameapp.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity
             android:name=".StepsActivity"
             android:exported="false" />
         <activity
