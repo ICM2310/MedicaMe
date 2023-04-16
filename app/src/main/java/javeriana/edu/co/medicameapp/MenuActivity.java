@@ -33,8 +33,8 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        binding.fotoPerfil.setClickable(true);
-        binding.fotoPerfil.setOnClickListener(new View.OnClickListener() {
+        binding.profile.setClickable(true);
+        binding.profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(getBaseContext(), FotoPerfilActivity.class);
@@ -94,7 +94,7 @@ public class MenuActivity extends AppCompatActivity {
 
     public void updatePhoto(){
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-        ImageView perfilImageView = binding.fotoPerfil;
+        ImageView perfilImageView = binding.profile;
         String imagePath = sharedPreferences.getString("imagePath", "");
         if (!imagePath.isEmpty()) {
             Uri imageUri = Uri.parse(imagePath);
