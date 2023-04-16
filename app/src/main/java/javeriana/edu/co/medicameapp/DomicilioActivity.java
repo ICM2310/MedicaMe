@@ -29,11 +29,11 @@ public class DomicilioActivity extends AppCompatActivity {
         });
         binding.imageButton2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
-                Log.i("Funcionamiento de botones", "Boton de back");
-                Intent intent = new Intent(getBaseContext(), MenuActivity.class);
-                startActivity(intent);
+            public void onClick(View view) {
+
+                Log.v("Boton Back domicilio","Se uso el boton de retroceder de domicilio a menu");
+                finish();
+
             }
         });
     }
