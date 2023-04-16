@@ -21,6 +21,14 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         binding = ActivityMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.steps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getBaseContext(), StepsActivity.class);
+                startActivity(intent);
+
+            }
+        });
 
         binding.layoutReceta.setClickable(true);
         binding.layoutReceta.setOnClickListener(new View.OnClickListener()

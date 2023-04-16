@@ -27,22 +27,22 @@
 
         />
 
+
     <ImageView
-        android:id="@+id/fingerPB"
+        android:id="@+id/profile"
         android:layout_width="100dp"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="30dp"
+        android:layout_marginEnd="28dp"
         android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toTopOf="@id/editTextTextPersonName2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+
+
         app:layout_constraintVertical_weight="1"
-        app:srcCompat="@drawable/foto_perfil"
-
-
-        />
-
+        app:srcCompat="@drawable/foto_perfil" />
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
@@ -67,6 +67,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_weight="0.8" />
+
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="0dp"
@@ -75,9 +76,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName2"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName2"
         app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName2"
-        app:srcCompat="@drawable/search_icon"
         app:layout_constraintVertical_weight="0.8"
-        />
+        app:srcCompat="@drawable/search_icon" />
 
     <TextView
         android:id="@+id/afiliado"
@@ -114,6 +114,7 @@
         app:srcCompat="@drawable/logoeps">
 
     </ImageView>
+
     <LinearLayout
         android:id="@+id/botonesMenu"
         android:layout_width="0dp"
@@ -234,10 +235,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.4"
                 android:fontFamily="@font/roboto_bold"
+                android:gravity="center"
                 android:padding="8dp"
                 android:text="Reserva de medicamentos"
                 android:textAlignment="center"
-                android:gravity="center"
                 android:textColor="#292685"
                 android:textSize="10sp" />
         </LinearLayout>
@@ -279,11 +280,24 @@
                 android:textSize="10sp"
 
 
-            />
+                />
         </LinearLayout>
 
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/steps"
+        android:layout_width="47dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="15dp"
+        android:clickable="true"
+        android:contentDescription="stepsactivity"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
+        app:layout_constraintEnd_toStartOf="@+id/profile"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/boot" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

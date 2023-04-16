@@ -7,7 +7,7 @@
     tools:context=".MenuActivity">
 
     <ImageView
-        android:id="@+id/fingerPB"
+        android:id="@+id/profile"
         android:layout_width="100dp"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
@@ -21,6 +21,19 @@
 
         />
 
+
+    <ImageView
+        android:id="@+id/steps"
+        android:layout_width="72dp"
+        android:layout_height="83dp"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:contentDescription="setpsactivity"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/boot" />
 
     <TextView
         android:id="@+id/textView2"
@@ -290,4 +303,5 @@
 />
         </LinearLayout>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
