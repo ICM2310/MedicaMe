@@ -42,7 +42,7 @@
 
 
         app:layout_constraintVertical_weight="1"
-        app:srcCompat="@drawable/foto_perfil" />
+        app:srcCompat="@drawable/defaultuserimageprofile" />
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
