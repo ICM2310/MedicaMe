@@ -43,15 +43,6 @@ class PuntosDeDistribucion : AppCompatActivity(), OnMapReadyCallback, OnMarkerCl
         }
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     override fun onMapReady(googleMap: GoogleMap)
     {
         mMap = googleMap
@@ -65,7 +56,7 @@ class PuntosDeDistribucion : AppCompatActivity(), OnMapReadyCallback, OnMarkerCl
         // Punto de distribucion de prueba
         val puntoDeDistribuccionPepito = LatLng( 4.694951, -74.039239)
         mMap.addMarker(MarkerOptions().position(puntoDeDistribuccionPepito).title("Drogueria Pepito").snippet("Carrera 12 # 115 - 22"))
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(puntoDeDistribuccionPepito, 15f))
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(puntoDeDistribuccionPepito, 14f))
 
         // Punto de distribucion de prueba
         val puntoDeDistribuccionUnicentro = LatLng( 4.701206, -74.040304)
@@ -74,6 +65,18 @@ class PuntosDeDistribucion : AppCompatActivity(), OnMapReadyCallback, OnMarkerCl
         // Punto de distribucion de prueba
         val puntoDeDistribuccionSantaBarbara = LatLng( 4.693421, -74.033028)
         mMap.addMarker(MarkerOptions().position(puntoDeDistribuccionSantaBarbara).title("Drogueria Santa Barbara").snippet("Carrera 7 # 115 - 60"))
+
+        // Punto de distribucion de prueba
+        val puntoDeDistribuccionJaveriana = LatLng( 4.627890, -74.064496)
+        mMap.addMarker(MarkerOptions().position(puntoDeDistribuccionJaveriana).title("Hospital San Ignacio").snippet("Carrera 7 # 40B - 36"))
+
+        // Punto de distribucion de prueba
+        val puntoDeDistribuccionAeropuerto = LatLng( 4.696788, -74.140506)
+        mMap.addMarker(MarkerOptions().position(puntoDeDistribuccionAeropuerto).title("Synlab El Dorado").snippet("Avenida El Dorado # 103 - 9"))
+
+        // Punto de distribucion de prueba
+        val puntoDeDistribuccionMendez = LatLng( 4.726437, -74.037911)
+        mMap.addMarker(MarkerOptions().position(puntoDeDistribuccionMendez).title("Drogueria Mendez").snippet("Calle 146 # 13 - 09"))
 
         // Listener para los marcadores
         mMap.setOnMarkerClickListener(this)
