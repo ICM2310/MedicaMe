@@ -13,7 +13,7 @@
         android:text="Foto de perfil"
         android:fontFamily="@font/roboto_bold"
         android:textColor="@color/boldTextColor"
-        android:textSize="26sp"
+        android:textSize="30sp"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,6 +34,8 @@
         android:id="@+id/alineacionBotones"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,23 +45,37 @@
             android:id="@+id/cambioFotoGaleriaButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cambiar foto de perfil desde galeria"
+            android:layout_margin="10dp"
+            android:text="Cambiar foto desde la galeria"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fotoPerfilPersona"
             android:layout_weight="1"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/rounded_background_green"
+            android:fontFamily="@font/roboto_bold"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="20sp"/>
 
         <Button
+            android:layout_margin="10dp"
             android:id="@+id/cambioFotoCamaraButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="cambiar foto de perfil desde camara"
+            android:text="Cambiar foto desde la camara"
             android:layout_weight="1"
             android:layout_marginRight="20dp"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/rounded_background_green"
+            android:fontFamily="@font/roboto_bold"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="20sp"/>
 
 
     </LinearLayout>
