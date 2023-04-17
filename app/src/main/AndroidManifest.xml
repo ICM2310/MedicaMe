@@ -64,9 +64,6 @@
             android:name=".ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".PuntosReciclajeActivity"
-            android:exported="false" />
-        <activity
             android:name=".DomicilioExitoso"
             android:exported="false" />
         <activity
