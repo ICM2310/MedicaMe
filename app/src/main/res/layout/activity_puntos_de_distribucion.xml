@@ -75,16 +75,33 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/map">
 
-            <TextView
-                android:id="@+id/puntoDeDistribucion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/boldTextColor"
-                android:layout_gravity="center"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="10"
-                android:gravity="center"
-                android:text="PONER AQUI EL PUNTO DE DISTRIBUCION" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/puntoDeDistribucion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="10"
+                    android:gravity="center"
+                    android:text="Selecciona un punto de distribucion"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/boldTextColor" />
+
+                <TextView
+                    android:id="@+id/direccionPuntoDeDistribucion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="10"
+                    android:gravity="center"
+                    android:text=""
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+            </LinearLayout>
 
             <ImageView
                 android:id="@+id/imageView2"

@@ -3,16 +3,19 @@ package javeriana.edu.co.medicameapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import javeriana.edu.co.medicameapp.databinding.ActivityPuntosDeDistribucionBinding
 
-class PuntosDeDistribucion : AppCompatActivity(), OnMapReadyCallback
+class PuntosDeDistribucion : AppCompatActivity(), OnMapReadyCallback, OnMarkerClickListener
 {
     private lateinit var mMap: GoogleMap
     private lateinit var bindingPuntosDeDistribucion: ActivityPuntosDeDistribucionBinding
@@ -71,5 +74,22 @@ class PuntosDeDistribucion : AppCompatActivity(), OnMapReadyCallback
         // Punto de distribucion de prueba
         val puntoDeDistribuccionSantaBarbara = LatLng( 4.693421, -74.033028)
         mMap.addMarker(MarkerOptions().position(puntoDeDistribuccionSantaBarbara).title("Drogueria Santa Barbara").snippet("Carrera 7 # 115 - 60"))
+
+        // Listener para los marcadores
+        mMap.setOnMarkerClickListener(this)
+    }
+
+    override fun onMarkerClick(marcador: Marker): Boolean
+    {
+        Log.i("Puntos de Distribucion", "Marcador presionado: " + marcador.title)
+
+        // Zoom al marcador
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(marcador.position, 16f))
+
+        // Texto del marcador seleccionado
+        bindingPuntosDeDistribucion.puntoDeDistribucion.text = marcador.title
+        bindingPuntosDeDistribucion.direccionPuntoDeDistribucion.text = marcador.snippet
+
+        return true
     }
 }
