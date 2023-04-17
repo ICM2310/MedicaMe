@@ -54,29 +54,29 @@ class PuntosDeDistribucion : AppCompatActivity(), OnMapReadyCallback, OnMarkerCl
         mMap.uiSettings.isZoomControlsEnabled = true
 
         // Punto de distribucion de prueba
-        val puntoDeDistribuccionPepito = LatLng( 4.694951, -74.039239)
-        mMap.addMarker(MarkerOptions().position(puntoDeDistribuccionPepito).title("Drogueria Pepito").snippet("Carrera 12 # 115 - 22"))
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(puntoDeDistribuccionPepito, 14f))
+        val puntoDeDistribucionPepito = LatLng( 4.694951, -74.039239)
+        mMap.addMarker(MarkerOptions().position(puntoDeDistribucionPepito).title("Drogueria Pepito").snippet("Carrera 12 # 115 - 22"))
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(puntoDeDistribucionPepito, 14f))
 
         // Punto de distribucion de prueba
-        val puntoDeDistribuccionUnicentro = LatLng( 4.701206, -74.040304)
-        mMap.addMarker(MarkerOptions().position(puntoDeDistribuccionUnicentro).title("Drogueria Unicentro").snippet("Carrera 15 # 124 - 30"))
+        val puntoDeDistribucionUnicentro = LatLng( 4.701206, -74.040304)
+        mMap.addMarker(MarkerOptions().position(puntoDeDistribucionUnicentro).title("Drogueria Unicentro").snippet("Carrera 15 # 124 - 30"))
 
         // Punto de distribucion de prueba
-        val puntoDeDistribuccionSantaBarbara = LatLng( 4.693421, -74.033028)
-        mMap.addMarker(MarkerOptions().position(puntoDeDistribuccionSantaBarbara).title("Drogueria Santa Barbara").snippet("Carrera 7 # 115 - 60"))
+        val puntoDeDistribucionSantaBarbara = LatLng( 4.693421, -74.033028)
+        mMap.addMarker(MarkerOptions().position(puntoDeDistribucionSantaBarbara).title("Drogueria Santa Barbara").snippet("Carrera 7 # 115 - 60"))
 
         // Punto de distribucion de prueba
-        val puntoDeDistribuccionJaveriana = LatLng( 4.627890, -74.064496)
-        mMap.addMarker(MarkerOptions().position(puntoDeDistribuccionJaveriana).title("Hospital San Ignacio").snippet("Carrera 7 # 40B - 36"))
+        val puntoDeDistribucionJaveriana = LatLng( 4.627890, -74.064496)
+        mMap.addMarker(MarkerOptions().position(puntoDeDistribucionJaveriana).title("Hospital San Ignacio").snippet("Carrera 7 # 40B - 36"))
 
         // Punto de distribucion de prueba
-        val puntoDeDistribuccionAeropuerto = LatLng( 4.696788, -74.140506)
-        mMap.addMarker(MarkerOptions().position(puntoDeDistribuccionAeropuerto).title("Synlab El Dorado").snippet("Avenida El Dorado # 103 - 9"))
+        val puntoDeDistribucionAeropuerto = LatLng( 4.696788, -74.140506)
+        mMap.addMarker(MarkerOptions().position(puntoDeDistribucionAeropuerto).title("Synlab El Dorado").snippet("Avenida El Dorado # 103 - 9"))
 
         // Punto de distribucion de prueba
-        val puntoDeDistribuccionMendez = LatLng( 4.726437, -74.037911)
-        mMap.addMarker(MarkerOptions().position(puntoDeDistribuccionMendez).title("Drogueria Mendez").snippet("Calle 146 # 13 - 09"))
+        val puntoDeDistribucionMendez = LatLng( 4.726437, -74.037911)
+        mMap.addMarker(MarkerOptions().position(puntoDeDistribucionMendez).title("Drogueria Mendez").snippet("Calle 146 # 13 - 09"))
 
         // Listener para los marcadores
         mMap.setOnMarkerClickListener(this)
