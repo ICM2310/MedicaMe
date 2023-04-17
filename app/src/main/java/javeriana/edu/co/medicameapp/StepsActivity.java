@@ -23,6 +23,7 @@ public class StepsActivity extends AppCompatActivity implements SensorEventListe
     private SensorManager sensorManager;
     private Sensor accelerometerSensor, gyroscopeSensor;
     private long lastTimestamp = 0;
+    long lastStepTime = 0;
     private float[] accelerometerReading = new float[3];
     private float[] gyroscopeReading = new float[3];
     private TextView stepCounterTextView;
@@ -82,8 +83,10 @@ public class StepsActivity extends AppCompatActivity implements SensorEventListe
     }
 
     private void calculateStepCount() {
-        final float STEP_THRESHOLD = 10f;
-        final float ALPHA = 0.98f;//+ ->Menos Sensible - -> Mas sensible
+        final float PITCH_THRESHOLD = 8f;
+        final float ACCEL_THRESHOLD = 5f;
+        final float ALPHA = 0.9f;
+        final long TIME_THRESHOLD = 800; // time threshold in milliseconds
 
         float[] rotationMatrix = new float[9];
         float[] orientationAngles = new float[3];
@@ -95,16 +98,31 @@ public class StepsActivity extends AppCompatActivity implements SensorEventListe
         pitch = ALPHA * pitch + (1 - ALPHA) * lastPitch;
         lastPitch = pitch;
 
-        if (pitch > STEP_THRESHOLD && !isStepCountingStarted) {
-            isStepCountingStarted = true;
-            stepCount++;
-        } else if (pitch < STEP_THRESHOLD && isStepCountingStarted) {
+        long currentTime = System.currentTimeMillis();
+
+        float accelMagnitude = (float) Math.sqrt(
+                Math.pow(accelerometerReading[0], 2) +
+                        Math.pow(accelerometerReading[1], 2) +
+                        Math.pow(accelerometerReading[2], 2)
+        );
+
+        if (pitch > PITCH_THRESHOLD && accelMagnitude > ACCEL_THRESHOLD && !isStepCountingStarted) {
+            if (currentTime - lastStepTime > TIME_THRESHOLD) {
+                isStepCountingStarted = true;
+                stepCount++;
+                lastStepTime = currentTime;
+            }
+        } else if ((pitch < PITCH_THRESHOLD || accelMagnitude < ACCEL_THRESHOLD) && isStepCountingStarted) {
             isStepCountingStarted = false;
         }
 
         // Update the step count TextView
         bindingSteps.stepCounterTextView.setText(String.valueOf(stepCount));
     }
+
+
+
+
     private void initializeSensors() {
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         accelerometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -113,6 +131,7 @@ public class StepsActivity extends AppCompatActivity implements SensorEventListe
             Toast.makeText(this, "This device does not have the required sensors.", Toast.LENGTH_LONG).show();
             finish();
         }
+        lastStepTime = System.currentTimeMillis();
     }
 }
 
