@@ -120,7 +120,7 @@ public class Autenticacion extends AppCompatActivity
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         // Automatically sign in if user is authenticated.
-        // updateUI(currentUser);
+        updateUI(currentUser);
     }
 
     private void updateUI(FirebaseUser currentUser){
@@ -163,14 +163,14 @@ public class Autenticacion extends AppCompatActivity
         boolean valid = true;
         String email = bindingAutenticacion.correoInput.getText().toString();
         if (TextUtils.isEmpty(email)) {
-            bindingAutenticacion.correoInput.setError("Required.");
+            bindingAutenticacion.correoInput.setError("Se necesita que ingrese su correo.");
             valid = false;
         } else {
             bindingAutenticacion.correoInput.setError(null);
         }
         String password = bindingAutenticacion.contrasenaInput.getText().toString();
         if (TextUtils.isEmpty(password)) {
-            bindingAutenticacion.contrasenaInput.setError("Required.");
+            bindingAutenticacion.contrasenaInput.setError("Se necesita que ingrese su contrasena.");
             valid = false;
         } else {
             bindingAutenticacion.contrasenaInput.setError(null);

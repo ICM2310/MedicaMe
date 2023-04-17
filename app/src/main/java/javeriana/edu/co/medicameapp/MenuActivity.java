@@ -9,6 +9,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import javeriana.edu.co.medicameapp.databinding.ActivityDistribucionYreciclajeBinding;
 import javeriana.edu.co.medicameapp.databinding.ActivityMainBinding;
@@ -17,6 +21,10 @@ import javeriana.edu.co.medicameapp.databinding.ActivityMenuBinding;
 public class MenuActivity extends AppCompatActivity {
 
     ActivityMenuBinding binding;
+
+    // Firebase Auth
+    private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +92,30 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+
+        // Firebase log out
+        binding.logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAuth.signOut();
+                Toast.makeText(MenuActivity.this, "Sesion cerrada exitosamente.", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+
     }
+
+    // FirebaseAuth Stuff
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        // Auth Init
+        mAuth = FirebaseAuth.getInstance();
+    }
+
+
+    // PhotoStuff
 
     @Override
     protected void onResume() {

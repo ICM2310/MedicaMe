@@ -286,7 +286,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/steps"
+        android:id="@+id/logOut"
         android:layout_width="47dp"
         android:layout_height="52dp"
         android:layout_marginTop="22dp"
@@ -297,7 +297,23 @@
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
         app:layout_constraintEnd_toStartOf="@+id/profile"
         app:layout_constraintTop_toTopOf="parent"
+        app:tint="@android:color/darker_gray"
+        app:srcCompat="@drawable/logout" />
+
+    <ImageView
+        android:id="@+id/steps"
+        android:layout_width="47dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="15dp"
+        android:clickable="true"
+        android:contentDescription="stepsactivity"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
+        app:layout_constraintEnd_toStartOf="@+id/logOut"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/boot" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
