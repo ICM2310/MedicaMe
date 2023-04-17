@@ -40,7 +40,7 @@ public class DistribucionYReciclaje extends AppCompatActivity
             public void onClick(View view)
             {
                 Log.i("Funcionamiento de botones", "Boton de puntos de distribucion");
-                Intent intent = new Intent(getBaseContext(), PuntosDistribucion.class);
+                Intent intent = new Intent(getBaseContext(), PuntosDeDistribucion.class);
                 startActivity(intent);
             }
         });

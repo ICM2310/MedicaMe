@@ -12,6 +12,11 @@
     <string name="InstruccionesSecundariasDistribucionYReciclaje">Seleccione la opción correspondiente a lo que quiere visualizar en el mapa.</string>
     <string name="PuntosDeDistribucionDistribucionYReciclaje">Puntos de Distribución</string>
     <string name="PuntosDeReciclajeDistribucionYReciclaje">Puntos de Reciclaje</string>
+
+    <string name="IntruccionesInicialesPuntosDeDistribucion">Puntos de distribución para el medicamento seleccionado</string>
+    <string name="IntruccionesSecundariasPuntosDeDistribucion">Seleccione en el nombre de la entidad si quiere comunicarse por chat.</string>
+
+
     <string name="medicame">MedicaMe</string>
     <string name="tu_aliado_f">Tu aliado farmacologico</string>
     <string name="unete">Iniciar !</string>
@@ -23,4 +28,5 @@
     <string name="ReservaMedicamento">Selecciona los medicamentos que deseas reservar</string>
     <string name="ReservaExitosa">Sus medicamentos se reservaron correctamente</string>
     <string name="DomicilioExitoso">Sus medicamentos están en camino</string>
+    <string name="title_activity_puntos_de_distribucion">PuntosDeDistribucion</string>
 </resources>
