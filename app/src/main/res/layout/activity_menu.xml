@@ -17,15 +17,13 @@
         app:layout_constraintBottom_toTopOf="@id/editTextTextPersonName2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_weight="1.5"
-
-        />
+        app:layout_constraintVertical_weight="1.5" />
 
 
     <ImageView
         android:id="@+id/steps"
-        android:layout_width="72dp"
-        android:layout_height="83dp"
+        android:layout_width="57dp"
+        android:layout_height="65dp"
         android:layout_marginEnd="16dp"
         android:clickable="true"
         android:contentDescription="setpsactivity"
@@ -35,6 +33,21 @@
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/boot" />
 
+    <ImageView
+        android:id="@+id/logOut"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:clickable="true"
+        android:layout_marginTop="35dp"
+        android:contentDescription="logOut"
+        app:layout_constraintBottom_toTopOf="@+id/profile"
+        app:layout_constraintEnd_toStartOf="@+id/profile"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.24"
+        app:srcCompat="@drawable/logout"
+        app:tint="@android:color/darker_gray"
+        tools:layout_editor_absoluteX="163dp" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="190dp"
@@ -43,7 +56,6 @@
         android:layout_marginTop="20dp"
         android:fontFamily="@font/roboto_bold"
         android:letterSpacing="0.02"
-
         android:paddingRight="60dp"
         android:paddingBottom="10dp"
         android:text="Bienvenido,\nCarlos Andrés\nID 1044613636"
@@ -52,9 +64,8 @@
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_weight="1.5"
+        app:layout_constraintVertical_weight="1.5" />
 
-        />
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
