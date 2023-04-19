@@ -32,8 +32,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
 
-        <meta-data android:name="API_KEY_ROUTES" android:value="${API_KEY_ROUTES}" />
-
         <activity
             android:name=".DomiciliooActivity"
             android:exported="false"
