@@ -104,7 +104,7 @@ public class Registro extends AppCompatActivity
                                 }
                             }
                             if (!task.isSuccessful()) {
-                                Toast.makeText(Registro.this, "Intentelo de nuevo con otras credenciales de correo",
+                                Toast.makeText(Registro.this, "Correo en uso. Intentelo de nuevo con otras credenciales de correo",
                                         Toast.LENGTH_LONG).show();
                                 Log.e("REGISTER", task.getException().getMessage());
 
