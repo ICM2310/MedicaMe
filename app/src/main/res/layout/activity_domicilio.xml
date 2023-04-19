@@ -7,7 +7,7 @@
     tools:context=".DomicilioActivity">
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/backButton"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginLeft="20dp"
@@ -52,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+        app:layout_constraintTop_toBottomOf="@+id/backButton"
         app:layout_constraintVertical_weight="0.6" />
 
     <ImageView

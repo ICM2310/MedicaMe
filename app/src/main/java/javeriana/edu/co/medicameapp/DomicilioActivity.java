@@ -27,7 +27,7 @@ public class DomicilioActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        binding.imageButton2.setOnClickListener(new View.OnClickListener() {
+        binding.backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

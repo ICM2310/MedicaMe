@@ -33,4 +33,7 @@
     <string name="title_activity_puntos_de_distribucion">PuntosDeDistribucion</string>
     <string name="title_activity_puntos_de_reciclaje">PuntosDeReciclaje</string>
     <string name="title_activity_domicilioo">DomiciliooActivity</string>
+    <string name="TituloSolicitudDomicilio">Solicitud de domicilio</string>
+    <string name="IntruccionesSecundariasDomicilio">Ingrese en la barra de búsqueda el lugar a dónde quiere que llegue su domicilio.</string>
+
 </resources>
