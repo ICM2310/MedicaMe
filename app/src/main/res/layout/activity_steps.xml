@@ -5,17 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".StepsActivity">
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="Contador de pasos"
+        android:textColor="@color/buttonUneteColor"
+        android:textSize="48dp"
+        android:textStyle="bold|italic" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/boot" />
+        android:layout_height="300dp"
+        android:padding="5dp"
+        app:srcCompat="@drawable/sneakers" />
 
     <TextView
         android:id="@+id/stepCounterTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="Pasos"
+        android:textSize="48dp"
+        android:textStyle="bold" />
+
 </LinearLayout>
