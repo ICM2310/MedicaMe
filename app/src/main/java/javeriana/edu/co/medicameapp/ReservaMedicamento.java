@@ -30,7 +30,7 @@ public class ReservaMedicamento extends AppCompatActivity {
         binding.buttonSolicitarDomicilio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(), DomicilioExitoso.class);
+                Intent intent = new Intent(getBaseContext(), DomicilioExitosoMap.class);
                 startActivity(intent);
             }
         });

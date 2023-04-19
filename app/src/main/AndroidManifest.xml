@@ -35,6 +35,10 @@
             android:value="${MAPS_API_KEY}" />
 
         <activity
+            android:name=".DomicilioExitosoMap"
+            android:exported="false"
+            android:label="@string/title_activity_domicilio_exitoso_map" />
+        <activity
             android:name=".ReservaExitosaa"
             android:exported="false"
             android:label="@string/title_activity_reserva_exitosaa" />
