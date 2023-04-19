@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="15dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/bButtonDomicilio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/iconback"
+            android:contentDescription="Retornar"
+            android:minWidth="48dp"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/InstruccionInicialDomicilio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/IntruccionesInicialesPuntosDeReciclaje"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="26sp"
+            app:layout_constraintBottom_toTopOf="@+id/InstruccionSecundariaPuntoDeReciclaje"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bButtonDomicilio" />
+
+        <TextView
+            android:id="@+id/InstruccionSecundariaDomicilio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/IntruccionesSecundariasPuntosDeReciclaje"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/InstruccionInicialDomicilio" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="380dp"
+            android:layout_height="34dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/map"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/InstruccionSecundariaDomicilio">
+
+            <EditText
+                android:id="@+id/destino"
+                android:layout_width="316dp"
+                android:layout_height="match_parent"
+
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+
+                android:background="@drawable/rounded_background_green"
+                android:drawableLeft="@drawable/ubicationicon"
+                android:drawablePadding="10dp"
+
+
+                android:elevation="11dp"
+                android:fontFamily="@font/roboto_bold"
+                android:hint="Destino"
+                android:letterSpacing="0.04"
+                android:lineHeight="16sp"
+                android:paddingLeft="10dp"
+                android:textColorHint="#7E7C7C"
+                android:textFontWeight="700"
+                android:textSize="14sp"
+                app:circularflow_radiusInDP="15dp"
+                tools:layout_weight="1" />
+
+            <Button
+                android:id="@+id/buscarDestinoButton"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:background="@drawable/search_icon" />
+        </LinearLayout>
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="380dp"
+            android:layout_height="325dp"
+            app:layout_constraintBottom_toTopOf="@+id/Medicamentos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+            tools:context=".DomiciliooActivity"></fragment>
+
+        <TextView
+            android:id="@+id/Medicamentos"
+            android:layout_width="337dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_frame_layout"
+            android:elevation="11dp"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:lineHeight="23sp"
+            android:text="Medicamentos"
+            android:textAlignment="center"
+            android:textColor="#292685"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/listaMedicamentos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/map" />
+
+        <HorizontalScrollView
+            android:id="@+id/listaMedicamentos"
+            android:layout_width="381dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="24dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/buttonSolicitarDomicilio"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Medicamentos">
+
+            <LinearLayout
+                android:id="@+id/medHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:id="@+id/acetaminofem"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        app:srcCompat="@drawable/acetaminofem">
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.3"
+                        android:fontFamily="@font/roboto_bold"
+                        android:gravity="center"
+                        android:text="Acetaminofem"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10sp"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/acidoAscorbico"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        app:srcCompat="@drawable/acido_ascorbico">
+
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.3"
+                        android:fontFamily="@font/roboto_bold"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="Acido ascorbico"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10sp"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cetirizina"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        app:srcCompat="@drawable/cetirizina"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.3"
+                        android:fontFamily="@font/roboto_bold"
+                        android:gravity="center"
+                        android:text="Cetirizina"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10sp"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/amoxacilina"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        app:srcCompat="@drawable/amoxacilina"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.3"
+                        android:fontFamily="@font/roboto_bold"
+                        android:gravity="center"
+                        android:text="Amoxacilina"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10sp"></TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/losartan"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        app:srcCompat="@drawable/losartan"></ImageView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.3"
+                        android:fontFamily="@font/roboto_bold"
+                        android:gravity="center"
+                        android:text="Losartan"
+                        android:textAlignment="center"
+                        android:textColor="#000000"
+                        android:textSize="10sp"></TextView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <Button
+            android:id="@+id/buttonSolicitarDomicilio"
+            android:layout_width="301dp"
+            android:layout_height="58dp"
+            android:background="@drawable/rounded_background_green"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Solicitar domicilio"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/listaMedicamentos" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

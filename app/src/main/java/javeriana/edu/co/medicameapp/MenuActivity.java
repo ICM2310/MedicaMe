@@ -87,7 +87,7 @@ public class MenuActivity extends AppCompatActivity {
         binding.layoutDomicilio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(), DomicilioActivity.class);
+                Intent intent = new Intent(getBaseContext(), DomiciliooActivity.class);
                 startActivity(intent);
             }
         });
