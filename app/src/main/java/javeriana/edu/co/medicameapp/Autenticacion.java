@@ -27,6 +27,18 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.ArrayList;
 import java.util.concurrent.Executor;
 
 import javeriana.edu.co.medicameapp.databinding.ActivityAutenticacionBinding;
@@ -107,6 +119,8 @@ public class Autenticacion extends AppCompatActivity
         });
 
 
+        // If the user was logged in... get it to the menu
+        // onStartInit();
     }
 
 
@@ -120,17 +134,27 @@ public class Autenticacion extends AppCompatActivity
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         // Automatically sign in if user is authenticated.
+        Log.i("updateUI", "Entered:success");
+        // updateUI(currentUser);
+    }
+
+    public void onStartInit(){
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        // Automatically sign in if user is authenticated.
+        Log.i("updateUI", "Entered:success");
         updateUI(currentUser);
     }
 
     private void updateUI(FirebaseUser currentUser){
         if(currentUser!=null){
             Intent intent = new Intent(getBaseContext(), MenuActivity.class);
-            intent.putExtra("user", currentUser.getEmail());
             startActivity(intent);
+            Log.i("startActivity", "Entered:success");
         } else {
             bindingAutenticacion.correoInput.setText("");
             bindingAutenticacion.contrasenaInput.setText("");
+            Log.i("else", "Entered:success");
         }
     }
 
@@ -146,6 +170,10 @@ public class Autenticacion extends AppCompatActivity
                                 Toast.makeText(Autenticacion.this, "Autenticacion exitosa.",
                                         Toast.LENGTH_SHORT).show();
                                 FirebaseUser user = mAuth.getCurrentUser();
+
+                                // Escribir el archivo con los datos de AUTH
+                                writeJSONAuth();
+
                                 updateUI(user);
                             } else {
                                 // If sign in fails, display a message to the user.
@@ -178,6 +206,84 @@ public class Autenticacion extends AppCompatActivity
         return valid;
     }
 
+    // Se sobreescribe el archivo para guardar la info del ultimo log in
+    public void writeJSONAuth() {
+        String email = bindingAutenticacion.correoInput.getText().toString();
+        String password = bindingAutenticacion.contrasenaInput.getText().toString();
+        Writer output = null;
+        String filename = "login_credentials.json";
+        try {
+            File file = new File(getBaseContext().getExternalFilesDir(null), filename);
+            Log.i("LOCATION", "Ubicacion de archivo: " + file);
+            output = new BufferedWriter(new FileWriter(file, false)); // Use NO append mode, with false. (OVERWRITE)
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("email", email);
+            jsonObject.put("password", password);
+            output.write(jsonObject.toString() + ",\n"); // Append the new entry to the existing file
+            output.close();
+            Toast.makeText(getApplicationContext(), "Credentials saved", Toast.LENGTH_LONG).show();
+            Log.i("CREDENTIALS_SAVED. JSON... ", jsonObject.toString());
+        } catch (Exception e) {
+            //Log error
+        }
+    }
+
+    // Lee el archivo.
+    public LoginCredentials readJSONCredentials() throws JSONException {
+        LoginCredentials credentials = null;
+
+        String filename = "login_credentials.json";
+        File file = new File(getBaseContext().getExternalFilesDir(null), filename);
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.startsWith("{") && line.endsWith("},")) {
+                    line = line.substring(1, line.length() - 2); // Remove leading and trailing braces and comma
+                    String[] parts = line.split(",");
+                    String email = null;
+                    String password = null;
+                    for (String part : parts) {
+                        String[] keyValue = part.split(":");
+                        if (keyValue.length == 2) {
+                            String key = keyValue[0].trim().replaceAll("\"", "");
+                            String value = keyValue[1].trim().replaceAll("\"", "");
+                            if (key.equals("email")) {
+                                email = value;
+                            } else if (key.equals("password")) {
+                                password = value;
+                            }
+                        }
+                    }
+                    if (email != null && password != null) {
+                        credentials = new LoginCredentials(email, password);
+                        break; // Stop reading the file once a credential is found
+                    }
+                }
+            }
+
+            if (credentials != null) {
+                Log.i("JSON FILE READ - CREDENTIAL.", "The JSON FILE WITH CREDENTIAL INFO HAS BEEN READ");
+                Log.i("JSON FILE READ - CREDENTIAL.", "Credential from file: " + credentials);
+                System.out.println("Credential from file: " + credentials);
+            } else {
+                Log.i("JSON FILE READ - CREDENTIAL.", "No credentials found in the JSON file");
+            }
+
+        } catch (FileNotFoundException e) {
+            Log.i("JSON FILE READ ERROR - CREDENTIAL.", "The JSON FILE WITH CREDENTIAL INFO COULD NOT BE READ");
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            Log.i("JSON FILE READ ERROR - CREDENTIAL.", "The JSON FILE WITH CREDENTIAL INFO COULD NOT BE READ");
+            throw new RuntimeException(e);
+        }
+
+        return credentials;
+    }
+
+
+
+
 
 
 
@@ -194,8 +300,36 @@ public class Autenticacion extends AppCompatActivity
         @Override
         public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {
             super.onAuthenticationSucceeded(result);
-            notifyUser("Authentication Success!");
-            startActivity(new Intent(getBaseContext(), MenuActivity.class));
+
+            LoginCredentials credentials = null;
+            try {
+                credentials = readJSONCredentials();
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
+
+
+            if (credentials != null) {
+                // Se procede a leer el archivo con los datos de la ultima Auth.
+                String correoRecibido = credentials.getEmail();
+                String contrasenaRecibida = credentials.getPassword();
+
+                Log.i("Correo electronico del archivo = ", correoRecibido);
+                Log.i("Contrasena del archivo = ", contrasenaRecibida);
+
+                notifyUser("Authentication Success!");
+
+                bindingAutenticacion.correoInput.setText(correoRecibido);
+                bindingAutenticacion.contrasenaInput.setText(contrasenaRecibida);
+
+                signInUser(bindingAutenticacion.correoInput.getText().toString(), bindingAutenticacion.contrasenaInput.getText().toString());
+            }
+            else{
+                // Si no habian credenciales en el archivo, avisar.
+                Toast.makeText(getBaseContext(), "No se han detectado sesiones previas. Ingrese sus datos", Toast.LENGTH_LONG).show();
+            }
+
+            // startActivity(new Intent(getBaseContext(), MenuActivity.class));
         }
     };
 
