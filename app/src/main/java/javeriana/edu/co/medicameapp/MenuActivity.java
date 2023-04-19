@@ -99,10 +99,14 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 mAuth.signOut();
                 Toast.makeText(MenuActivity.this, "Sesion cerrada exitosamente.", Toast.LENGTH_SHORT).show();
-                finish();
+
+                // No se usa finish porque si el usuario viene del registro, no queremos que vuelva ahi.
+                Intent intent = new Intent(getBaseContext(), Autenticacion.class);
+                startActivity(intent);
             }
         });
 
+        updateNameAndID();
     }
 
     // FirebaseAuth Stuff
@@ -112,6 +116,27 @@ public class MenuActivity extends AppCompatActivity {
 
         // Auth Init
         mAuth = FirebaseAuth.getInstance();
+    }
+
+    public void updateNameAndID(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String displayName = user.getDisplayName();
+
+        Log.d("REGISTER - AUTH", "setDisplayName:" + displayName);
+
+        // Format xxx xxx xxx;123
+        // String[] parts = displayName.split(";");
+        // String name = parts[0];
+        // String id = parts[1];
+
+        if (displayName != null) {
+            String[] parts = displayName.split(";");
+            String name = parts[0];
+            String id = parts[1];
+
+            // binding.textView2.setText("Bienvenido,\n" + displayName);
+            binding.textView2.setText("Bienvenido,\n" + name + "\nID " + id);
+        }
     }
 
 
