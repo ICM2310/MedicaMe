@@ -22,7 +22,7 @@ public class ReservaMedicamento extends AppCompatActivity {
         binding.buttonSolicitarReserva.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(), ReservaExitosa.class);
+                Intent intent = new Intent(getBaseContext(), ReservaExitosaa.class);
                 startActivity(intent);
             }
         });

@@ -35,5 +35,6 @@
     <string name="title_activity_domicilioo">DomiciliooActivity</string>
     <string name="TituloSolicitudDomicilio">Solicitud de domicilio</string>
     <string name="IntruccionesSecundariasDomicilio">Ingrese en la barra de búsqueda el lugar a dónde quiere que llegue su domicilio.</string>
+    <string name="title_activity_reserva_exitosaa">ReservaExitosaa</string>
 
 </resources>
