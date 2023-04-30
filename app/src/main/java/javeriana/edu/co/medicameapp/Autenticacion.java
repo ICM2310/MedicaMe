@@ -274,9 +274,9 @@ public class Autenticacion extends AppCompatActivity
         public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {
             super.onAuthenticationSucceeded(result);
 
-            LoginCredentials credentials = null;
+            LoginCredentials credentials = loadEncryptedCredentials();
             try {
-                LoginCredentials credentials = loadEncryptedCredentials();
+               credentials = readJSONCredentials();
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
