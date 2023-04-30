@@ -79,6 +79,7 @@ public class Autenticacion extends AppCompatActivity
                 Log.i("Correo electronico", correoRecibido);
                 Log.i("Contrasena", contrasenaRecibida);
 
+                saveEncryptedCredentials(bindingAutenticacion.correoInput.getText().toString(), bindingAutenticacion.contrasenaInput.getText().toString());
                 signInUser(bindingAutenticacion.correoInput.getText().toString(), bindingAutenticacion.contrasenaInput.getText().toString());
 
                 // Llamar a la otra interfaz
@@ -207,84 +208,56 @@ public class Autenticacion extends AppCompatActivity
     }
 
     // Se sobreescribe el archivo para guardar la info del ultimo log in
-    public void writeJSONAuth() {
-        String email = bindingAutenticacion.correoInput.getText().toString();
-        String password = bindingAutenticacion.contrasenaInput.getText().toString();
-        Writer output = null;
-        String filename = "login_credentials.json";
-        try {
-            File file = new File(getBaseContext().getExternalFilesDir(null), filename);
-            Log.i("LOCATION", "Ubicacion de archivo: " + file);
-            output = new BufferedWriter(new FileWriter(file, false)); // Use NO append mode, with false. (OVERWRITE)
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("email", email);
-            jsonObject.put("password", password);
-            output.write(jsonObject.toString() + ",\n"); // Append the new entry to the existing file
-            output.close();
-            Toast.makeText(getApplicationContext(), "Credentials saved", Toast.LENGTH_LONG).show();
-            Log.i("CREDENTIALS_SAVED. JSON... ", jsonObject.toString());
-        } catch (Exception e) {
-            //Log error
-        }
-    }
+    private void saveEncryptedCredentials(String email, String password) {
+    try {
+        KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+        keyStore.load(null);
+        SecretKey secretKey = (SecretKey) keyStore.getKey("YourKeyAlias", null);
+        Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+        cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+        byte[] encryptedPassword = cipher.doFinal(password.getBytes(StandardCharsets.UTF_8));
+        String encryptedPasswordBase64 = Base64.encodeToString(encryptedPassword, Base64.DEFAULT);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("credentials", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("email", email);
+        editor.putString("encrypted_password", encryptedPasswordBase64);
+        editor.putString("encryption_iv", Base64.encodeToString(cipher.getIV(), Base64.DEFAULT));
+        editor.apply();
+
+    } catch (Exception e) {
+        Log.e("Error", "Error saving encrypted credentials", e);
+    }
+}
     // Lee el archivo.
-    public LoginCredentials readJSONCredentials() throws JSONException {
-        LoginCredentials credentials = null;
+    private LoginCredentials loadEncryptedCredentials() {
+    try {
+        SharedPreferences sharedPreferences = getSharedPreferences("credentials", MODE_PRIVATE);
+        String email = sharedPreferences.getString("email", null);
+        String encryptedPasswordBase64 = sharedPreferences.getString("encrypted_password", null);
+        String encryptionIvBase64 = sharedPreferences.getString("encryption_iv", null);
 
-        String filename = "login_credentials.json";
-        File file = new File(getBaseContext().getExternalFilesDir(null), filename);
+        if (email != null && encryptedPasswordBase64 != null && encryptionIvBase64 != null) {
+            byte[] encryptedPassword = Base64.decode(encryptedPasswordBase64, Base64.DEFAULT);
+            byte[] encryptionIv = Base64.decode(encryptionIvBase64, Base64.DEFAULT);
 
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                if (line.startsWith("{") && line.endsWith("},")) {
-                    line = line.substring(1, line.length() - 2); // Remove leading and trailing braces and comma
-                    String[] parts = line.split(",");
-                    String email = null;
-                    String password = null;
-                    for (String part : parts) {
-                        String[] keyValue = part.split(":");
-                        if (keyValue.length == 2) {
-                            String key = keyValue[0].trim().replaceAll("\"", "");
-                            String value = keyValue[1].trim().replaceAll("\"", "");
-                            if (key.equals("email")) {
-                                email = value;
-                            } else if (key.equals("password")) {
-                                password = value;
-                            }
-                        }
-                    }
-                    if (email != null && password != null) {
-                        credentials = new LoginCredentials(email, password);
-                        break; // Stop reading the file once a credential is found
-                    }
-                }
-            }
+            KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+            keyStore.load(null);
+            SecretKey secretKey = (SecretKey) keyStore.getKey("YourKeyAlias", null);
+            Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+            cipher.init(Cipher.DECRYPT_MODE, secretKey, new GCMParameterSpec(128, encryptionIv));
+            byte[] decryptedPasswordBytes = cipher.doFinal(encryptedPassword);
+            String password = new String(decryptedPasswordBytes, StandardCharsets.UTF_8);
 
-            if (credentials != null) {
-                Log.i("JSON FILE READ - CREDENTIAL.", "The JSON FILE WITH CREDENTIAL INFO HAS BEEN READ");
-                Log.i("JSON FILE READ - CREDENTIAL.", "Credential from file: " + credentials);
-                System.out.println("Credential from file: " + credentials);
-            } else {
-                Log.i("JSON FILE READ - CREDENTIAL.", "No credentials found in the JSON file");
-            }
-
-        } catch (FileNotFoundException e) {
-            Log.i("JSON FILE READ ERROR - CREDENTIAL.", "The JSON FILE WITH CREDENTIAL INFO COULD NOT BE READ");
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            Log.i("JSON FILE READ ERROR - CREDENTIAL.", "The JSON FILE WITH CREDENTIAL INFO COULD NOT BE READ");
-            throw new RuntimeException(e);
+            return new LoginCredentials(email, password);
+        } else {
+            return null;
         }
-
-        return credentials;
+    } catch (Exception e) {
+        Log.e("Error", "Error loading encrypted credentials", e);
+        return null;
     }
-
-
-
-
-
+}
 
 
 
@@ -303,7 +276,7 @@ public class Autenticacion extends AppCompatActivity
 
             LoginCredentials credentials = null;
             try {
-                credentials = readJSONCredentials();
+                LoginCredentials credentials = loadEncryptedCredentials();
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
