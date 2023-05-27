@@ -52,7 +52,7 @@
             android:layout_height="42dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/rounded_edit_text"
-            android:hint="Correo Electronico"
+            android:hint="Correo Electrónico"
             android:padding="10dp" />
 
         <EditText
@@ -61,7 +61,7 @@
             android:layout_height="42dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/rounded_edit_text"
-            android:hint="Contrasena"
+            android:hint="Contraseña"
             android:padding="10dp" />
 
         <!-- Pasar esto a un ComboBox con el nombre de las EPS-->
@@ -79,7 +79,7 @@
             android:layout_width="331dp"
             android:layout_height="42dp"
             android:background="@drawable/rounded_edit_text"
-            android:hint="Numero de identificación"
+            android:hint="Número de identificación"
             android:padding="10dp" />
     </LinearLayout>
 

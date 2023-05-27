@@ -20,12 +20,12 @@
     <string name="IntruccionesSecundariasPuntosDeReciclaje">Seleccione el punto de reciclaje del que desea obtener información.</string>
 
     <string name="medicame">MedicaMe</string>
-    <string name="tu_aliado_f">Tu aliado farmacologico</string>
-    <string name="unete">Iniciar !</string>
-    <string name="IniciarSesion">Iniciar Sesion</string>
-    <string name="Noestaregistrado">¿No esta registrado?</string>
+    <string name="tu_aliado_f">Tu aliado farmacológico</string>
+    <string name="unete">Iniciar!</string>
+    <string name="IniciarSesion">Iniciar Sesión</string>
+    <string name="Noestaregistrado">¿No está registrado?</string>
     <string name="Registrarse">Registrarse</string>
-    <string name="OlvidoContrasena"><u>¿Olvido su contrasena?</u></string>
+    <string name="OlvidoContrasena"><u>¿Olvido su contraseña?</u></string>
     <string name="Registro">Registro</string>
     <string name="ReservaMedicamento">Selecciona los medicamentos que deseas reservar</string>
     <string name="ReservaExitosa">Sus medicamentos se reservaron correctamente</string>
@@ -34,7 +34,7 @@
     <string name="title_activity_puntos_de_reciclaje">PuntosDeReciclaje</string>
     <string name="title_activity_domicilioo">DomiciliooActivity</string>
     <string name="TituloSolicitudDomicilio">Solicitud de domicilio</string>
-    <string name="IntruccionesSecundariasDomicilio">Ingrese en la barra de búsqueda el lugar a dónde quiere que llegue su domicilio.</string>
+    <string name="IntruccionesSecundariasDomicilio">Ingrese en la barra de búsqueda el lugar a donde quiere que llegue su domicilio.</string>
     <string name="title_activity_reserva_exitosaa">ReservaExitosaa</string>
     <string name="title_activity_domicilio_exitoso_map">DomicilioExitosoMap</string>
 

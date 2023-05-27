@@ -165,7 +165,7 @@
                         android:layout_weight="0.3"
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center"
-                        android:text="Acetaminofem"
+                        android:text="Acetaminofém"
                         android:textAlignment="center"
                         android:textColor="#000000"
                         android:textSize="10sp"></TextView>
@@ -195,7 +195,7 @@
                         android:fontFamily="@font/roboto_bold"
                         android:gravity="center"
                         android:singleLine="true"
-                        android:text="Acido ascorbico"
+                        android:text="Ácido ascórbico"
                         android:textAlignment="center"
                         android:textColor="#000000"
                         android:textSize="10sp"></TextView>

@@ -43,15 +43,16 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="10dp"
             android:background="@drawable/rounded_edit_text"
-            android:hint="Correo Electronico"
+            android:hint="Correo Electrónico"
             android:padding="12dp" />
 
         <EditText
             android:id="@+id/contrasenaInput"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:inputType="textPassword"
             android:background="@drawable/rounded_edit_text"
-            android:hint="Contrasena"
+            android:hint="Contraseña"
             android:padding="12dp" />
     </LinearLayout>
 
