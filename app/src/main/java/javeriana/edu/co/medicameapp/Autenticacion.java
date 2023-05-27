@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat;
 import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.hardware.biometrics.BiometricPrompt;
 import android.os.Build;
@@ -16,6 +17,7 @@ import android.os.Bundle;
 import android.os.CancellationSignal;
 import android.text.Editable;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -38,8 +40,14 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.nio.charset.StandardCharsets;
+import java.security.KeyStore;
 import java.util.ArrayList;
 import java.util.concurrent.Executor;
+
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.GCMParameterSpec;
 
 import javeriana.edu.co.medicameapp.databinding.ActivityAutenticacionBinding;
 
@@ -173,7 +181,7 @@ public class Autenticacion extends AppCompatActivity
                                 FirebaseUser user = mAuth.getCurrentUser();
 
                                 // Escribir el archivo con los datos de AUTH
-                                writeJSONAuth();
+                                //writeJSONAuth();
 
                                 updateUI(user);
                             } else {
@@ -275,11 +283,7 @@ public class Autenticacion extends AppCompatActivity
             super.onAuthenticationSucceeded(result);
 
             LoginCredentials credentials = loadEncryptedCredentials();
-            try {
-               credentials = readJSONCredentials();
-            } catch (JSONException e) {
-                throw new RuntimeException(e);
-            }
+            credentials = loadEncryptedCredentials();
 
 
             if (credentials != null) {
