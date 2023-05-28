@@ -29,8 +29,8 @@ public class Registro extends AppCompatActivity {
     ActivityRegistroBinding bindingRegistro;
     // Firebase Auth
     private FirebaseAuth mAuth;
-    private FirebaseDatabase database;
-    private DatabaseReference myRef;
+    FirebaseDatabase database;
+    DatabaseReference myRef;
     FirebaseUser user;
 
     public static final String PATH_USERS="users/";
@@ -40,6 +40,7 @@ public class Registro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bindingRegistro = ActivityRegistroBinding.inflate(getLayoutInflater());
         setContentView(bindingRegistro.getRoot());
+        database = FirebaseDatabase.getInstance();
 
         bindingRegistro.iniciarSesionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,8 +100,10 @@ public class Registro extends AppCompatActivity {
                                                                     myUser.setId(bindingRegistro.IdInput.getText().toString());
                                                                     myUser.setEPS(bindingRegistro.EPSInput.getText().toString());
                                                                     CustomLatLng customLatLng=new CustomLatLng(0,0);
+                                                                    myUser.setLocation(customLatLng);
                                                                     myRef = database.getReference(PATH_USERS+user.getUid());
                                                                     myRef.setValue(myUser);
+                                                                    Log.i("Escritura:", "Se escribió en la base de datos");
                                                                     // Now you can update the UI with the updated display name
                                                                     updateUI(user);
                                                                 } else {
