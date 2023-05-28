@@ -134,6 +134,16 @@ public class MenuActivity extends AppCompatActivity {
                 String id = snapshot.child("id").getValue().toString();
                 String name = snapshot.child("name").getValue().toString();
                 String eps = snapshot.child("eps").getValue().toString();
+                if(eps.equals("Famisanar")){
+                    binding.logoeps.setImageResource(R.drawable.logofamisanar);
+                }else if(eps.equals("Compensar")){
+                    binding.logoeps.setImageResource(R.drawable.logocompensar);
+                }else if(eps.equals("Sanitas")){
+                    binding.logoeps.setImageResource(R.drawable.logosanitas);
+                }
+                else if (eps.equals("Colsanitas")){
+                    binding.logoeps.setImageResource(R.drawable.colsanitaslogo);
+                }
                 binding.headText.setText("Bienvenido, \n"+name+"\n"+"ID "+id);
                 binding.afiliado.setText("Entidad Actual:\n"+eps);
 

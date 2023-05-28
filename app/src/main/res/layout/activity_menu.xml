@@ -125,17 +125,22 @@
 
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2"
         app:layout_constraintVertical_weight="1.5" />
+
     <ImageView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logoeps"
-        app:layout_constraintEnd_toEndOf="@+id/afiliado"
-        app:layout_constraintBottom_toBottomOf="@+id/afiliado"
+        android:id="@+id/logoeps"
+        android:layout_width="148dp"
+        android:layout_height="81dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
         android:translationZ="90dp"
-        android:layout_marginTop="15dp"
-        >
+        app:layout_constraintBottom_toBottomOf="@+id/afiliado"
+        app:layout_constraintEnd_toEndOf="@+id/afiliado"
+        app:srcCompat="@drawable/logoeps">
 
     </ImageView>
+
 
     <LinearLayout
         android:id="@+id/botonesfila1"
