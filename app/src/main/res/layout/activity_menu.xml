@@ -49,7 +49,7 @@
         tools:layout_editor_absoluteX="163dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/headText"
         android:layout_width="190dp"
         android:layout_height="0dp"
         android:layout_marginLeft="30dp"
@@ -88,7 +88,7 @@
         app:layout_constraintBottom_toTopOf="@id/afiliado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/headText"
         app:layout_constraintVertical_weight="0.8" />
 
     <ImageButton
