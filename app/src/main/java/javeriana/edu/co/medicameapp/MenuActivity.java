@@ -1,5 +1,6 @@
 package javeriana.edu.co.medicameapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,6 +14,11 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import javeriana.edu.co.medicameapp.databinding.ActivityDistribucionYreciclajeBinding;
 import javeriana.edu.co.medicameapp.databinding.ActivityMainBinding;
@@ -24,6 +30,7 @@ public class MenuActivity extends AppCompatActivity {
 
     // Firebase Auth
     private FirebaseAuth mAuth;
+    public static final String PATH_USERS="users/";
 
 
     @Override
@@ -32,6 +39,7 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         binding = ActivityMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         binding.steps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,7 +114,7 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        updateNameAndID();
+        updateNameIDAndEps();
     }
 
     // FirebaseAuth Stuff
@@ -118,8 +126,26 @@ public class MenuActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
     }
 
-    public void updateNameAndID(){
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    public void updateNameIDAndEps(){
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference(PATH_USERS + FirebaseAuth.getInstance().getCurrentUser().getUid());
+        userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String id = snapshot.child("id").getValue().toString();
+                String name = snapshot.child("name").getValue().toString();
+                String eps = snapshot.child("eps").getValue().toString();
+                binding.headText.setText("Bienvenido, \n"+name+"\n"+"ID "+id);
+                binding.afiliado.setText("Entidad Actual:\n"+eps);
+
+
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.i("Error", "Error al cargar los datos");
+            }
+        });
+
+        /*FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String displayName = user.getDisplayName();
 
         Log.d("REGISTER - AUTH", "setDisplayName:" + displayName);
@@ -136,7 +162,7 @@ public class MenuActivity extends AppCompatActivity {
 
             // binding.textView2.setText("Bienvenido,\n" + displayName);
             binding.textView2.setText("Bienvenido,\n" + name + "\nID " + id);
-        }
+        }*/
     }
 
 
