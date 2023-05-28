@@ -102,16 +102,12 @@ public class MenuActivity extends AppCompatActivity {
 
 
         // Firebase log out
-        binding.logOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAuth.signOut();
-                Toast.makeText(MenuActivity.this, "Sesion cerrada exitosamente.", Toast.LENGTH_SHORT).show();
-
-                // No se usa finish porque si el usuario viene del registro, no queremos que vuelva ahi.
-                Intent intent = new Intent(getBaseContext(), Autenticacion.class);
-                startActivity(intent);
-            }
+        binding.logOut.setOnClickListener((view) -> {
+            FirebaseAuth.getInstance().signOut();
+            Toast.makeText(MenuActivity.this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getBaseContext(), MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
         });
 
         updateNameIDAndEps();
