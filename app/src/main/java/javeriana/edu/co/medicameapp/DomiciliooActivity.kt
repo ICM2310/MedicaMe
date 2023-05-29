@@ -10,6 +10,7 @@ import android.graphics.Canvas
 import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
+import android.renderscript.ScriptGroup.Binding
 import android.util.Log
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
@@ -49,6 +50,12 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 
+
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
+import org.json.JSONObject
 
 class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.OnMapLongClickListener{
 
@@ -183,6 +190,7 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
                 .addOnSuccessListener { location: Location? ->
                     currentLocation = location!!
                     // Verificar si se obtuvo la ubicación actual correctamente
+                    requestWeatherForecast(location.latitude,location.longitude)
                     marketCurrentLocation(location)
                 }
         } else {
@@ -190,7 +198,7 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bogota, 10f))
         }
     }
-    private fun marketCurrentLocation(location: Location?) {
+        private fun marketCurrentLocation(location: Location?) {
         if (location != null) {
             markerPosition = LatLng(location.latitude, location.longitude)
             if (mMap != null)
@@ -388,6 +396,34 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
 
     private fun stopLocationUpdates() {
         mLocationCallback?.let { mFusedLocationClient.removeLocationUpdates(it) }
+    }
+
+    // Función para realizar la solicitud al servicio REST
+    fun requestWeatherForecast(latitude: Double, longitude: Double) {
+        Log.i("VOLLEY","VOLLEY REQUEST $latitude $longitude")
+        val url = "https://api.open-meteo.com/v1/forecast?latitude=$latitude&longitude=$longitude&current_weather=true"
+
+        // Crea la solicitud de tipo GET utilizando JsonObjectRequest
+        val request = JsonObjectRequest(Request.Method.GET, url, null,
+            { response ->
+                // Accede a los valores de "temperature" y "windspeed" en la respuesta
+                val currentWeather = response.getJSONObject("current_weather")
+                val temperature = currentWeather.getDouble("temperature")
+                val windspeed = currentWeather.getDouble("windspeed")
+
+                // Haz algo con los valores obtenidos
+                Log.i("WEATHER","Temperatura: $temperature")
+                Log.i("WINSPEED","Velocidad del viento: $windspeed")
+            },
+            { error ->
+                // Maneja los errores de la solicitud
+                error.printStackTrace()
+            }
+        )
+
+        // Agrega la solicitud a la cola de Volley
+        val requestQueue = Volley.newRequestQueue(baseContext)
+        requestQueue.add(request)
     }
 
     override fun onMapLongClick(point: LatLng) {
