@@ -414,6 +414,7 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
                 // Haz algo con los valores obtenidos
                 Log.i("WEATHER","Temperatura: $temperature")
                 Log.i("WINSPEED","Velocidad del viento: $windspeed")
+                binding.textView.text = "$temperature °C ¦ $windspeed m/s"
             },
             { error ->
                 // Maneja los errores de la solicitud
