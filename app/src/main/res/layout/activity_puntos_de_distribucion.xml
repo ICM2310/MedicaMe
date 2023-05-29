@@ -109,6 +109,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 app:srcCompat="@drawable/farmacia" />
+
+            <Button
+                android:id="@+id/openChatButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:background="@drawable/rounded_button"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/o_habla_con_un_punto_de_distribuci_n"
+                tools:layout_gravity="center" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
