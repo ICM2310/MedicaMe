@@ -15,11 +15,10 @@ class ChatActivity : AppCompatActivity()
         chatBinding = ActivityChatBinding.inflate(layoutInflater)
         setContentView(chatBinding.root)
 
-        val desdeChatMenu = Intent()
-        val name = desdeChatMenu.getStringExtra("name")
-        val uid = desdeChatMenu.getStringExtra("uid")
+        val name = intent.getStringExtra("name")
+        val uid = intent.getStringExtra("uid")
 
-        // supportActionBar?.title = name
+        supportActionBar?.title = name
 
     }
 }
