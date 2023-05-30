@@ -4,17 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding = "10dp"
+    android:padding="10dp"
     tools:context=".ChatMenuClienteActivity">
+
+    <TextView
+        android:id="@+id/textViewTitulo"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/rounded_background_green"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center"
+        android:text="... cargando ..."
+        android:textColor="@color/material_dynamic_neutral20"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/userRecyclerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/userRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitulo"
         tools:listitem="@layout/user_layout">
 
     </androidx.recyclerview.widget.RecyclerView>

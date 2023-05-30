@@ -60,6 +60,8 @@ class ChatMenuClienteActivity : AppCompatActivity()
                 {
                     if (snapshot.exists())
                     {
+                        chatMenuClienteBinding.textViewTitulo.text = "Usuarios"
+
                         // Correo está en pharmacies, mostrar datos de users
                         mDbRef.child("users").addValueEventListener(object : ValueEventListener
                         {
@@ -91,6 +93,8 @@ class ChatMenuClienteActivity : AppCompatActivity()
 
                     else
                     {
+                        chatMenuClienteBinding.textViewTitulo.text = "Puntos de distribución"
+
                         // Correo no está en pharmacies, mostrar datos de pharmacies
                         mDbRef.child("pharmacies").addValueEventListener(object : ValueEventListener
                         {

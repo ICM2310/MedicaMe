@@ -40,4 +40,7 @@
     <string name="o_habla_con_un_punto_de_distribuci_n">O habla con un punto de distribución</string>
     <string name="exampleText">Drogueria de mi casa</string>
 
+    <string name="PuntosDeDistribución">Puntos de distribución</string>
+    <string name="Usuarios">Usuarios</string>
+
 </resources>
