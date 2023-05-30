@@ -36,6 +36,7 @@
         </EditText>
         
         <ImageView
+            android:id="@+id/sentButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/send_icon"
