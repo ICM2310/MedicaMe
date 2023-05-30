@@ -42,5 +42,6 @@
 
     <string name="PuntosDeDistribución">Puntos de distribución</string>
     <string name="Usuarios">Usuarios</string>
+    <string name="escribe_un_mensaje">Escribe un mensaje...</string>
 
 </resources>
