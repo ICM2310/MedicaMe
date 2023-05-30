@@ -12,3 +12,5 @@
  </p>
 
  Para más información sobre los integrantes, y entregas del proyecto, accede a la [Wiki del proyecto](https://github.com/ICM2310/MedicaMe/wiki)
+ 
+ <a target="_blank" href="https://icons8.com/icon/mcSTGKR32BJG/send">Send</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
