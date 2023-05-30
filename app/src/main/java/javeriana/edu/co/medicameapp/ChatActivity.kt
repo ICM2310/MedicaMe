@@ -1,11 +1,15 @@
 package javeriana.edu.co.medicameapp
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import javeriana.edu.co.medicameapp.adapters.MessageAdapter
 import javeriana.edu.co.medicameapp.databinding.ActivityChatBinding
 import javeriana.edu.co.medicameapp.modelos.Message
@@ -45,6 +49,38 @@ class ChatActivity : AppCompatActivity()
         messageList = ArrayList()
         messageAdapter = MessageAdapter(this, messageList)
 
+        chatBinding.chatRecycleView.layoutManager = LinearLayoutManager(this)
+        chatBinding.chatRecycleView.adapter = messageAdapter
+
+        // Mostrar los mensajes en el RecycleView de Chats
+        mBdRef.child( "chats")
+            .child(senderRoom!!)
+            .child("messages")
+            .addValueEventListener(object : ValueEventListener
+            {
+                override fun onDataChange(snapshot: DataSnapshot)
+                {
+                    messageList.clear()
+
+                    for (postSnapshot in snapshot.children)
+                    {
+                        val message = postSnapshot.getValue(Message::class.java)
+
+                        messageList.add(message!!)
+                    }
+
+                    messageAdapter.notifyDataSetChanged()
+                }
+
+
+                override fun onCancelled(error: DatabaseError)
+                {
+                    Log.i("Chat", "Error $error")
+                }
+
+            })
+
+
         chatBinding.sentButton.setOnClickListener {
             // Enviar el mensaje a la DB
             val message = chatBinding.messageBox.text.toString()
@@ -63,6 +99,8 @@ class ChatActivity : AppCompatActivity()
                         .push()
                         .setValue(messageObject)
                 }
+
+            chatBinding.messageBox.setText("")
         }
     }
 }

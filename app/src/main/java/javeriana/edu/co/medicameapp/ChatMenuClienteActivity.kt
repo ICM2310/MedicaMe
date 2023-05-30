@@ -86,7 +86,7 @@ class ChatMenuClienteActivity : AppCompatActivity()
 
                             override fun onCancelled(error: DatabaseError)
                             {
-                                Log.i("Chat", "Error $error")
+                                Log.i("Chat Menu", "Error $error")
                             }
                         })
                     }
