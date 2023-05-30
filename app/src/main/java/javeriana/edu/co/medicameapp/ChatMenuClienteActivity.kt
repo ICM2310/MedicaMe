@@ -47,7 +47,11 @@ class ChatMenuClienteActivity : AppCompatActivity()
         // Leer los valores de la DB
         val user = FirebaseAuth.getInstance().currentUser
         user?.let {
-            val email = user.email
+            var email = user.email
+
+            // Probar a ver si farmacias muestra users y user muestra farmacias.
+            //email = "farmacia@gmail.com"
+
             Toast.makeText(baseContext, "Email del usuario: $email", Toast.LENGTH_SHORT).show()
 
             mDbRef.child("pharmacies").orderByChild("email").equalTo(email).addListenerForSingleValueEvent(object : ValueEventListener
