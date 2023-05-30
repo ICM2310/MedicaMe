@@ -1,10 +1,10 @@
 package javeriana.edu.co.medicameapp
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener
@@ -13,12 +13,17 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import javeriana.edu.co.medicameapp.databinding.ActivityPuntosDeDistribucionBinding
 
 class PuntosDeDistribucion : AppCompatActivity(), OnMapReadyCallback, OnMarkerClickListener
 {
     private lateinit var mMap: GoogleMap
     private lateinit var bindingPuntosDeDistribucion: ActivityPuntosDeDistribucionBinding
+
+    // Firebase Authentication
+    private val authentication = Firebase.auth
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -37,8 +42,29 @@ class PuntosDeDistribucion : AppCompatActivity(), OnMapReadyCallback, OnMarkerCl
 
     private fun inicializarElementos()
     {
+        bindingPuntosDeDistribucion.openChatButton.setOnClickListener {
+            Log.i("Puntos de Distribución", "Boton de chat accionado")
+
+            val currentUser = authentication.currentUser
+
+            if (currentUser != null)
+            {
+                Log.i("Puntos de Distribución", "Usuario a chat: $currentUser")
+
+                val pasarAChatMenuClienteActivity = Intent(this, ChatMenuClienteActivity::class.java)
+                //pasarAChatMenuClienteActivity.putExtra("currentUserEmail", currentUser.email)
+                startActivity(pasarAChatMenuClienteActivity)
+
+                finish()
+            }
+            else
+            {
+                Toast.makeText(baseContext, "Usuario no autenticado", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         bindingPuntosDeDistribucion.bButton.setOnClickListener {
-            Log.i("Puntos de Distribucion", "Boton de back accionado")
+            Log.i("Puntos de Distribución", "Boton de back accionado")
             finish()
         }
     }

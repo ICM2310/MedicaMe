@@ -1,95 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/backgroud"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:padding="30dp"
+    android:padding="10dp"
     tools:context=".ChatActivity">
 
     <TextView
         android:id="@+id/textViewTitulo"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="45dp"
         android:background="@drawable/rounded_background_green"
         android:fontFamily="@font/roboto_bold"
         android:gravity="center"
-        android:text="Sede Pepe Sierra"
+        android:text="... cargando ..."
         android:textColor="@color/material_dynamic_neutral20"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="24sp" >
+    </TextView>
 
-    <TextView
-        android:id="@+id/textViewIncoming"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/incoming_chat_bubble"
-        android:paddingVertical="7dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="10dp"
-        android:text="Hola! Sera que por favor me podria traer una caja de Dolex?"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitulo" />
 
-    <TextView
-        android:id="@+id/textViewIncoming2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/incoming_chat_bubble"
-        android:paddingVertical="7dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="10dp"
-        android:text="Muchisimas gracias!"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewOutcoming" />
-
-    <TextView
-        android:id="@+id/textViewOutcoming"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/outcoming_chat_bubble"
-        android:padding="7dp"
-        android:text="Hola, claro que si! Ya mismo se la envio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewIncoming" />
-
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatRecycleView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_below="@+id/textViewTitulo"
+        android:layout_marginTop="56dp">
 
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="100"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+        
         <EditText
-            android:id="@+id/toSendMessage"
+            android:id="@+id/messageBox"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_back_button"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:padding="10dp"
-            android:text="Name"
-            tools:layout_weight="1" />
+            android:background="@drawable/message_box_background"
+            android:layout_height="50dp"
+            android:layout_weight="90"
+            android:paddingLeft="10dp"
+            android:hint="@string/escribe_un_mensaje">
+        </EditText>
+        
+        <ImageView
+            android:id="@+id/sentButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/send_icon"
+            android:layout_weight="10" >
+        </ImageView>
 
-        <Button
-            android:id="@+id/sendTextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_button"
-            android:text="SEND"
-            tools:layout_weight="0.1" />
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

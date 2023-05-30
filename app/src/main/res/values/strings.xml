@@ -37,5 +37,11 @@
     <string name="IntruccionesSecundariasDomicilio">Ingrese en la barra de búsqueda el lugar a donde quiere que llegue su domicilio.</string>
     <string name="title_activity_reserva_exitosaa">ReservaExitosaa</string>
     <string name="title_activity_domicilio_exitoso_map">DomicilioExitosoMap</string>
+    <string name="o_habla_con_un_punto_de_distribuci_n">O habla con un punto de distribución</string>
+    <string name="exampleText">Lorem Ipsum...</string>
+
+    <string name="PuntosDeDistribución">Puntos de distribución</string>
+    <string name="Usuarios">Usuarios</string>
+    <string name="escribe_un_mensaje">Escribe un mensaje...</string>
 
 </resources>
