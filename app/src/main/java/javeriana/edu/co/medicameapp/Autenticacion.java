@@ -153,30 +153,41 @@ public class Autenticacion extends AppCompatActivity
     }
 
     private void updateUI(FirebaseUser currentUser) {
-        if (currentUser != null) {
+        if (currentUser != null)
+        {
             String userId = currentUser.getUid();
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
             // Comprobar si el usuario es una farmacia
             DatabaseReference pharmaciesRef = databaseReference.child("pharmacies/").child(userId);
-            pharmaciesRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            pharmaciesRef.addListenerForSingleValueEvent(new ValueEventListener()
+            {
                 @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.exists()) {
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                {
+                    if (dataSnapshot.exists())
+                    {
                         // El usuario es una farmacia, redirigir a la pantalla de farmacia
-                        Intent intent = new Intent(getBaseContext(), FarmaciaActivity.class);
+                        Intent intent = new Intent(getBaseContext(), ChatMenuClienteActivity.class);
                         startActivity(intent);
-                    } else {
+                    }
+                    else
+                    {
                         // Comprobar si el usuario es un repartidor
                         DatabaseReference deliveriesRef = databaseReference.child("deliveries/").child(userId);
-                        deliveriesRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        deliveriesRef.addListenerForSingleValueEvent(new ValueEventListener()
+                        {
                             @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                if (dataSnapshot.exists()) {
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                            {
+                                if (dataSnapshot.exists())
+                                {
                                     // El usuario es un repartidor, redirigir a la pantalla de repartidor
                                     Intent intent = new Intent(getBaseContext(), RepartidorActivity.class);
                                     startActivity(intent);
-                                } else {
+                                }
+                                else
+                                {
                                     // El usuario es un usuario normal, redirigir a la pantalla de usuario
                                     Intent intent = new Intent(getBaseContext(), MenuActivity.class);
                                     startActivity(intent);
