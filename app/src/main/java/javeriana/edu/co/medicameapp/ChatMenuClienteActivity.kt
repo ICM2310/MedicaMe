@@ -2,6 +2,7 @@ package javeriana.edu.co.medicameapp
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -44,26 +45,79 @@ class ChatMenuClienteActivity : AppCompatActivity()
         chatMenuClienteBinding.userRecyclerView.adapter = adapter
 
         // Leer los valores de la DB
-        mDbRef.child("users").addValueEventListener(object : ValueEventListener
-        {
-            override fun onDataChange(snapshot: DataSnapshot)
-            {
-                userList.clear()
+        val user = FirebaseAuth.getInstance().currentUser
+        user?.let {
+            val email = user.email
+            Toast.makeText(baseContext, "Email del usuario: $email", Toast.LENGTH_SHORT).show()
 
-                for (postSnapshop in snapshot.children)
+            mDbRef.child("pharmacies").orderByChild("email").equalTo(email).addListenerForSingleValueEvent(object : ValueEventListener
+            {
+                override fun onDataChange(snapshot: DataSnapshot)
                 {
-                    val currentUser = postSnapshop.getValue(User::class.java)
-                    userList.add(currentUser!!)
+                    if (snapshot.exists())
+                    {
+                        // Correo está en pharmacies, mostrar datos de users
+                        mDbRef.child("users").addValueEventListener(object : ValueEventListener
+                        {
+                            override fun onDataChange(snapshot: DataSnapshot)
+                            {
+                                userList.clear()
+
+                                for (postSnapshop in snapshot.children)
+                                {
+                                    val currentUser = postSnapshop.getValue(User::class.java)
+
+                                    if (mAuth.currentUser?.uid != currentUser?.id)
+                                    {
+
+                                    }
+
+                                    userList.add(currentUser!!)
+                                }
+
+                                adapter.notifyDataSetChanged()
+                            }
+
+                            override fun onCancelled(error: DatabaseError)
+                            {
+                                Log.i("Chat", "Error $error")
+                            }
+                        })
+                    }
+
+                    else
+                    {
+                        // Correo no está en pharmacies, mostrar datos de pharmacies
+                        mDbRef.child("pharmacies").addValueEventListener(object : ValueEventListener
+                        {
+                            override fun onDataChange(snapshot: DataSnapshot)
+                            {
+
+                                userList.clear()
+
+                                for (postSnapshop in snapshot.children)
+                                {
+                                    val currentUser = postSnapshop.getValue(User::class.java)
+                                    userList.add(currentUser!!)
+                                }
+
+                                adapter.notifyDataSetChanged()
+                            }
+
+                            override fun onCancelled(error: DatabaseError)
+                            {
+                                Log.i("Chat", "Error $error")
+                            }
+                        })
+                    }
                 }
 
-                adapter.notifyDataSetChanged()
-            }
+                override fun onCancelled(databaseError: DatabaseError)
+                {
+                    Log.w("Chat", "Error al consultar correo en pharmacies", databaseError.toException())
+                }
+            })
+        }
 
-            override fun onCancelled(error: DatabaseError)
-            {
-                Log.i("Chat", "Error $error")
-            }
-
-        })
     }
 }
