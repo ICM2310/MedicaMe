@@ -19,6 +19,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,6 +27,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -146,17 +152,58 @@ public class Autenticacion extends AppCompatActivity
         updateUI(currentUser);
     }
 
-    private void updateUI(FirebaseUser currentUser){
-        if(currentUser!=null){
-            Intent intent = new Intent(getBaseContext(), MenuActivity.class);
-            startActivity(intent);
-            Log.i("startActivity", "Entered:success");
+    private void updateUI(FirebaseUser currentUser) {
+        if (currentUser != null) {
+            String userId = currentUser.getUid();
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+
+            // Comprobar si el usuario es una farmacia
+            DatabaseReference pharmaciesRef = databaseReference.child("pharmacies/").child(userId);
+            pharmaciesRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // El usuario es una farmacia, redirigir a la pantalla de farmacia
+                        Intent intent = new Intent(getBaseContext(), FarmaciaActivity.class);
+                        startActivity(intent);
+                    } else {
+                        // Comprobar si el usuario es un repartidor
+                        DatabaseReference deliveriesRef = databaseReference.child("deliveries/").child(userId);
+                        deliveriesRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                if (dataSnapshot.exists()) {
+                                    // El usuario es un repartidor, redirigir a la pantalla de repartidor
+                                    Intent intent = new Intent(getBaseContext(), RepartidorActivity.class);
+                                    startActivity(intent);
+                                } else {
+                                    // El usuario es un usuario normal, redirigir a la pantalla de usuario
+                                    Intent intent = new Intent(getBaseContext(), MenuActivity.class);
+                                    startActivity(intent);
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                                // Error al obtener la información de repartidor
+                            }
+
+                        });
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    // Error al obtener la información de farmacia
+                }
+            });
         } else {
             bindingAutenticacion.correoInput.setText("");
             bindingAutenticacion.contrasenaInput.setText("");
             Log.i("else", "Entered:success");
         }
     }
+
 
     private void signInUser(String email, String password) {
         if (validateForm()) {
