@@ -50,7 +50,7 @@ class ChatMenuClienteActivity : AppCompatActivity()
             var email = user.email
 
             // Probar a ver si farmacias muestra users y user muestra farmacias.
-            email = "farmaciacountry@gmail.com"
+            // email = "farmaciacountry@gmail.com"
 
             Toast.makeText(baseContext, "Email del usuario: $email", Toast.LENGTH_SHORT).show()
 
