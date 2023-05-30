@@ -18,7 +18,7 @@ class ChatActivity : AppCompatActivity()
         val name = intent.getStringExtra("name")
         val uid = intent.getStringExtra("uid")
 
-        supportActionBar?.title = name
+        chatBinding.textViewTitulo.text = name
 
     }
 }

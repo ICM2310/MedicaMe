@@ -8,13 +8,26 @@
     android:padding="10dp"
     tools:context=".ChatActivity">
 
+    <TextView
+        android:id="@+id/textViewTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/rounded_background_green"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center"
+        android:text="... cargando ..."
+        android:textColor="@color/material_dynamic_neutral20"
+        android:textSize="24sp" >
+    </TextView>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatRecycleView"
-        android:layout_above="@id/linearLayout"
-        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewTitulo"
+        android:layout_marginTop="56dp">
+
     </androidx.recyclerview.widget.RecyclerView>
 
     <LinearLayout
