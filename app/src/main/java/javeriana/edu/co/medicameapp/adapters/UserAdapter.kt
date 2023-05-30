@@ -38,7 +38,7 @@ class UserAdapter(val context : Context, val userList : ArrayList<User>) :
             val pasarAChatActivity = Intent(context, ChatActivity::class.java)
 
             pasarAChatActivity.putExtra("name", currentUser.name)
-            pasarAChatActivity.putExtra("uid", currentUser.id)
+            pasarAChatActivity.putExtra("uid", FirebaseAuth.getInstance().currentUser?.uid)
 
             context.startActivity(pasarAChatActivity)
         }
