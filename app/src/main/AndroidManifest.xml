@@ -26,7 +26,6 @@
             android:name=".RepartidorActivity"
             android:exported="false" />
         <activity
-            android:name=".FarmaciaActivity"
             android:name=".ChatActivity"
             android:exported="false" />
         <activity
