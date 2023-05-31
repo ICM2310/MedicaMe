@@ -104,6 +104,37 @@ public class notificationsHelper {
         notificationManager.notify(2, builder.build());
     }
 
+    public static void showRepartidorCercanoNotification(Context context, String title, String message) {
+
+        String CHANNEL_ID_reserva = "Domicilio";
+        String CHANNEL_NAME_reserva = "NotiChannelDomicilio";
+        String CHANNEL_DESCRIPTION_reserva = "Notificaciones de Repartidor Cercano";
+
+
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        // Create the notification channel if not created already
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !channelCreated) {
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID_reserva, CHANNEL_NAME_reserva, NotificationManager.IMPORTANCE_DEFAULT);
+            channel.setDescription(CHANNEL_DESCRIPTION_reserva);
+            notificationManager.createNotificationChannel(channel);
+            channelCreated = true;
+        }
+
+        // Build the notification
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID_reserva)
+                .setSmallIcon(R.drawable.delivery)
+                .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.drugs))
+                .setContentTitle(title)
+                .setContentText(message)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setAutoCancel(true);
+
+
+        // Show the notification
+        notificationManager.notify(2, builder.build());
+    }
+
 
 }
 

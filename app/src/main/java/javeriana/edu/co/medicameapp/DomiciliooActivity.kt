@@ -116,6 +116,24 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
                         }
                     }
                     ubicacionDelivery = LatLng(latitude, longitude)
+
+                    // Distancia entre el usuario actual y el repartidor
+                    val distance = FloatArray(1)
+                    Location.distanceBetween(latitude, longitude, currentLocation.latitude, currentLocation.longitude, distance);
+
+                    if (distance[0] < 1000) {
+
+                        // Crear notificacion.
+                        notificationsHelper.showRepartidorCercanoNotification(
+                            baseContext,
+                            "Repartidor cercano",
+                            "El repartidor está por llegar con tu pedido"
+                        )
+
+                    }
+
+
+
                     Log.i("Puntos de Distribucion", "La ubicacion del delivery es: $ubicacionDelivery")
                     removeRoute()
                     mostrarRuta(ubicacionDelivery!!, markerPosition)
