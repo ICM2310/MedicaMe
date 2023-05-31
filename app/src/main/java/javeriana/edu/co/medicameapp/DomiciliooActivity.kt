@@ -10,7 +10,6 @@ import android.graphics.Canvas
 import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
-import android.renderscript.ScriptGroup.Binding
 import android.util.Log
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
@@ -21,6 +20,9 @@ import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.android.volley.Request
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
 import com.cursokotlin.routemapexample.RouteResponse
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.CommonStatusCodes
@@ -38,34 +40,27 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.Polyline
 import com.google.android.gms.maps.model.PolylineOptions
-import javeriana.edu.co.medicameapp.databinding.ActivityDomiciliooBinding
-import javeriana.edu.co.medicameapp.mapsapi.ApiService
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import java.io.IOException
-
-
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
-import com.google.android.gms.maps.model.Marker
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import javeriana.edu.co.medicameapp.databinding.ActivityDomiciliooBinding
+import javeriana.edu.co.medicameapp.mapsapi.ApiService
 import javeriana.edu.co.medicameapp.modelos.Order
-import org.json.JSONObject
+import javeriana.edu.co.medicameapp.notifications.notificationsHelper
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.io.IOException
 
 class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.OnMapLongClickListener{
 
@@ -352,6 +347,16 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
             orderUid = orderRef.key
 
             orderRef.setValue(order).addOnSuccessListener {
+
+
+                // Create notification
+                notificationsHelper.showDomicilioNotification(
+                    baseContext,
+                    "Su solicitud de domicilio ha sido recibida",
+                    "Esperamos asignarle un repartidor pronto"
+                )
+
+
                 Toast.makeText(this, "Solicitud de domicilio enviada $orderUid", Toast.LENGTH_SHORT).show()
 
                 // Aquí puedes utilizar el orderUid, que es el UID del objeto recién agregado
