@@ -26,6 +26,9 @@
         android:theme="@style/Theme.MedicaMeApp"
         tools:targetApi="31">
         <activity
+            android:name=".RealizarPedidoActivity"
+            android:exported="false" />
+        <activity
             android:name=".RepartidorActivity"
             android:exported="false" />
         <activity
