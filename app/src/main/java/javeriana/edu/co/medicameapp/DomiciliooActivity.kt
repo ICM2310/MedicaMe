@@ -55,6 +55,11 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import javeriana.edu.co.medicameapp.modelos.Order
 import org.json.JSONObject
 
 class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.OnMapLongClickListener{
@@ -64,6 +69,8 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
 // Cargar el archivo local.properties
 
     var poly: Polyline? = null
+
+    private lateinit var mBdRef : DatabaseReference
 
 
     val puntoDeDistribucionPepito = LatLng( 4.694951, -74.039239)
@@ -128,6 +135,8 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
         mLocationRequest = createLocationRequest()
         mLocationCallback = callbackAction()
 
+        mBdRef = FirebaseDatabase.getInstance().getReference()
+
         markerPosition = LatLng(0.0,0.0)
 
         inicializarElementos()
@@ -188,10 +197,12 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
             val fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this)
             fusedLocationProviderClient.lastLocation
                 .addOnSuccessListener { location: Location? ->
-                    currentLocation = location!!
-                    // Verificar si se obtuvo la ubicación actual correctamente
-                    requestWeatherForecast(location.latitude,location.longitude)
-                    marketCurrentLocation(location)
+                    if (location != null) {
+                        currentLocation = location
+                        // Verificar si se obtuvo la ubicación actual correctamente
+                        requestWeatherForecast(location.latitude, location.longitude)
+                        marketCurrentLocation(location)
+                    }
                 }
         } else {
             // No se tienen permisos de ubicación, posicionar el mapa en Bogotá con menos zoom
@@ -237,6 +248,23 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
 
 
         binding.buttonSolicitarDomicilio.setOnClickListener {
+            val mAuth = FirebaseAuth.getInstance().currentUser?.uid
+            val uid = mAuth
+            val order = Order()
+            order.usuarioSoliciante = uid
+            order.usuarioRepartidor = "null"
+            order.ubicacion = markerPosition
+            order.estado = "Pendiente"
+
+            val orderRef = mBdRef.child("orders").push().setValue(order)
+
+            orderRef.addOnSuccessListener {
+                Toast.makeText(this, "Solicitud de domicilio enviada", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+
+
+
 
             mostrarRuta(puntoDeDistribucionPepito, markerPosition)
         }
