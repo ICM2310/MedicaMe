@@ -70,7 +70,7 @@ public class notificationsHelper {
 
 
         // Show the notification
-        notificationManager.notify(2, builder.build());
+        notificationManager.notify(3, builder.build());
     }
 
     public static void showDomicilioNotification(Context context, String title, String message) {
@@ -101,7 +101,7 @@ public class notificationsHelper {
 
 
         // Show the notification
-        notificationManager.notify(2, builder.build());
+        notificationManager.notify(4, builder.build());
     }
 
     public static void showRepartidorCercanoNotification(Context context, String title, String message) {
@@ -132,7 +132,7 @@ public class notificationsHelper {
 
 
         // Show the notification
-        notificationManager.notify(2, builder.build());
+        notificationManager.notify(5, builder.build());
     }
 
 
