@@ -98,6 +98,8 @@ public class OrderListAdapter extends ArrayAdapter<String> {
 
                 // Crear el intent para iniciar la nueva actividad
                 Intent intent = new Intent(mContext, RealizarPedidoActivity.class);
+                intent.putExtra("uid", uid);
+
 
 
 

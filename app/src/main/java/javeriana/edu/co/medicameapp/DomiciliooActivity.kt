@@ -629,6 +629,7 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
                 mLocationCallback?.let {
                     mFusedLocationClient.requestLocationUpdates(mLocationRequest,
                         it, null)
+
                 }
             }
         }

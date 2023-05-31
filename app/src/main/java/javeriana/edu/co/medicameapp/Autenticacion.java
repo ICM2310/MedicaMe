@@ -171,6 +171,7 @@ public class Autenticacion extends AppCompatActivity
                     {
                         // El usuario es una farmacia, redirigir a la pantalla de farmacia
                         Intent intent = new Intent(getBaseContext(), ChatMenuClienteActivity.class);
+                        Log.i("updateUI", "Entered:success Farmacia");
                         startActivity(intent);
                     }
                     else
@@ -186,12 +187,14 @@ public class Autenticacion extends AppCompatActivity
                                 {
                                     // El usuario es un repartidor, redirigir a la pantalla de repartidor
                                     Intent intent = new Intent(getBaseContext(), RepartidorActivity.class);
+                                    Log.i("updateUI", "Entered:success Delivery");
                                     startActivity(intent);
                                 }
                                 else
                                 {
                                     // El usuario es un usuario normal, redirigir a la pantalla de usuario
                                     Intent intent = new Intent(getBaseContext(), MenuActivity.class);
+                                    Log.i("updateUI", "Entered:success Usuario");
                                     startActivity(intent);
                                 }
                             }
