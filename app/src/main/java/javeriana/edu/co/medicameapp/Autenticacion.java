@@ -141,7 +141,7 @@ public class Autenticacion extends AppCompatActivity
 
         // Automatically sign in if user is authenticated.
         Log.i("updateUI", "Entered:success");
-        // updateUI(currentUser);
+        updateUI(currentUser);
     }
 
     public void onStartInit(){
@@ -149,6 +149,8 @@ public class Autenticacion extends AppCompatActivity
 
         // Automatically sign in if user is authenticated.
         Log.i("updateUI", "Entered:success");
+
+        // Si da fallos al iniciar, se quita. Es para que si hay un usuario pase directo al menu.
         updateUI(currentUser);
     }
 

@@ -1,10 +1,16 @@
 package javeriana.edu.co.medicameapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 import javeriana.edu.co.medicameapp.databinding.ActivityDistribucionYreciclajeBinding;
 import javeriana.edu.co.medicameapp.databinding.ActivityMainBinding;
 import javeriana.edu.co.medicameapp.databinding.ActivityMenuBinding;
+import javeriana.edu.co.medicameapp.notifications.NotificacionesBackground;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -30,6 +37,8 @@ public class MenuActivity extends AppCompatActivity {
 
     // Firebase Auth
     private FirebaseAuth mAuth;
+    private static final int NOTIFICATIONS_PERMISSION_REQUEST_CODE = 1;
+
     public static final String PATH_USERS="users/";
 
 
@@ -111,7 +120,59 @@ public class MenuActivity extends AppCompatActivity {
         });
 
         updateNameIDAndEps();
+        notificationPermissionAndListenerServiceStart();
     }
+
+    // Notificaciones. Permisos.
+    private void notificationPermissionAndListenerServiceStart() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                    this,
+                    new String[]{Manifest.permission.POST_NOTIFICATIONS},
+                    NOTIFICATIONS_PERMISSION_REQUEST_CODE
+            );
+        } else {
+            // Init service if the device has not been restarted.
+            Intent intent = new Intent(this, NotificacionesBackground.class);
+            getApplicationContext().startForegroundService(intent);
+            Log.i("Notifications", "Valid credentials. Redirecting to the main activity.");
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == NOTIFICATIONS_PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted
+                notificationPermissionAndListenerServiceStart();
+            } else {
+                // Permission denied
+                new AlertDialog.Builder(this)
+                        .setTitle("Permiso de notificación denegado")
+                        .setMessage("Debe aceptar el permiso de las notificaciones para poder recibir notificaciones de sus mensajes y pedidos.\n" +
+                                "Si denega el permiso muchas veces, deberá activarlo desde la configuración.")
+                        .setPositiveButton("Conceder permiso", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                // Retry
+                                notificationPermissionAndListenerServiceStart();
+                            }
+                        })
+                        .setNegativeButton("Ignorar", null)
+                        .show();
+            }
+        }
+    }
+
+
+
+
+
+
+
 
     // FirebaseAuth Stuff
     @Override
