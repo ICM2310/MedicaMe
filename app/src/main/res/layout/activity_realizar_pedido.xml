@@ -27,8 +27,15 @@
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
+                android:layout_weight="10"
                 tools:context=".RealizarPedidoActivity" />
+
+            <Button
+                android:id="@+id/buttonConfirmar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Confirmar Entrega" />
 
 
         </LinearLayout>

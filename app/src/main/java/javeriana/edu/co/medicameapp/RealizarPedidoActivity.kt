@@ -1,37 +1,24 @@
 package javeriana.edu.co.medicameapp
 
+import android.Manifest
 import android.app.AlertDialog
-import android.content.Intent
-
-import android.net.Uri
-
-import android.provider.Settings
-
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
-
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import android.location.Geocoder
 import android.location.Location
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
-
-import android.view.inputmethod.EditorInfo
-import android.view.inputmethod.InputMethodManager
-import android.widget.EditText
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
-
 import androidx.activity.result.IntentSenderRequest
-
-import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.result.contract.ActivityResultContracts
-
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.android.volley.Request
-import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.Volley
 import com.cursokotlin.routemapexample.RouteResponse
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.CommonStatusCodes
@@ -45,40 +32,28 @@ import com.google.android.gms.location.LocationSettingsRequest
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
-import android.Manifest
-
 import com.google.android.gms.maps.SupportMapFragment
-
 import com.google.android.gms.maps.model.BitmapDescriptor
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
-
 import com.google.android.gms.maps.model.Polyline
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.firebase.auth.FirebaseAuth
-
-import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-
-import javeriana.edu.co.medicameapp.databinding.ActivityDomiciliooBinding
+import com.google.firebase.database.Query
+import com.google.firebase.database.ValueEventListener
+import javeriana.edu.co.medicameapp.databinding.ActivityRealizarPedidoBinding
 import javeriana.edu.co.medicameapp.mapsapi.ApiService
-import javeriana.edu.co.medicameapp.modelos.Order
-import javeriana.edu.co.medicameapp.notifications.notificationsHelper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
-import com.google.firebase.database.Query
-import com.google.firebase.database.ValueEventListener
-
-import javeriana.edu.co.medicameapp.databinding.ActivityRealizarPedidoBinding
 
 class RealizarPedidoActivity : AppCompatActivity(), OnMapReadyCallback {
     //Location
@@ -131,6 +106,33 @@ class RealizarPedidoActivity : AppCompatActivity(), OnMapReadyCallback {
         val intent = intent
         uid = intent.getStringExtra("uid")
         Log.d("locationFromBD", uid!!)
+
+        binding!!.buttonConfirmar.setOnClickListener(View.OnClickListener {
+            val mAuth = FirebaseAuth.getInstance()
+            val database = FirebaseDatabase.getInstance()
+            val ordersRef = database.getReference("orders")
+
+
+            val query = ordersRef.orderByChild("usuarioSoliciante").equalTo(uid)
+            query.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    for (orderSnapshot in dataSnapshot.children) {
+                        val orderKey = orderSnapshot.key
+                        val estado = orderSnapshot.child("estado").getValue(String::class.java)
+                        if (estado != null && estado == "Asignado") {
+                            // Realizar la actualización para pedidos pendientes
+                            val orderRef = ordersRef.child(orderKey!!)
+                            orderRef.child("estado").setValue("Entregado")
+                        }
+                    }
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    // Manejo de errores, si es necesario
+                }
+            })
+        })
+
 
 
 
