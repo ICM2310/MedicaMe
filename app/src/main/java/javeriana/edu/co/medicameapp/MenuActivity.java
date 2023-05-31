@@ -183,29 +183,62 @@ public class MenuActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
     }
 
-    public void updateNameIDAndEps(){
-        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference(PATH_USERS + FirebaseAuth.getInstance().getCurrentUser().getUid());
+    public void updateNameIDAndEps() {
+
+        // SOLO SI NO ES FARMACIA.
+        boolean isEmailAllowed;
+
+        /*
+
+        String[] notAllowedEmails = {
+                "superpharma@gmail.com",
+                "drogueriafarmafans@gmail.com",
+                "drogueriafarmaprecios@gmail.com",
+                "farmaciainstitucional@gmail.com",
+                "cruzverde@gmail.com",
+                "drogueriasanjorge@gmail.com",
+                "farmayuda@gmail.com",
+                "farmaciacountry@gmail.com"
+        };
+
+        String userEmail = mAuth.getCurrentUser().getEmail();
+
+        for (String notAllowedEmail : notAllowedEmails) {
+            if (notAllowedEmail.equals(userEmail)) {
+                isEmailAllowed = false;
+                break;
+            }
+        }
+
+         */
+
+
+        isEmailAllowed = true;
+
+
+        if (isEmailAllowed) {
+            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference(PATH_USERS + FirebaseAuth.getInstance().getCurrentUser().getUid());
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 String id = snapshot.child("id").getValue().toString();
                 String name = snapshot.child("name").getValue().toString();
                 String eps = snapshot.child("eps").getValue().toString();
-                if(eps.equals("Famisanar")){
+                if (eps.equals("Famisanar")) {
                     binding.logoeps.setImageResource(R.drawable.logofamisanar);
-                }else if(eps.equals("Compensar")){
+                } else if (eps.equals("Compensar")) {
                     binding.logoeps.setImageResource(R.drawable.logocompensar);
-                }else if(eps.equals("Sanitas")){
+                } else if (eps.equals("Sanitas")) {
                     binding.logoeps.setImageResource(R.drawable.logosanitas);
-                }
-                else if (eps.equals("Colsanitas")){
+                } else if (eps.equals("Colsanitas")) {
                     binding.logoeps.setImageResource(R.drawable.colsanitaslogo);
                 }
-                binding.headText.setText("Bienvenido, \n"+name+"\n"+"ID "+id);
-                binding.afiliado.setText("Entidad Actual:\n"+eps);
+                binding.headText.setText("Bienvenido, \n" + name + "\n" + "ID " + id);
+                binding.afiliado.setText("Entidad Actual:\n" + eps);
 
 
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.i("Error", "Error al cargar los datos");
@@ -230,6 +263,7 @@ public class MenuActivity extends AppCompatActivity {
             // binding.textView2.setText("Bienvenido,\n" + displayName);
             binding.textView2.setText("Bienvenido,\n" + name + "\nID " + id);
         }*/
+        }
     }
 
 
