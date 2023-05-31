@@ -55,10 +55,14 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.gms.maps.model.Marker
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import javeriana.edu.co.medicameapp.modelos.Order
 import org.json.JSONObject
 
@@ -71,6 +75,8 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
     var poly: Polyline? = null
 
     private lateinit var mBdRef : DatabaseReference
+
+    private var orderUid : String? = null
 
 
     val puntoDeDistribucionPepito = LatLng( 4.694951, -74.039239)
@@ -103,6 +109,8 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
             ).show()
         }
     }
+
+    private var deliveryMarker: Marker? = null
 
 
     private lateinit var currentLocation: Location
@@ -256,17 +264,58 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
             order.ubicacion = markerPosition
             order.estado = "Pendiente"
 
-            val orderRef = mBdRef.child("orders").push().setValue(order)
 
-            orderRef.addOnSuccessListener {
-                Toast.makeText(this, "Solicitud de domicilio enviada", Toast.LENGTH_SHORT).show()
-                finish()
+            val orderRef = mBdRef.child("orders").push()
+            orderUid = orderRef.key
+
+            orderRef.setValue(order).addOnSuccessListener {
+                Toast.makeText(this, "Solicitud de domicilio enviada $orderUid", Toast.LENGTH_SHORT).show()
+
+                // Aquí puedes utilizar el orderUid, que es el UID del objeto recién agregado
+                println("El UID del objeto recién agregado es: $orderUid")
+            }.addOnFailureListener { e ->
+                Toast.makeText(this, "Error al enviar la solicitud de domicilio", Toast.LENGTH_SHORT).show()
             }
 
 
 
 
             mostrarRuta(puntoDeDistribucionPepito, markerPosition)
+        }
+
+
+        binding.buttonNuevoDomicilio.setOnClickListener {
+            val mAuth = FirebaseAuth.getInstance().currentUser?.uid
+            val uid = mAuth
+
+            val database = FirebaseDatabase.getInstance()
+            val reference = database.getReference("orders")
+
+            val query = reference.orderByChild("usuarioSoliciante").equalTo(uid)
+
+            query.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    for (snapshot in dataSnapshot.children) {
+                        val estado = snapshot.child("estado").getValue(String::class.java)
+                        if (estado == "Entregado") {
+                            removeRoute()
+                            snapshot.ref.removeValue()
+                                .addOnSuccessListener {
+                                    Log.i("Puntos de Distribucion", "Registro eliminado correctamente")
+                                }
+                                .addOnFailureListener { error ->
+                                    Log.e("Puntos de Distribucion", "Error al eliminar el registro", error)
+                                }
+                        }
+                    }
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    // Maneja cualquier error que ocurra durante la consulta
+                }
+            })
+
+
         }
 
         binding.currentlocButton.setOnClickListener {
@@ -305,20 +354,25 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
             polyLineOptions.add(LatLng(it[1], it[0]))
         }
 
-
-
-
-
         runOnUiThread {
             poly = mMap.addPolyline(polyLineOptions)
             val icon = (bitmapDescriptorFromVector(this,R.drawable.deliverymarker))
             // Agregar Marcador al mapa
-            mMap.addMarker(MarkerOptions().position(puntoDeDistribucionPepito).icon(icon).title("Punto de Distribución"))
+            deliveryMarker = mMap.addMarker(MarkerOptions().position(markerPosition).icon(icon).title("Mi Ubicación Actual"))
 
             // Hacer zoom en la ubicación buscada
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(bogota, 10f))
         }
     }
+
+    private fun removeRoute() {
+        if (poly != null) {
+            poly!!.remove() // Elimina la polilínea del mapa
+            poly = null
+            deliveryMarker?.remove()
+        }
+    }
+
 
     private fun bitmapDescriptorFromVector(context: Context, vectorResId: Int): BitmapDescriptor? {
         val vectorDrawable = ContextCompat.getDrawable(context, vectorResId)

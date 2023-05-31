@@ -288,8 +288,8 @@
 
         <Button
             android:id="@+id/buttonSolicitarDomicilio"
-            android:layout_width="301dp"
-            android:layout_height="58dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/rounded_background_green"
             android:fontFamily="@font/roboto_bold"
             android:text="Solicitar domicilio"
@@ -297,9 +297,26 @@
             android:textColor="#000000"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonNuevoDomicilio"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/listaMedicamentos" />
+
+        <Button
+            android:id="@+id/buttonNuevoDomicilio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_background_green"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Nuevo domicilio"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/buttonSolicitarDomicilio"
+            app:layout_constraintTop_toBottomOf="@+id/listaMedicamentos"
+            app:layout_constraintVertical_bias="1.0" />
 
         <ImageButton
             android:id="@+id/currentlocButton"
