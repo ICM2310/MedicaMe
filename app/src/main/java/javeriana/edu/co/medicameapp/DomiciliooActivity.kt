@@ -58,6 +58,7 @@ import com.android.volley.toolbox.Volley
 import com.google.android.gms.maps.model.Marker
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -67,6 +68,70 @@ import javeriana.edu.co.medicameapp.modelos.Order
 import org.json.JSONObject
 
 class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.OnMapLongClickListener{
+
+    val userListener = object : ChildEventListener {
+        override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
+            // No se necesita hacer nada aquí, ya que estamos interesados en los cambios de estado y no en los nuevos elementos agregados
+        }
+
+        override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
+
+            val estado = snapshot.child("estado").getValue(String::class.java)
+            if (estado == "Asignado" || snapshot.key == FirebaseAuth.getInstance().currentUser?.uid) {
+                Toast.makeText(this@DomiciliooActivity, "El estado del pedido ha cambiado", Toast.LENGTH_SHORT).show()
+                val usuarioRepartidor = snapshot.child("usuarioRepartidor").getValue(String::class.java)
+                uidDelivery = usuarioRepartidor
+                Log.i("Puntos de Distribucion", "El usuario repartidor es: $usuarioRepartidor")
+                obtenerUbicacionDelivery()
+
+                //mostrarRuta(ubicacionDelivery!!, markerPosition)
+            }
+        }
+
+        override fun onChildRemoved(snapshot: DataSnapshot) {
+            // No se necesita hacer nada aquí
+        }
+
+        override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
+            // No se necesita hacer nada aquí
+        }
+
+        override fun onCancelled(databaseError: DatabaseError) {
+            // Manejar cualquier error que ocurra durante la consulta
+        }
+    }
+
+
+    val deliveryLocationListener = object : ValueEventListener {
+        override fun onDataChange(snapshot: DataSnapshot) {
+            for (dataSnapshot in snapshot.children) {
+                if (dataSnapshot.key == uidDelivery){
+                    var i = 0
+                    var latitude = 0.0
+                    var longitude = 0.0
+                    for (d in dataSnapshot.child("location").children){
+                        i += 1
+                        if (i == 1){
+                            latitude = d.value.toString().toDouble()
+                        } else if (i == 2){
+                            longitude = d.value.toString().toDouble()
+                        }
+                    }
+                    ubicacionDelivery = LatLng(latitude, longitude)
+                    Log.i("Puntos de Distribucion", "La ubicacion del delivery es: $ubicacionDelivery")
+                    removeRoute()
+                    mostrarRuta(ubicacionDelivery!!, markerPosition)
+                }
+                }
+            }
+
+        override fun onCancelled(databaseError: DatabaseError) {
+            // Manejar cualquier error que ocurra durante la consulta
+        }
+    }
+
+
+
 
     private var settingsOK: Boolean = false
     // Cargar el archivo local.properties
@@ -80,6 +145,10 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
 
 
     val puntoDeDistribucionPepito = LatLng( 4.694951, -74.039239)
+
+    private var ubicacionDelivery : LatLng? = null
+    private var uidDelivery : String? = "null"
+
     private lateinit var mLocationRequest:LocationRequest
     private lateinit var mFusedLocationClient: FusedLocationProviderClient
     private var mLocationCallback: LocationCallback? = callbackAction()
@@ -145,7 +214,21 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
 
         mBdRef = FirebaseDatabase.getInstance().getReference()
 
+
         markerPosition = LatLng(0.0,0.0)
+
+        val database = FirebaseDatabase.getInstance()
+        val reference = database.getReference("orders")
+        val query = reference.orderByChild("usuarioSoliciante").equalTo(FirebaseAuth.getInstance().currentUser?.uid)
+        query.addChildEventListener(userListener)
+
+
+        uidDelivery = "null"
+
+        val deliveryLocationRef = FirebaseDatabase.getInstance().getReference("deliveries")
+
+        deliveryLocationRef.addValueEventListener(deliveryLocationListener)
+
 
         inicializarElementos()
 
@@ -278,9 +361,6 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
             }
 
 
-
-
-            mostrarRuta(puntoDeDistribucionPepito, markerPosition)
         }
 
 
@@ -326,6 +406,33 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
 
     }
 
+    fun obtenerUbicacionDelivery() {
+        if (uidDelivery != null || uidDelivery != "null") {
+            val database = FirebaseDatabase.getInstance()
+            val reference = database.getReference("deliveries").child(uidDelivery!!)
+            reference.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    val ubicacionSnapshot = dataSnapshot.child("location")
+                    val latitude = ubicacionSnapshot.child("latitude").getValue(Double::class.java)
+                    val longitude = ubicacionSnapshot.child("longitude").getValue(Double::class.java)
+
+                    if (latitude != null && longitude != null) {
+                        ubicacionDelivery = LatLng(latitude, longitude)
+                        Log.i("Puntos de Distribucion", "Ubicación del repartidor: $ubicacionDelivery")
+                        mostrarRuta(ubicacionDelivery!!, markerPosition)
+                    }
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    // Manejar cualquier error que ocurra durante la consulta
+                }
+            })
+        }
+    }
+
+
+
+
     private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl("https://api.openrouteservice.org/")
@@ -358,7 +465,8 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
             poly = mMap.addPolyline(polyLineOptions)
             val icon = (bitmapDescriptorFromVector(this,R.drawable.deliverymarker))
             // Agregar Marcador al mapa
-            deliveryMarker = mMap.addMarker(MarkerOptions().position(markerPosition).icon(icon).title("Mi Ubicación Actual"))
+            deliveryMarker = ubicacionDelivery?.let { MarkerOptions().position(it).icon(icon).title("Mi Ubicación Actual") }
+                ?.let { mMap.addMarker(it) }
 
             // Hacer zoom en la ubicación buscada
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(bogota, 10f))
