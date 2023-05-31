@@ -132,11 +132,10 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
 
                     }
 
-
-
-                    Log.i("Puntos de Distribucion", "La ubicacion del delivery es: $ubicacionDelivery")
                     removeRoute()
                     mostrarRuta(ubicacionDelivery!!, markerPosition)
+                    Log.i("Puntos de Distribucion", "La ubicacion del delivery es: $ubicacionDelivery")
+
                 }
                 }
             }
@@ -222,7 +221,7 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
         binding = ActivityDomiciliooBinding.inflate(layoutInflater)
         setContentView(binding.root)
         poly?.remove()
-        poly = null
+
         locationPermission.launch(android.Manifest.permission.ACCESS_FINE_LOCATION)
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
         mLocationRequest = createLocationRequest()
@@ -506,8 +505,10 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
         }
 
         runOnUiThread {
+            poly?.remove() // Remover la ruta existente, si la hay
             poly = mMap.addPolyline(polyLineOptions)
             val icon = (bitmapDescriptorFromVector(this,R.drawable.deliverymarker))
+            deliveryMarker?.remove()
             // Agregar Marcador al mapa
             deliveryMarker = ubicacionDelivery?.let { MarkerOptions().position(it).icon(icon).title("Mi Ubicación Actual") }
                 ?.let { mMap.addMarker(it) }
@@ -518,11 +519,16 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
     }
 
     private fun removeRoute() {
+
         if (poly != null) {
-            poly!!.remove() // Elimina la polilínea del mapa
-            poly = null
-            deliveryMarker?.remove()
+            runOnUiThread {
+                poly?.remove() // Remover la ruta existente, si la hay
+            }
+
         }
+        deliveryMarker?.remove()
+
+        Log.i("Puntos de Distribucion", "Eliminando ruta")
     }
 
 
