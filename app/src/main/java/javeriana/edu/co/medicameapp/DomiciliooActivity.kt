@@ -77,7 +77,10 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
         override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
 
             val estado = snapshot.child("estado").getValue(String::class.java)
-            if (estado == "Asignado" || snapshot.key == FirebaseAuth.getInstance().currentUser?.uid) {
+            if (estado == "Entregado"){
+                binding.textEstadoOrden.text = "Estado: Entregado"
+            }else if (estado == "Asignado" || snapshot.key == FirebaseAuth.getInstance().currentUser?.uid) {
+                binding.textEstadoOrden.text = "Estado: Asignado"
                 Toast.makeText(this@DomiciliooActivity, "El estado del pedido ha cambiado", Toast.LENGTH_SHORT).show()
                 val usuarioRepartidor = snapshot.child("usuarioRepartidor").getValue(String::class.java)
                 uidDelivery = usuarioRepartidor
@@ -244,6 +247,22 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
 
     }
 
+
+    override fun onResume() {
+        super.onResume()
+        val database = FirebaseDatabase.getInstance()
+        val reference = database.getReference("orders")
+        val query = reference.orderByChild("usuarioSoliciante").equalTo(FirebaseAuth.getInstance().currentUser?.uid)
+        query.addChildEventListener(userListener)
+
+
+        uidDelivery = "null"
+
+        val deliveryLocationRef = FirebaseDatabase.getInstance().getReference("deliveries")
+
+        deliveryLocationRef.addValueEventListener(deliveryLocationListener)
+    }
+
     private fun callbackAction(): LocationCallback? {
         return object : LocationCallback() {
             override fun onLocationResult(locationResult: LocationResult) {
@@ -346,6 +365,7 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
             order.usuarioRepartidor = "null"
             order.ubicacion = markerPosition
             order.estado = "Pendiente"
+            binding.textEstadoOrden.text = "Estado: Pendiente"
 
 
             val orderRef = mBdRef.child("orders").push()
@@ -378,6 +398,7 @@ class DomiciliooActivity : AppCompatActivity(), OnMapReadyCallback , GoogleMap.O
                     for (snapshot in dataSnapshot.children) {
                         val estado = snapshot.child("estado").getValue(String::class.java)
                         if (estado == "Entregado") {
+                            binding.textEstadoOrden.text = "Estado: "
                             removeRoute()
                             snapshot.ref.removeValue()
                                 .addOnSuccessListener {
